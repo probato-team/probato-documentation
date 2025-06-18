@@ -3,6 +3,8 @@ site_url: https://probato.org
 repo_name: probato-team/probato
 repo_url: https://github.com/probato-team/probato
 remote_branch: main
+docs_dir: src
+site_dir: docs
 
 copyright: <p> Copyright &copy; 2024-<script>document.write(new Date().getFullYear())</script> Probato</p>
 
