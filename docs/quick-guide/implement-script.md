@@ -45,7 +45,8 @@ import org.probato.api.TestSuite;
 	datasource = "probato", 
 	scriptPath = { "sql/init/init.sql" })
 @Suite(
-	code = "UC01", name = "Perform login", 
+	code = "UC01", 
+  name = "Perform login", 
 	description = "This feature aims to allow the user to login to this application")
 class UC01_PerformLogin implements TestSuite {
 	
