@@ -1,4 +1,4 @@
-site_name: Probato
+site_name: Docs
 site_url: https://probato.org
 repo_url: https://github.com/probato-team/probato
 repo_name: probato-team/probato
@@ -12,8 +12,7 @@ theme:
   logo: assets/images/probato-logo.png
   favicon: assets/images/favicon.ico
   name: material
-  extra_css: 
-    - assets/css/custom.css
+
   font:
     text: Roboto
     code: Roboto Mono
@@ -88,17 +87,20 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/probato-team/probato
 
+extra_css:
+  - assets/css/custom.css
+
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.emoji
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+  # - pymdownx.superfences:
+  #     custom_fences:
+  #       - name: mermaid
+  #         class: mermaid
+  #         format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
