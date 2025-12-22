@@ -1,67 +1,131 @@
-
 # Overview
 
-## **What is Probato?**
+**An Open Source proposal for end-to-end (E2E) functional test automation.**
 
-The name **Probato** originates from the Latin word _Probatus_, meaning "related to proof," "demonstrative," "experimental," or "proving necessary qualities for a role." This term reflects the essence of the framework: providing tools to ensure quality in software projects.
+Probato is an initiative that aims to make the automation process **more viable, sustainable, and accessible** for teams and companies of any size.
 
-In the context of software quality, **Probato** has a central objective:
-> To support development teams in ensuring project quality through automated tests, providing efficiency, security, and agility with modern tools and best practices.
+It does not aim to be a definitive or complete solution, but rather an **initial foundation**, built from real-world needs, that evolves collaboratively with community participation.
 
-**Probato** is an **_Open Source_** framework designed to grow with the community. Developers, testers, and enthusiasts are invited to collaborate with ideas, improvements, and features. This collaborative spirit aims to create a robust and accessible solution that meets real market demands and promotes best practices in test automation.
-
-Your contribution is always welcome: feedback, suggestions, development, or idea sharing are all elements that strengthen this project.
+Probato was created as a **structured starting point** to discuss, experiment with, and collectively evolve functional test automation.
 
 ---
 
-## **Automated Testing**
+## The problem Probato addresses
 
-### **What is Automated Testing?**
+In practice, functional test automation often faces recurring challenges:
 
-Automated testing is the process of using scripts or tools to automatically verify that specific parts of a system function as expected. It reduces manual intervention, increasing efficiency and consistency in software development.
+- Dispersed use of multiple libraries and utilities  
+- Lack of standardization and code reuse  
+- High maintenance cost of tests over time  
+- Results and evidence scattered across reports, logs, and pipelines  
+- Limited visibility of the value of automation beyond the technical team  
 
-### **Advantages of Automated Testing**
+These factors make automation fragile, difficult to scale, and often unfeasible for most projects.
 
-1. **Speed:** Executes tests quickly, even for large test suites.
-2. **Reusability:** Scripts can be reused across multiple development cycles.
-3. **Consistency:** Reduces human errors by executing steps consistently.
-4. **Broader coverage:** Enables testing of complex and broad scenarios.
-5. **Continuous validation:** Simplifies regression testing after code changes.
-6. **Long-term cost efficiency:** Despite initial costs, reduces expenses over the project lifespan.
-7. **Improved quality:** Early defect detection ensures more reliable products.
-8. **Rapid feedback:** Provides immediate insights into system stability.
-9. **Flexible execution:** Works across various browsers, systems, and devices.
-10. **CI/CD integration:** Automates testing within continuous development pipelines.
-
-### **Disadvantages of Automated Testing**
-
-1. **Initial cost:** Configuring and creating tests require significant investment.
-2. **Maintenance:** Scripts must be updated as software evolves.
-3. **Learning curve:** Requires technical skills for development and maintenance.
-4. **Rigidity:** Small changes may necessitate script adjustments.
-5. **Dynamic interfaces:** Frequently changing systems pose challenges.
-6. **Tool dependency:** Automation may be constrained by available tools.
-7. **Inconsistent results:** External issues can cause false positives or negatives.
-8. **Limited scope:** Not all tests, such as usability, can be automated.
-9. **Delayed ROI:** Short projects may not justify the investment.
-10. **Complex scenarios:** Some contexts require custom solutions.
+**Probato** was created to tackle these problems directly, offering a structured and integrated approach to E2E test automation.
 
 ---
 
-## **Probato as an Automated Testing Framework**
+## What Probato is
 
-### **How does Probato contribute to test automation?**
+**Probato** is a proposal composed of two major components that work in a complementary way.
 
-**Probato** was developed to address automation challenges, offering a simplified and efficient structure. It abstracts technical complexity and promotes best practices, helping teams create and maintain automated tests more effectively.
+Together, they make it possible to clearly separate **test execution** from **quality analysis**, while maintaining organization, traceability, and visibility over time.
 
-Its **_Open Source_** philosophy encourages community contributions, ensuring adaptability to market demands.
+### Java Library
 
-### **Key Features of Probato**
+The Java library is the core of the automation. It centralizes and organizes the use of well-established market solutions, such as Selenium, while adding:
 
-- **Ease of use:** Modern abstractions and integrations simplify test creation and maintenance.
-- **Management and analysis:** Tools for tracking and detailed analysis of test executions.
-- **Integrated automation:** Automatically generates reports and integrates with bug tracking systems.
-- **Extensibility:** Extension points allow customization and new feature development.
-- **Continuous evolution:** Plans for advanced analysis tools and broader integration support.
+- Design patterns and best practices  
+- Code reuse  
+- A simple, annotation-driven API  
+- A Page Object–based structure  
+- Minimal configuration for execution across multiple browsers  
 
-**Probato** turns common automation challenges into opportunities, helping teams deliver high-quality software efficiently and confidently.
+The goal is not to reinvent existing tools, but to **organize, standardize, and simplify** their use in real-world projects.
+
+### Web Application
+
+The Web application aims to centralize and provide visibility into the information collected during test executions.
+
+It allows you to:
+
+- Store results and evidence in a structured way  
+- Maintain execution history over time  
+- Visualize technical and functional data in a single place  
+- Track quality metrics and indicators  
+
+The way this data is collected, stored, and analyzed is **not definitive** and is open to evolution as new needs, contexts, and learnings emerge.
+
+---
+
+## Probato’s proposal
+
+The core proposal of **Probato** is to function as a “recipe-style” approach to functional test automation:
+
+- Simple to adopt in new projects  
+- Easy to develop and evolve  
+- Sustainable to maintain over time  
+- Based on well-established best practices  
+
+The goal is to reduce technical complexity and operational effort, allowing teams to focus on software quality rather than automation maintenance.
+
+---
+
+## Metrics and visibility
+
+During test execution, the library collects a wide range of technical and functional information, which is automatically sent to the Web application.
+
+This information makes it possible to:
+
+- Analyze feature stability  
+- Identify recurring failures and critical points  
+- Evaluate quality evolution over time  
+- Support technical and strategic decisions based on data  
+
+Automation ceases to be merely a point-in-time validation mechanism and becomes a continuous source of information about product quality.
+
+---
+
+## Who it is for
+
+**Probato** was designed to serve different contexts and maturity levels:
+
+- Small teams looking to start automation in an organized way  
+- Mature teams seeking standardization and visibility  
+- Medium and large companies with multiple projects  
+- Corporate environments with CI/CD pipelines  
+
+Its flexible architecture allows gradual adoption without imposing abrupt changes to the existing ecosystem.
+
+---
+
+## Open Source and collaboration
+
+**Probato** is an **Open Source** project that embraces its nature as an evolving proposal.
+
+The project starts from an initial vision and technical decisions that are **not final**. The expectation is that the community will actively participate with opinions, suggestions, and contributions to complement, adjust, and mature the tool over time.
+
+Community collaboration is considered an **essential and fundamental** factor for Probato to adapt to different contexts, realities, and needs.
+
+---
+
+## What Probato does not aim to be
+
+To align expectations, it is important to clarify that Probato:
+
+- Does not aim to be a definitive or complete framework  
+- Does not replace the entire existing test automation ecosystem  
+- Does not cover all possible scenarios, contexts, and needs  
+
+It is an initial proposal, open to evolution and adaptation based on practical use and community contributions.
+
+---
+
+## Get started
+
+- [Getting Started](first-steps.md)  
+- [Java Library](library.md)  
+- [Web Application](web-app.md)  
+- [Example Project](examples.md)  
+- [About the Project](about.md)

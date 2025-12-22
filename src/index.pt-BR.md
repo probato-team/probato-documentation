@@ -1,67 +1,131 @@
+# Visão geral
 
-# Visão Geral
+**Uma proposta Open Source para automação de testes funcionais end-to-end (E2E).**
 
-## **O que é Probato?**
+O Probato é uma iniciativa que busca tornar o processo de automação **mais viável, sustentável e acessível** para equipes e empresas de qualquer porte.
 
-O nome **Probato** vem do latim _Probatus_, que significa "relativo à prova", "comprovativo", "experimental" ou "que demonstra qualidades necessárias para o desempenho de uma função". O termo reflete a essência do framework: prover ferramentas para garantir qualidade em projetos de software.
+Ele não se propõe a ser uma solução definitiva ou completa, mas sim uma **base inicial**, construída a partir de necessidades reais, que evolui de forma colaborativa com a participação da comunidade.
 
-No contexto de qualidade de software, **Probato** tem como objetivo central:
-> Oferecer suporte às equipes de desenvolvimento na garantia de qualidade de projetos por meio de testes automatizados, assegurando eficiência, segurança e agilidade com boas práticas e ferramentas modernas.
-
-O **Probato** é um framework **_Open Source_**, projetado para crescer com a comunidade. Desenvolvedores, testadores e entusiastas são convidados a colaborar com ideias, melhorias e funcionalidades. Este espírito colaborativo busca criar uma solução robusta e acessível que atenda às reais demandas do mercado e promova boas práticas em automação de testes.
-
-Sua contribuição é sempre bem-vinda: feedback, sugestões, desenvolvimento ou compartilhamento de ideias são elementos que fortalecem este projeto.
+O Probato nasce como um **ponto de partida estruturado** para discutir, experimentar e evoluir a automação de testes funcionais de forma coletiva.
 
 ---
 
-## **Teste Automatizado**
+## O problema que o Probato resolve
 
-### **O que é Teste Automatizado?**
+Na prática, a automação de testes funcionais costuma enfrentar desafios recorrentes:
 
-Teste automatizado é o processo de usar scripts ou ferramentas para verificar automaticamente se partes de um sistema funcionam conforme o esperado. Ele reduz a intervenção manual, aumentando a eficiência e a consistência no desenvolvimento de software.
+- Uso disperso de múltiplas bibliotecas e utilitários
+- Falta de padronização e reutilização de código
+- Alto custo de manutenção dos testes ao longo do tempo
+- Resultados e evidências espalhados em relatórios, logs e pipelines
+- Pouca visibilidade do valor da automação para além do time técnico
 
-### **Vantagens do Teste Automatizado**
+Esses fatores tornam a automação frágil, difícil de escalar e, muitas vezes, inviável para a maioria dos projetos.
 
-1. **Velocidade:** Executa testes rapidamente, mesmo em grandes conjuntos.
-2. **Reusabilidade:** Os scripts podem ser reutilizados em vários ciclos de desenvolvimento.
-3. **Consistência:** Reduz erros humanos, executando passos sempre da mesma forma.
-4. **Cobertura maior:** Permite testar cenários complexos e amplos.
-5. **Validação contínua:** Facilita testes de regressão após mudanças no código.
-6. **Economia a longo prazo:** Apesar do custo inicial, reduz custos ao longo do projeto.
-7. **Melhoria da qualidade:** Identifica defeitos mais cedo, garantindo produtos mais confiáveis.
-8. **Feedback rápido:** Oferece retorno imediato sobre a estabilidade do sistema.
-9. **Execução flexível:** Funciona em diferentes navegadores, sistemas e dispositivos.
-10. **Integração com CI/CD:** Automatiza testes dentro de pipelines de desenvolvimento contínuo.
-
-### **Desvantagens do Teste Automatizado**
-
-1. **Custo inicial:** Configurar e criar testes exige investimento significativo.
-2. **Manutenção:** Scripts precisam ser atualizados conforme o software evolui.
-3. **Curva de aprendizado:** Exige conhecimentos técnicos para desenvolvimento e manutenção.
-4. **Rigidez:** Pequenas mudanças podem exigir ajustes nos scripts.
-5. **Interfaces dinâmicas:** Sistemas com interfaces frequentemente alteradas são desafiadores.
-6. **Dependência de ferramentas:** A automação pode ser limitada pelas ferramentas disponíveis.
-7. **Resultados inconsistentes:** Problemas externos podem causar falsos positivos ou negativos.
-8. **Escopo restrito:** Nem todos os testes, como os de usabilidade, podem ser automatizados.
-9. **ROI demorado:** Projetos curtos podem não justificar o investimento.
-10. **Complexidade em cenários específicos:** Alguns contextos exigem soluções personalizadas.
+O **Probato** foi criado para atacar esses problemas de forma direta, oferecendo uma abordagem estruturada e integrada para automação de testes E2E.
 
 ---
 
-## **Probato como Framework de Teste Automatizado**
+## O que é o Probato
 
-### **Como o Probato contribui para a automação de testes?**
+O **Probato** é uma proposta composta por dois grandes componentes que trabalham de forma complementar.
 
-O **Probato** foi desenvolvido para enfrentar os desafios da automação, oferecendo uma estrutura simplificada e eficiente. Ele abstrai a complexidade técnica e promove boas práticas, ajudando equipes a criar e manter testes automatizados de forma mais ágil.
+Juntos, eles permitem separar claramente **a execução dos testes** da **análise da qualidade**, mantendo organização, rastreabilidade e visibilidade ao longo do tempo.
 
-Sua filosofia **_Open Source_** permite que a comunidade contribua ativamente para sua evolução, garantindo adaptabilidade às demandas do mercado.
+### Biblioteca Java
 
-### **Diferenciais do Probato**
+A biblioteca Java é o núcleo da automação. Ela centraliza e organiza o uso de soluções amplamente consolidadas no mercado, como Selenium, adicionando:
 
-- **Facilidade de uso:** Abstrações e integrações modernas simplificam a criação e manutenção de testes.
-- **Gestão e análise:** Recursos para rastreamento e análise detalhada de execuções.
-- **Automação integrada:** Geração automática de relatórios e integração com sistemas de gerenciamento de falhas.
-- **Extensibilidade:** Pontos de extensão permitem personalização e desenvolvimento de novos recursos.
-- **Evolução contínua:** Planejamento de novos recursos, como análise avançada e maior suporte a integrações.
+- Padrões de projeto e boas práticas
+- Reutilização de código
+- API simples, orientada a anotações
+- Estrutura baseada em Page Objects
+- Configuração mínima para execução em múltiplos navegadores
 
-O **Probato** transforma as desvantagens comuns da automação em oportunidades, auxiliando equipes a entregar software de alta qualidade com eficiência e confiança.
+A proposta não é reinventar ferramentas existentes, mas **organizar, padronizar e simplificar** seu uso em projetos reais.
+
+### Aplicação Web
+
+A aplicação Web tem como objetivo centralizar e dar visibilidade às informações coletadas durante as execuções dos testes.
+
+Ela permite:
+
+- Armazenar resultados e evidências de forma estruturada
+- Manter histórico de execuções ao longo do tempo
+- Visualizar dados técnicos e funcionais em um único local
+- Acompanhar métricas e indicadores de qualidade
+
+A forma como esses dados são coletados, armazenados e analisados **não é definitiva** e está aberta à evolução conforme novas necessidades, contextos e aprendizados surgirem.
+
+---
+
+## Proposta do Probato
+
+A proposta central do **Probato** é funcionar como uma abordagem “receita de bolo” para automação de testes funcionais:
+
+- Simples de adotar em novos projetos
+- Fácil de desenvolver e evoluir
+- Sustentável de manter ao longo do tempo
+- Baseada em boas práticas consolidadas
+
+O objetivo é reduzir a complexidade técnica e o esforço operacional, permitindo que equipes foquem na qualidade do software, e não na manutenção da automação.
+
+---
+
+## Métricas e visibilidade
+
+Durante a execução dos testes, a biblioteca coleta uma ampla gama de informações técnicas e funcionais, que são enviadas automaticamente para a aplicação Web.
+
+Essas informações permitem:
+
+- Analisar a estabilidade das funcionalidades
+- Identificar falhas recorrentes e pontos críticos
+- Avaliar a evolução da qualidade ao longo do tempo
+- Apoiar decisões técnicas e estratégicas com base em dados
+
+A automação deixa de ser apenas um mecanismo de validação pontual e passa a ser uma fonte contínua de informação sobre a qualidade do produto.
+
+---
+
+## Para quem é
+
+O **Probato** foi projetado para atender diferentes contextos e níveis de maturidade:
+
+- Equipes pequenas que desejam iniciar a automação de forma organizada
+- Times maduros que buscam padronização e visibilidade
+- Empresas de médio e grande porte com múltiplos projetos
+- Ambientes corporativos com pipelines de CI/CD
+
+Sua arquitetura flexível permite adoção gradual, sem impor mudanças bruscas no ecossistema existente.
+
+---
+
+## Open Source e colaboração
+
+O **Probato** é um projeto **Open Source** que se assume como uma proposta em evolução.
+
+O projeto parte de uma visão inicial e de decisões técnicas que **não são finais**. A expectativa é que a comunidade participe ativamente com opiniões, sugestões e contribuições para complementar, ajustar e amadurecer a ferramenta ao longo do tempo.
+
+A colaboração da comunidade é considerada um fator **essencial e fundamental** para que o Probato se adapte a diferentes contextos, realidades e necessidades.
+
+---
+
+## O que o Probato não se propõe a ser
+
+Para alinhar expectativas, é importante deixar claro que o Probato:
+
+- Não se propõe a ser um framework definitivo ou completo
+- Não substitui todo o ecossistema existente de automação de testes
+- Não cobre todos os cenários, contextos e necessidades possíveis
+
+Trata-se de uma proposta inicial, aberta à evolução e adaptação conforme o uso prático e as contribuições da comunidade.
+
+---
+
+## Comece a usar
+
+- [Começando](first-steps.md)
+- [Biblioteca Java](library.md)
+- [Aplicação Web](web-app.md)
+- [Projeto de exemplo](examples.md)
+- [Sobre o projeto](about.md)
