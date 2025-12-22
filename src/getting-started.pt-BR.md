@@ -1,4 +1,4 @@
-# Utilizando
+# Primeiros passos
 
 Esta seção apresenta um ponto de partida para utilização do **Probato**.
 

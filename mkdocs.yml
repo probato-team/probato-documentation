@@ -12,7 +12,8 @@ theme:
   logo: assets/images/probato-logo.png
   favicon: assets/images/favicon.ico
   name: material
-
+  icon:
+    alternate: material/web
   font:
     text: Roboto
     code: Roboto Mono
@@ -55,18 +56,46 @@ theme:
 
 plugins:
   - search
+  - i18n:
+      default_language: en
+      languages:
+        - locale: en
+          name: English
+          default: true
+          build: true
+        - locale: pt-BR
+          name: Português (Brasil)
+          build: true
+          nav_translations:
+            Home: Início
+            About: Sobre
+            Getting Started: Começando
+            First steps: Primeiros passos
+            Java Library: Biblioteca Java
+            Web Application: Aplicação Web
+            Examples: Exemplos
   - git-revision-date
 
 nav:
   - Home: index.md
-  - About: about.md
   - Getting Started:
-      - Getting Started: getting-started.md
+      - First steps: getting-started.md
       - Java Library: library.md
       - Web Application: web-app.md
   - Examples: examples.md
+  - About: about.md
 
 extra:
+
+  alternate:
+    - name: English
+      link: /
+      lang: en
+      icon: material/flag-outline
+    - name: Português
+      link: /pt-BR/
+      lang: pt-BR
+      icon: material/flag
 
   analytics:
     provider: google
