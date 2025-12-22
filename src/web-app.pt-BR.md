@@ -121,5 +121,5 @@ A evolução da aplicação Web depende de:
 
 A colaboração é fundamental para que a aplicação se mantenha útil em diferentes contextos.
 
-➡ Seção anterior: **[Biblioteca Java](library.md)**<br>
+➡ Seção anterior: **[Biblioteca Java](library.md)** <br>
 ➡ Próxima seção: **[Projeto exemplo](examples.md)**

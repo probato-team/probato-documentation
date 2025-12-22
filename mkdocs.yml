@@ -79,7 +79,7 @@ plugins:
 nav:
   - Home: index.md
   - Getting Started:
-      - First steps: getting-started.md
+      - First steps: first-steps.md
       - Java Library: library.md
       - Web Application: web-app.md
   - Examples: examples.md

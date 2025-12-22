@@ -121,5 +121,5 @@ The evolution of the Web application depends on:
 
 Collaboration is essential to ensure the application remains useful across different contexts.
 
-➡ Previous section: **[Java Library](library.md)**  
+➡ Previous section: **[Java Library](library.md)** <br>
 ➡ Next section: **[Sample Project](examples.md)**

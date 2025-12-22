@@ -124,7 +124,7 @@ Trata-se de uma proposta inicial, aberta à evolução e adaptação conforme o 
 
 ## Comece a usar
 
-- [Começando](getting-started.md)
+- [Começando](first-steps.md)
 - [Biblioteca Java](library.md)
 - [Aplicação Web](web-app.md)
 - [Projeto de exemplo](examples.md)

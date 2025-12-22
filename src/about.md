@@ -90,7 +90,7 @@ Every contribution — whether technical, conceptual, or documentation-related �
 
 To better understand Probato’s proposal and how it works, see:
 
-* [Getting Started](getting-started.md)  
+* [Getting Started](first-steps.md)  
 * [Java Library](library.md)  
 * [Web Application](web-app.md)  
 * [Example Project](examples.md)

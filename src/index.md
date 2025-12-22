@@ -124,7 +124,7 @@ It is an initial proposal, open to evolution and adaptation based on practical u
 
 ## Get started
 
-- [Getting Started](getting-started.md)  
+- [Getting Started](first-steps.md)  
 - [Java Library](library.md)  
 - [Web Application](web-app.md)  
 - [Example Project](examples.md)  

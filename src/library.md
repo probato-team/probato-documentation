@@ -116,4 +116,5 @@ The evolution of the library depends directly on:
 
 The proposal is to evolve incrementally and collaboratively.
 
+➡ Previous section: **[First Steps](first-steps.md)** <br>
 ➡ Next section: **[Web Application](web-app.md)**

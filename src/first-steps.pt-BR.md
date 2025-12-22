@@ -1,4 +1,4 @@
-# Primeiros passos
+# Primeiros Passos
 
 Esta seção apresenta um ponto de partida para utilização do **Probato**.
 
@@ -102,7 +102,7 @@ Não é necessário adotar todas as funcionalidades desde o início.
 
 Além da documentação, o Probato conta com um projeto de automação de exemplo que demonstra, na prática, o uso da biblioteca automatizando a própria aplicação Probato Web. A aplicação Probato Web é utilizada como alvo no projeto de automação de exemplo
 
-[Exemplo](https://github.com/probato-team/probato-sample-e2e)
+[Exemplo](https://github.com/probato-team/probato-sample-e2e){:target="_blank"}
 
 ---
 

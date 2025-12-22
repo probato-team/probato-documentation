@@ -117,7 +117,7 @@ Sugestões de melhoria são bem-vindas e podem ser discutidas via issues.
 
 Para começar:
 
-* Consulte o [Começando](getting-started.md)
+* Consulte o [Começando](first-steps.md)
 * Explore a [Biblioteca Java](library.md)
 * Analise o código do projeto de exemplo
 

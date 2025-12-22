@@ -1,4 +1,4 @@
-# Using Probato
+# First Steps
 
 This section presents a starting point for using **Probato**.
 
@@ -104,7 +104,7 @@ There is no need to adopt all features from the beginning.
 
 In addition to the documentation, Probato includes a sample automation project that demonstrates, in practice, the use of the library by automating the Probato Web application itself. The Probato Web application is used as the target in the sample automation project.
 
-[Sample](https://github.com/probato-team/probato-sample-e2e)
+[Sample](https://github.com/probato-team/probato-sample-e2e){:target="_blank"}
 
 ---
 

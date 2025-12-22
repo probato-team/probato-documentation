@@ -1,51 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
-         <loc>https://probato.org/</loc>
-         <lastmod>2025-12-20</lastmod>
+        <loc>https://probato.org/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://probato.org/"/>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://probato.org/pt-BR/"/>
     </url>
     <url>
-         <loc>https://probato.org/about/</loc>
-         <lastmod>2025-12-20</lastmod>
+        <loc>https://probato.org/about/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://probato.org/about/"/>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://probato.org/pt-BR/about/"/>
     </url>
     <url>
-         <loc>https://probato.org/examples/</loc>
-         <lastmod>2025-12-20</lastmod>
+        <loc>https://probato.org/examples/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://probato.org/examples/"/>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://probato.org/pt-BR/examples/"/>
     </url>
     <url>
-         <loc>https://probato.org/getting-started/</loc>
-         <lastmod>2025-12-20</lastmod>
+        <loc>https://probato.org/first-steps/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://probato.org/first-steps/"/>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://probato.org/pt-BR/first-steps/"/>
     </url>
     <url>
-         <loc>https://probato.org/library/</loc>
-         <lastmod>2025-12-20</lastmod>
+        <loc>https://probato.org/library/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://probato.org/library/"/>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://probato.org/pt-BR/library/"/>
     </url>
     <url>
-         <loc>https://probato.org/web-app/</loc>
-         <lastmod>2025-12-20</lastmod>
+        <loc>https://probato.org/web-app/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://probato.org/web-app/"/>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://probato.org/pt-BR/web-app/"/>
     </url>
     <url>
-         <loc>https://probato.org/pt-BR/</loc>
-         <lastmod>2025-12-20</lastmod>
+        <loc>https://probato.org/pt-BR/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://probato.org/pt-BR/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://probato.org/"/>
     </url>
     <url>
-         <loc>https://probato.org/pt-BR/about/</loc>
-         <lastmod>2025-12-20</lastmod>
+        <loc>https://probato.org/pt-BR/about/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://probato.org/pt-BR/about/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://probato.org/about/"/>
     </url>
     <url>
-         <loc>https://probato.org/pt-BR/examples/</loc>
-         <lastmod>2025-12-20</lastmod>
+        <loc>https://probato.org/pt-BR/examples/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://probato.org/pt-BR/examples/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://probato.org/examples/"/>
     </url>
     <url>
-         <loc>https://probato.org/pt-BR/getting-started/</loc>
-         <lastmod>2025-12-20</lastmod>
+        <loc>https://probato.org/pt-BR/first-steps/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://probato.org/pt-BR/first-steps/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://probato.org/first-steps/"/>
     </url>
     <url>
-         <loc>https://probato.org/pt-BR/library/</loc>
-         <lastmod>2025-12-20</lastmod>
+        <loc>https://probato.org/pt-BR/library/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://probato.org/pt-BR/library/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://probato.org/library/"/>
     </url>
     <url>
-         <loc>https://probato.org/pt-BR/web-app/</loc>
-         <lastmod>2025-12-20</lastmod>
+        <loc>https://probato.org/pt-BR/web-app/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://probato.org/pt-BR/web-app/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://probato.org/web-app/"/>
     </url>
 </urlset>

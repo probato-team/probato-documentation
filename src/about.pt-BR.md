@@ -90,7 +90,7 @@ Toda contribuição — seja técnica, conceitual ou documental — é bem-vinda
 
 Para compreender melhor a proposta e o funcionamento do Probato, consulte:
 
-* [Começando](getting-started.md)
+* [Começando](first-steps.md)
 * [Biblioteca Java](library.md)
 * [Aplicação Web](web-app.md)
 * [Projeto exemplo](examples.md)
