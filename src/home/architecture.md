@@ -1,113 +1,166 @@
-# Architecture
+# Conceptual Architecture
 
-**Probato** was designed with a modular and highly extensible architecture to support functional test automation efficiently and scalably. It employs modern software design concepts, such as the **Page Object Model (POM)** and **annotation-based dependency injection**, enabling the creation of reusable, maintainable, and expandable scripts.
+This section describes the **conceptual architecture of Probato**.  
+It explains how the framework is structured from a *mental and organizational* perspective, rather than focusing on low-level technical implementation details.
 
----
-
-## **Modular Layers and Responsibility Isolation**
-
-**Probato**'s architecture is composed of multiple layers, each with well-defined responsibilities, which simplifies the framework's maintenance and evolution.
-
-### **Interaction Layer (Page Object Model)**
-
-* Implements the **POM** pattern, encapsulating the logic for interacting with the user interface.
-* Each page, screen, or component is represented as an object containing methods for possible interactions (clicks, data entry, verifications, etc.).
-* Promotes code reuse and facilitates maintenance when the application interface changes.
-
-### **Testing Layer (Scripts and Procedures)**
-
-* Tests are organized into scripts composed of actions divided into:
-    * **Preconditions**
-    * **Procedures**
-    * **Postconditions**
-* Responsibility separation helps isolate failures and simplifies error diagnosis.
-
-### **Data Injection Layer**
-
-* Allows flexible and dynamic use of test input data.
-* Supports data injection via CSV files, with future plans for JSON, YAML, and database support through custom plugins.
-
-### **Persistence Layer and SQL Connectors**
-
-* Provides an integrated SQL executor that connects to multiple databases.
-* Enables defining database preconditions, dynamically altering states before tests, and restoring states after execution.
+Probato was designed to make test automation **predictable, explicit, and scalable** by enforcing a clear separation of responsibilities.
 
 ---
 
-## **Dependency Injection with Annotations**
+## Architectural principle
 
-* Adopts a **dependency injection** model via Java annotations, promoting **Inversion of Control (IoC)**.
-* Simplifies manual configuration by automatically injecting required objects based on annotation declarations.
-* Enhances modularity and component reuse.
+Probato follows a simple but strict architectural rule:
 
----
+> **Each layer has a single responsibility, and no layer skips another.**
 
-## **JUnit 5-Based Test Executor**
-
-**Probato** integrates with the **JUnit 5** lifecycle, using dynamic tests and the `@TestFactory` annotation to generate test cases at runtime.
-
-### **Lifecycle and Structure**
-
-![Probato Life Cycle](/assets/images/introduction/probato-life-cycle.png)
-
-* **BeforeAll**:  
-  Loads extension points, configurations, and performs code and configuration validations. Also creates _Dynamic tests_.
-
-* **BeforeEach**:  
-  Loads necessary datasets and scripts and starts the execution of test scenarios.
-
-* **TestFactory**:  
-  Dynamically generates tests based on script classes, procedures, and Page Objects. Supports **data-driven testing**, allowing multiple executions with different data sets.
-
-* **AfterEach**:  
-  Submits the data collected during test execution to the **Probato Manager** and stores images and videos in storage.
-
-* **AfterAll**:  
-  Calculates software quality based on metrics and execution data and notifies collaborators about the execution's completion.
+This prevents:
+- tight coupling
+- hidden dependencies
+- duplicated logic
+- inconsistent test structures
 
 ---
 
-## **Multibrowser Execution Support**
+## High-level architecture
 
-* Built on the Selenium API, enabling automation across multiple browsers.
-* Extensible support for adding new browsers and execution contexts (different operating systems or browser versions).
+At a conceptual level, Probato is organized into the following layers:
 
----
+```
+Suite
+ ├── Script
+ │    ├── Procedure
+ │    │    └── Page Object
+ │    └── Dataset
+ ├── Database
+ └── Configuration
+```
 
-## **Extensibility and Plugins**
-
-* Designed to be **extensible**, allowing new features to be added without modifying the core framework.
-* Plugin support for:
-    * New browser drivers.
-    * Additional input data formats.
-    * New types of validation and data manipulation.
-
----
-
-## **Execution Management and Data Collection**
-
-* During tests, captures data such as:
-    * Execution logs.
-    * Screenshots.
-    * Videos and executed steps.
-* Processes and sends data to an integrated web application that provides:
-    * Centralized monitoring of executions.
-    * Detailed report generation.
-    * Bug tracking and versioning analysis.
-* Supports integration with tools such as **TestLink** and **Mantis Bug Tracker**.
+Each layer answers a specific question during test execution.
 
 ---
 
-## **Advanced Configurations and Customizations**
+## Layer responsibilities
 
-* Offers options to:
-    * Configure **timeouts** and intervals between actions.
-    * Adjust the quality of captured images and videos.
-    * Define execution on screen (primary or secondary monitors).
+### Suite
+- Represents a business functionality or use case
+- Groups related test scenarios
+- Defines global preconditions and shared state
+- Serves as the entry point for test discovery
+
+**Question answered:**  
+*What functionality is being validated?*
 
 ---
 
-## **Notifications and Continuous Integration**
+### Script
+- Represents an individual test scenario
+- Declares which procedures are executed
+- Defines scenario-specific state and data
+- Orchestrates execution without containing logic
 
-* Sends automatic notifications to collaborators after each test execution.
-* Easily integrates with **CI/CD** tools such as **Jenkins**, enabling full automation of test processes in the development cycle.
+**Question answered:**  
+*Which scenario is executed?*
+
+---
+
+### Procedure
+- Contains executable test logic
+- Coordinates interactions with the application
+- Receives resolved test data
+- Performs validations
+
+**Question answered:**  
+*How is the scenario executed?*
+
+---
+
+### Page Object
+- Encapsulates user interface interactions
+- Isolates UI changes from test logic
+- Provides semantic actions and parameters
+
+**Question answered:**  
+*How does the test interact with the system?*
+
+---
+
+### Dataset
+- Provides external test data
+- Enables native data-driven execution
+- Generates multiple executions of the same scenario
+
+**Question answered:**  
+*With which data is the scenario executed?*
+
+---
+
+### Database
+- Defines application state
+- Prepares and isolates test environments
+- Ensures deterministic test execution
+
+**Question answered:**  
+*In which state should the system be before execution?*
+
+---
+
+### Configuration
+- Centralizes execution behavior
+- Controls browsers, timeouts, recording, and execution modes
+- Separates environment concerns from test code
+
+**Question answered:**  
+*Where and how should tests be executed?*
+
+---
+
+## Execution flow
+
+A typical execution flow in Probato follows this sequence:
+
+1. Configuration is loaded
+2. Global state (Suite Database) is applied
+3. Scripts are discovered
+4. Scenario-specific state is applied
+5. Datasets generate multiple executions
+6. Procedures execute test logic
+7. Page Objects interact with the system
+8. Results and metrics are collected
+
+This flow is fully automated and declarative.
+
+---
+
+## Observability and metrics
+
+Probato treats observability as a core architectural concern.
+
+During execution, the framework collects:
+- execution metadata
+- step descriptions
+- input parameters
+- evidences such as screenshots and recordings
+
+These artifacts are consumed by **Probato Manager**, which provides visibility and insights into test quality.
+
+---
+
+## Architectural goals
+
+The conceptual architecture of Probato is designed to:
+
+- Enforce consistency across projects
+- Reduce maintenance costs
+- Improve test readability
+- Enable scalable automation
+- Support long-term evolution
+
+---
+
+## What comes next
+
+To understand how these concepts translate into practical usage, continue with:
+
+- **Features** — to see what Probato provides
+- **Concepts** — for detailed explanations of each layer
+- **Getting Started** — to run your first test

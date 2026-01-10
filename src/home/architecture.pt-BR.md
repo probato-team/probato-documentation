@@ -1,97 +1,166 @@
-# Arquitetura
+# Conceptual Architecture
 
-O **Probato** foi projetado com uma arquitetura modular e altamente extensível para suportar a automação de testes a nível funcional de forma eficiente e escalável. Ele utiliza conceitos modernos de design de software, como o **Page Object Model (POM)** e a **injeção de dependências via anotações**, permitindo a criação de scripts reutilizáveis, fáceis de manter e expandir.
+This section describes the **conceptual architecture of Probato**.  
+It explains how the framework is structured from a *mental and organizational* perspective, rather than focusing on low-level technical implementation details.
 
-## **Camadas Modulares e Isolamento de Responsabilidades**
+Probato was designed to make test automation **predictable, explicit, and scalable** by enforcing a clear separation of responsibilities.
 
-A arquitetura do **Probato** é composta por múltiplas camadas, cada uma com responsabilidades bem definidas, o que facilita a manutenção e evolução do framework.
+---
 
-### Camada de Interação (Page Object Model)
+## Architectural principle
 
-* Implementa o padrão **POM**, encapsulando a lógica de interação com a interface do usuário.
-* Cada página, tela ou componente é representado como um objeto, contendo métodos para interações possíveis (cliques, inserção de dados, verificações, etc.).
-* Promove a reutilização de código e facilita a manutenção quando a interface da aplicação é alterada.
+Probato follows a simple but strict architectural rule:
 
-### Camada de Testes (Scripts e Procedimentos)
+> **Each layer has a single responsibility, and no layer skips another.**
 
-* Os testes são organizados em scripts compostos por ações subdivididas em:
-    * **Pré-condições**
-    * **Procedimentos**
-    * **Pós-condições**
-* A separação de responsabilidades ajuda a isolar falhas e facilita o diagnóstico de erros.
+This prevents:
+- tight coupling
+- hidden dependencies
+- duplicated logic
+- inconsistent test structures
 
-### Camada de Injeção de Massa de Dados
+---
 
-* Permite o uso flexível e dinâmico de dados de entrada para testes.
-* Suporta injeção de dados via arquivos CSV, com previsão de suporte futuro para JSON, YAML e bancos de dados por meio de plugins personalizados.
+## High-level architecture
 
-### Camada de Persistência e Conectores SQL
+At a conceptual level, Probato is organized into the following layers:
 
-* Disponibiliza um executor SQL integrado que se conecta a múltiplas bases de dados.
-* Permite definir pré-condições de banco de dados, alterar estados dinamicamente antes dos testes e restaurar os estados após a execução.
+```
+Suite
+ ├── Script
+ │    ├── Procedure
+ │    │    └── Page Object
+ │    └── Dataset
+ ├── Database
+ └── Configuration
+```
 
-## **Injeção de Dependências com Anotações**
+Each layer answers a specific question during test execution.
 
-* Adota um modelo de **injeção de dependências** via anotações Java, promovendo a **inversão de controle (IoC)**.
-* Simplifica a configuração manual, permitindo que objetos necessários sejam injetados automaticamente com base nas declarações de anotação.
-* Promove modularidade e reutilização de componentes.
+---
 
-## **Executor de Testes Baseado no JUnit 5**
+## Layer responsibilities
 
-O **Probato** integra-se ao ciclo de vida do **JUnit 5**, utilizando testes dinâmicos e a anotação `@TestFactory` para gerar casos de teste em tempo de execução.
+### Suite
+- Represents a business functionality or use case
+- Groups related test scenarios
+- Defines global preconditions and shared state
+- Serves as the entry point for test discovery
 
-### Ciclo de Vida e Estrutura
+**Question answered:**  
+*What functionality is being validated?*
 
-![Probato Life Cycle](/assets/images/introduction/probato-life-cycle.png)
+---
 
-* **BeforeAll**:    
-  Carrega pontos de extensão, configurações e executa validações de código e configurações. Também cria _Dynamic tests_ (JUnit 5).
+### Script
+- Represents an individual test scenario
+- Declares which procedures are executed
+- Defines scenario-specific state and data
+- Orchestrates execution without containing logic
 
-* **BeforeEach**:   
-  Carrega conjuntos de dados e scripts necessários e inicia a execução dos cenários de teste.
+**Question answered:**  
+*Which scenario is executed?*
 
-* **TestFactory**:    
-  Gera testes dinamicamente com base em classes de script, procedimentos e Page Objects. Suporta data-driven testing, permitindo múltiplas execuções com diferentes conjuntos de dados.
+---
 
-* **AfterEach**:    
-  Submete os dados coletados durante a execução dos testes ao **Probato Manager** e armazena as imagens e vídeos no armazenamento.
+### Procedure
+- Contains executable test logic
+- Coordinates interactions with the application
+- Receives resolved test data
+- Performs validations
 
-* **AfterAll**:   
-  Calcula a qualidade do software com base em métricas e dados de execução e notifica os colaboradores sobre a conclusão da execução.
+**Question answered:**  
+*How is the scenario executed?*
 
-## **Suporte para Execução Multibrowser**
+---
 
-* Construído sobre a API do Selenium e Playwright, permitindo automação em múltiplos navegadores.
-* Suporte extensível para adicionar novos browsers e contextos de execução (diferentes sistemas operacionais ou versões).
+### Page Object
+- Encapsulates user interface interactions
+- Isolates UI changes from test logic
+- Provides semantic actions and parameters
 
-## **Extensibilidade e Plugins**
+**Question answered:**  
+*How does the test interact with the system?*
 
-* Projetado para ser **extensível**, permitindo a adição de novas funcionalidades sem modificar o núcleo do framework.
-* Suporte a plugins para:
-    * Novos drivers de browser.
-    * Formatos de dados de entrada adicionais.
-    * Novos tipos de validação e manipulação de dados.
+---
 
-## **Gerenciamento de Execuções e Coleta de Dados**
+### Dataset
+- Provides external test data
+- Enables native data-driven execution
+- Generates multiple executions of the same scenario
 
-* Durante os testes, captura dados como:
-    * Logs de execução.
-    * Capturas de tela.
-    * Vídeos e passos executados.
-* Processa e envia os dados para uma aplicação web integrada, que oferece:
-    * Monitoramento centralizado das execuções.
-    * Geração de relatórios detalhados.
-    * Rastreamento de bugs e análise de versionamento.
-* Suporta integração com ferramentas como **TestLink** e **Mantis Bug Tracker**.
+**Question answered:**  
+*With which data is the scenario executed?*
 
-## **Configurações e Personalizações Avançadas**
+---
 
-* Oferece opções para:
-    * Configurar **timeouts** e intervalos entre ações.
-    * Ajustar a qualidade de imagens e vídeos capturados.
-    * Definir execução em tela (monitores primários ou secundários).
+### Database
+- Defines application state
+- Prepares and isolates test environments
+- Ensures deterministic test execution
 
-## **Notificações e Integração Contínua**
+**Question answered:**  
+*In which state should the system be before execution?*
 
-* Envia notificações automáticas para colaboradores após cada execução de testes.
-* Integra-se facilmente com ferramentas de **CI/CD**, como **Jenkins**, permitindo a automação total dos processos de teste no ciclo de desenvolvimento.
+---
+
+### Configuration
+- Centralizes execution behavior
+- Controls browsers, timeouts, recording, and execution modes
+- Separates environment concerns from test code
+
+**Question answered:**  
+*Where and how should tests be executed?*
+
+---
+
+## Execution flow
+
+A typical execution flow in Probato follows this sequence:
+
+1. Configuration is loaded
+2. Global state (Suite Database) is applied
+3. Scripts are discovered
+4. Scenario-specific state is applied
+5. Datasets generate multiple executions
+6. Procedures execute test logic
+7. Page Objects interact with the system
+8. Results and metrics are collected
+
+This flow is fully automated and declarative.
+
+---
+
+## Observability and metrics
+
+Probato treats observability as a core architectural concern.
+
+During execution, the framework collects:
+- execution metadata
+- step descriptions
+- input parameters
+- evidences such as screenshots and recordings
+
+These artifacts are consumed by **Probato Manager**, which provides visibility and insights into test quality.
+
+---
+
+## Architectural goals
+
+The conceptual architecture of Probato is designed to:
+
+- Enforce consistency across projects
+- Reduce maintenance costs
+- Improve test readability
+- Enable scalable automation
+- Support long-term evolution
+
+---
+
+## What comes next
+
+To understand how these concepts translate into practical usage, continue with:
+
+- **Features** — to see what Probato provides
+- **Concepts** — for detailed explanations of each layer
+- **Getting Started** — to run your first test

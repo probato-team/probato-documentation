@@ -1,25 +1,30 @@
-site_name: Spec
+site_name: Probato Framework
 site_url: https://probato.org
 repo_url: https://github.com/probato-team/probato
 repo_name: probato-team/probato
 remote_branch: main
+
 docs_dir: src
 site_dir: docs
 
-copyright: "<p> Copyright &copy; 2024-<script>document.write(new Date().getFullYear())</script> Probato</p>"
+copyright: >
+  <p>Copyright &copy; 2024–
+  <script>document.write(new Date().getFullYear())</script>
+  Probato</p>
 
 theme:
+  name: material
   logo: assets/images/probato-logo.png
   favicon: assets/images/favicon.ico
-  name: material
-  icon:
-    alternate: material/web
+
   font:
     text: Roboto
     code: Roboto Mono
-  palette:
 
-    # Palette toggle for light mode
+  icon:
+    alternate: material/web
+
+  palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: blue
@@ -28,7 +33,6 @@ theme:
         icon: material/brightness-7
         name: Switch to dark mode
 
-    # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: grey
@@ -53,126 +57,108 @@ theme:
     - content.code.select
     - announce.dismiss
 
+# ----------------------
+# Navigation (EN default)
+# ----------------------
+nav:
+  - Home:
+      - Overview: index.md
+      - Objective: home/objective.md
+      - Conceptual Architecture: home/architecture.md
+      - Features: home/features.md
+
+  - Getting Started:
+      - Introduction: getting-started/index.md
+      - Environment Setup: getting-started/environment.md
+      - Project Creation: getting-started/project-creation.md
+      - First Execution: getting-started/first-execution.md
+
+  - Concepts:
+      - Overview: concepts/index.md
+      - Test Suite: concepts/suite.md
+      - Test Script: concepts/script.md
+      - Procedure: concepts/procedure.md
+      - Page Object: concepts/page-object.md
+      - Dataset: concepts/dataset.md
+      - Database: concepts/database.md
+
+  - Guides:
+      - Overview: guides/index.md
+      - End-to-End Example: guides/end-to-end-example.md
+
+  - Configuration:
+      - Overview: configuration/index.md
+      - Project Configuration: configuration/project.md
+      - Browser Configuration: configuration/browser.md
+      - Execution Settings: configuration/execution.md
+
+  - Probato Manager:
+      - Overview: manager/index.md
+
+  - About:
+      - About the Project: about/index.md
+
+# ----------------------
+# Plugins
+# ----------------------
 plugins:
   - search
+  - git-revision-date
   - i18n:
       languages:
         - locale: en
           name: English
           default: true
           build: true
-          site_name: Specification
+          site_name: Probato Framework
+
         - locale: pt-BR
           name: Português (Brasil)
           build: true
-          site_name: Especificação
-          extra:
-            analytics:
-              provider: google
-              property: G-XZR907P520
-              feedback:
-                title: Essa página foi útil?
-                ratings:
-                  - icon: material/thumb-up-outline
-                    name: Esta página foi útil.
-                    data: 1
-                    note: Obrigado pelo feedback!
-                  - icon: material/thumb-down-outline
-                    name: Esta página pode ser melhorada.
-                    data: 0
-                    note: Vamos melhorar esta página.
+          site_name: Probato Framework
           nav_translations:
-
-            # Home
             Home: Início
-            Overview: Visão geral
+            Overview: Visão Geral
             Objective: Objetivo
-            Target Audience: Público Alvo
+            Conceptual Architecture: Arquitetura Conceitual
             Features: Recursos
-            Architecture: Arquitetura
 
-            # Documentation
-            Documentation: Documentação
+            Getting Started: Primeiros Passos
             Introduction: Introdução
-            Environment Configuration: Configuração de Ambiente
-            Project Creation: Criação de projeto
+            Environment Setup: Ambiente
+            Project Creation: Criação do Projeto
+            First Execution: Primeira Execução
+
+            Concepts: Conceitos
+            Test Suite: Suite de Testes
+            Test Script: Script de Teste
+            Procedure: Procedure
+            Page Object: Page Object
+            Dataset: Dataset
+            Database: Database
+
+            Guides: Guias
+            End-to-End Example: Exemplo End-to-End
+
+            Configuration: Configuração
             Project Configuration: Configuração do Projeto
             Browser Configuration: Configuração de Browser
-            Suite Implementation: Implementação de Suite
-            Script Implementation: Implementação de Script
-            Procedure Implementation: Implementação de Procedure
-            Page Object Implementation: Implementação de Page Object
-            Dataset Implementation: Implementação de Dataset
-            Database Implementation: Implementação de Database
-            
-            # ---
+            Execution Settings: Configurações de Execução
 
-            Implement Basic Script: Implementação de roteiro básico
-            Implement Browser Execution: Implementando execução por browser
-            Parameterize Input Data: Parametrizando dados de entrada
-            Change Application State: Alterando estado da aplicação
-            Create Extension Points: Criar pontos de extensão
-            Execution Result Analysis: Execução e Análise de Resultados
             Probato Manager: Probato Manager
-            Examples: Exemplos
-
-            Good Practices: Boas Práticas
             About: Sobre
+            About the Project: Sobre o Projeto
 
-            # TODO REMOVER
-            Quick Guide: Guia Rápido
-            Implement Script: Implementação de roteiro básico
-            # ---
-
-  - git-revision-date
-
-nav:
-  - Home: 
-    - Overview: index.md
-    - Objective: home\objective.md
-    - Target Audience: home\target-audience.md
-    - Features: home\features.md
-    - Architecture: home\architecture.md
-
-  - Documentation:
-    - Introduction: documentation\index.md
-    - Environment Configuration: documentation\environment-configuration.md
-    - Project Creation: documentation\project-creation.md
-    - Project Configuration: documentation\project-configuration.md
-    - Browser Configuration: documentation\browser-configuration.md
-    - Suite Implementation: documentation\suite-implementation.md
-    - Script Implementation: documentation\script-implementation.md
-    - Procedure Implementation: documentation\procedure-implementation.md
-    - Page Object Implementation: documentation\page-object-implementation.md
-    - Dataset Implementation: documentation\dataset-implementation.md
-    - Database Implementation: documentation\database-implementation.md
-
-    # ---
-
-    # - Implement Basic Script: documentation\implement-basic-script.md
-    - Implement Browser Execution: documentation\implement-browser-execution.md
-    - Parameterize Input Data: documentation\parameterize-input-data.md
-    - Change Application State: documentation\change-application-state.md
-    - Create Extension Points: documentation\create-extension-points.md
-    - Execution Result Analysis: documentation\execution-result-analysis.md
-    - Probato Manager: documentation\probato-manager.md
-    - Examples: documentation\examples.md
-    
-  - Good Practices: good-practices\index.md
-  - About: about.md
-
-  # TODO Remover
-
-  - Quick Guide:
-    - Implement Script: quick-guide\implement-script.md
-
+# ----------------------
+# Extra
+# ----------------------
 extra:
-
   alternate:
     - name: English
       link: /
       lang: en
       icon: material/flag-outline
+
     - name: Português
       link: /pt-BR/
       lang: pt-BR
@@ -181,17 +167,6 @@ extra:
   analytics:
     provider: google
     property: G-XZR907P520
-    feedback:
-      title: Was this page helpful?
-      ratings:
-        - icon: material/thumb-up-outline
-          name: This page was helpful
-          data: 1
-          note: Thank you for your feedback!
-        - icon: material/thumb-down-outline
-          name: This page can be improved
-          data: 0
-          note: Thank you for your feedback!
 
   social:
     - icon: fontawesome/brands/github
@@ -199,28 +174,30 @@ extra:
 
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/@probato
-      name: YouTube
 
 extra_css:
   - assets/css/custom.css
   - assets/css/extra.css
 
 markdown_extensions:
+  - admonition
+  - def_list
+  - attr_list
+  - md_in_html
+
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
-  - pymdownx.emoji
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - attr_list
+
   - pymdownx.emoji:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
       emoji_index: !!python/name:material.extensions.emoji.twemoji
-  - md_in_html
-  - admonition
-  - pymdownx.details
-  - def_list
+
   - pymdownx.tasklist:
       custom_checkbox: true

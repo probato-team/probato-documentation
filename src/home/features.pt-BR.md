@@ -1,95 +1,121 @@
-# **Recursos**
+# Features
 
-## **Estrutura Simples e Intuitiva**
+Probato provides a set of **focused and opinionated features** designed to bring structure, predictability, and observability to functional test automation.
 
-O **Probato** oferece uma estrutura organizada e modular para implementação de testes, facilitando a reutilização de componentes e a manutenção de scripts. Isso permite que equipes se concentrem mais na lógica de testes do que na estrutura de implementação.
+Each feature directly derives from the framework’s conceptual model and addresses common pain points found in large-scale automation projects.
 
-## **Injeção de Objetos com Anotações**
+---
 
-A utilização de anotações simplifica a configuração de testes, permitindo uma injeção de objetos clara e concisa, sem necessidade de implementações adicionais.
+## Declarative test structure
 
-## **Padrão Page Object Model (POM)**
+Probato enforces a **declarative approach** to test definition.
 
-O **Probato** segue o padrão **Page Object Model**, ajudando na separação de camadas e organização do código. Essa abordagem facilita a manutenção e leitura dos scripts, especialmente em frameworks como Selenium.
+Instead of embedding execution logic everywhere, tests are described using well-defined concepts such as:
+- Suite
+- Script
+- Procedure
+- Page Object
 
-## **Organização de Procedimentos de Teste**
+This results in:
+- clearer test intent
+- consistent structure across projects
+- easier onboarding for new team members
 
-Os testes são organizados em três etapas:
+---
 
-1. **Pré-condições**
-2. **Procedimentos**
-3. **Pós-condições**
+## Strong separation of responsibilities
 
-Essa estrutura permite identificar rapidamente a origem de falhas e entender se os erros estão nas funcionalidades alvo, nas etapas preparatórias, ou até mesmo se os objetivos de pós condição foram atendidos.
+Each layer in Probato has a **single, clear responsibility**.
 
-## **Carregamento e Injeção Implícita de Massa de Dados**
+- Suites describe *what* is being validated
+- Scripts describe *which scenario* is executed
+- Procedures define *how execution happens*
+- Page Objects encapsulate UI interaction
+- Datasets provide test data
+- Database defines application state
 
-Scripts podem ser executados com diferentes conjuntos de dados, permitindo testes abrangentes sem duplicar código. Essa funcionalidade melhora a eficiência e cobertura dos testes.
+This separation reduces coupling and improves maintainability.
 
-## **Executores SQL e NoSQL**
+---
 
-Esses executores permitem conecta-se a múltiplas bases de dados para alterar o estado da aplicação conforme as pré-condições dos testes. Isso oferece flexibilidade na configuração de cenários de teste.
+## Native data-driven execution
 
-## **Criação de Roteiros de Teste Intuitivos**
+Probato treats **data-driven testing as a first-class feature**.
 
-Os roteiros podem ser criados com código, descrição e pesos baseados na relevância e complexidade da funcionalidade. Isso ajuda na priorização e na análise de métricas para inferir a qualidade do software testado alvo do teste.
+By associating Datasets directly with Scripts:
+- the same scenario is executed multiple times
+- no conditional logic is required in test code
+- test logic remains clean and reusable
 
-## **Configurações de Timeout e Intervalos**
+---
 
-O **Probato** permite:
+## Declarative state management
 
-- Configurar _timeouts_ para o tempo de espera durante a execução dos testes.
-- Ajustar intervalos entre ações, otimizando o desempenho dos testes.
+Application state is handled declaratively through Database definitions.
 
-## **Execução em Diversos Browsers**
+State preparation:
+- is separated from execution logic
+- can be applied globally (Suite) or per scenario (Script)
+- improves test determinism and reproducibility
 
-Suporte para execução de testes em múltiplos navegadores, com opções como:
+---
 
-- Modo maximizado, normal ou customizado (dimensões específicas).
-- Escolha do monitor para execução (primário ou secundário).
+## Centralized configuration
 
-## **Gerenciamento de Dados Coletados**
+Execution behavior is controlled through centralized configuration files.
 
-O **Probato** inclui uma aplicação web para:
+Configuration allows teams to define:
+- browsers and execution modes
+- timeouts and execution settings
+- evidence capture (screenshots, recordings)
+- integration with external services
 
-- Gerenciamento de dados de execução.
-- Análise da qualidade do software.
-- Criação de bugs a partir dos resultados.
-- Visualização de históricos por versionamento.
-- Geração de relatórios detalhados com logs e gráficos de cobertura.
+This keeps test code focused on behavior, not environment setup.
 
-## **Captura de Dados Durante a Execução**
+---
 
-Coleta e armazena informações como:
+## Observability by design
 
-- Suíte e roteiros de testes.
-- Passos executados.
-- Dados aplicados.
-- Scripts SQL.
-- Vídeos e capturas de tela.
+Probato embeds **observability** into the execution lifecycle.
 
-A qualidade dos vídeos pode ser configuradas para análises detalhadas.
+During test execution, the framework captures:
+- execution metadata
+- step descriptions
+- input parameters
+- evidences such as screenshots and videos
 
-## **Notificações de Execução**
+These artifacts are automatically forwarded to **Probato Manager**.
 
-Envio de notificações para os colaboradores quando novas execuções ocorrem, mantendo todos atualizados sobre o status dos testes.
+---
 
-## **Extensibilidade**
+## JUnit 5 ecosystem integration
 
-O **Probato** permite personalizações por meio de plugins, incluindo:
+Probato is built on top of **JUnit 5**, ensuring:
 
-- Suporte a novos browsers.
-- Validações adicionais.
-- Entrada de massa de dados em novos formatos.
-- Executores SQL ou NoSQL personalizados.
-- Aberto para criação de novos recursos.
+- native CI/CD compatibility
+- dynamic test execution
+- parallel execution support
+- compatibility with existing tooling
 
-## **Integração com Ferramentas de CI/CD**
+Teams can adopt Probato without changing their testing infrastructure.
 
-Integra-se facilmente com sistemas de integração contínua, como:
+---
 
-- **Jenkins**
-- **Travis CI**
-- **GitLab CI**
+## Scalable by architecture
 
-Isso permite a execução automática de testes em cada commit, garantindo validações contínuas e ágeis.
+Probato’s opinionated design enables:
+- consistent automation across multiple projects
+- reduced test maintenance cost
+- predictable test execution behavior
+
+The framework scales by **architecture**, not by convention.
+
+---
+
+## What to explore next
+
+To learn how these features are applied in practice, continue with:
+
+- **Concepts** — to understand each layer in detail
+- **Getting Started** — to execute your first test
+- **Guides** — for complete end-to-end examples

@@ -1,120 +1,121 @@
 # Features
 
-## **Simple and Intuitive Structure**
+Probato provides a set of **focused and opinionated features** designed to bring structure, predictability, and observability to functional test automation.
 
-**Probato** provides an organized and modular structure for implementing tests, facilitating the reuse of components and the maintenance of scripts. This allows teams to focus more on test logic rather than implementation structure.
-
----
-
-## **Object Injection with Annotations**
-
-Using annotations simplifies test configuration, enabling clear and concise object injection without additional implementations.
+Each feature directly derives from the framework’s conceptual model and addresses common pain points found in large-scale automation projects.
 
 ---
 
-## **Page Object Model (POM) Pattern**
+## Declarative test structure
 
-**Probato** follows the **Page Object Model** pattern, helping to separate layers and organize code. This approach simplifies the maintenance and readability of scripts, especially in frameworks like Selenium.
+Probato enforces a **declarative approach** to test definition.
 
----
+Instead of embedding execution logic everywhere, tests are described using well-defined concepts such as:
+- Suite
+- Script
+- Procedure
+- Page Object
 
-## **Test Procedure Organization**
-
-Tests are organized into three stages:
-
-1. **Preconditions**
-2. **Procedures**
-3. **Postconditions**
-
-This structure allows for quickly identifying the source of failures and understanding whether errors are in the target functionalities or preparatory steps.
-
----
-
-## **Implicit Data Injection**
-
-Scripts can be executed with different data sets, enabling comprehensive testing without duplicating code. This functionality enhances test efficiency and coverage.
+This results in:
+- clearer test intent
+- consistent structure across projects
+- easier onboarding for new team members
 
 ---
 
-## **SQL File Executor**
+## Strong separation of responsibilities
 
-The integrated SQL executor connects to multiple databases to modify the application's state according to test preconditions. This offers flexibility when configuring test scenarios.
+Each layer in Probato has a **single, clear responsibility**.
 
----
+- Suites describe *what* is being validated
+- Scripts describe *which scenario* is executed
+- Procedures define *how execution happens*
+- Page Objects encapsulate UI interaction
+- Datasets provide test data
+- Database defines application state
 
-## **Intuitive Test Workflow Creation**
-
-Workflows can be created with code, descriptions, and weights based on the relevance and complexity of functionalities. This helps prioritize and analyze the quality of the tested software.
-
----
-
-## **Timeout and Interval Settings**
-
-**Probato** allows:
-
-- Configuring _timeouts_ for wait times during test execution.
-- Adjusting intervals between actions, optimizing test performance.
+This separation reduces coupling and improves maintainability.
 
 ---
 
-## **Cross-Browser Execution**
+## Native data-driven execution
 
-Supports running tests on multiple browsers, with options such as:
+Probato treats **data-driven testing as a first-class feature**.
 
-- Maximized, normal, or custom mode (specific dimensions).
-- Selecting the monitor for execution (primary or secondary).
-
----
-
-## **Data Management**
-
-**Probato** includes a web application for:
-
-- Managing execution data.
-- Analyzing software quality.
-- Creating bugs from test results.
-- Viewing histories and versioning.
-- Generating detailed reports with logs and coverage charts.
+By associating Datasets directly with Scripts:
+- the same scenario is executed multiple times
+- no conditional logic is required in test code
+- test logic remains clean and reusable
 
 ---
 
-## **Data Capture During Execution**
+## Declarative state management
 
-Collects and stores information such as:
+Application state is handled declaratively through Database definitions.
 
-- Test suites and workflows.
-- Executed steps.
-- Applied data.
-- SQL scripts.
-- Videos and screenshots (in case of failures).
-
-The quality of the images can be adjusted for detailed failure analysis.
+State preparation:
+- is separated from execution logic
+- can be applied globally (Suite) or per scenario (Script)
+- improves test determinism and reproducibility
 
 ---
 
-## **Execution Notifications**
+## Centralized configuration
 
-Sends notifications to collaborators when new executions occur, keeping everyone updated on the test status.
+Execution behavior is controlled through centralized configuration files.
 
----
+Configuration allows teams to define:
+- browsers and execution modes
+- timeouts and execution settings
+- evidence capture (screenshots, recordings)
+- integration with external services
 
-## **Extensibility**
-
-**Probato** allows customizations through plugins, including:
-
-- Support for new browsers.
-- Additional validations.
-- Data input in new formats.
-- Custom SQL or NoSQL executors.
+This keeps test code focused on behavior, not environment setup.
 
 ---
 
-## **Integration with CI/CD Tools**
+## Observability by design
 
-Easily integrates with continuous integration systems, such as:
+Probato embeds **observability** into the execution lifecycle.
 
-- **Jenkins**
-- **Travis CI**
-- **GitLab CI**
+During test execution, the framework captures:
+- execution metadata
+- step descriptions
+- input parameters
+- evidences such as screenshots and videos
 
-This enables automatic test execution on each commit, ensuring continuous and agile validations.
+These artifacts are automatically forwarded to **Probato Manager**.
+
+---
+
+## JUnit 5 ecosystem integration
+
+Probato is built on top of **JUnit 5**, ensuring:
+
+- native CI/CD compatibility
+- dynamic test execution
+- parallel execution support
+- compatibility with existing tooling
+
+Teams can adopt Probato without changing their testing infrastructure.
+
+---
+
+## Scalable by architecture
+
+Probato’s opinionated design enables:
+- consistent automation across multiple projects
+- reduced test maintenance cost
+- predictable test execution behavior
+
+The framework scales by **architecture**, not by convention.
+
+---
+
+## What to explore next
+
+To learn how these features are applied in practice, continue with:
+
+- **Concepts** — to understand each layer in detail
+- **Getting Started** — to execute your first test
+- **Guides** — for complete end-to-end examples
