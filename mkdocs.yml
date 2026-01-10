@@ -1,4 +1,4 @@
-site_name: Docs
+site_name: Spec
 site_url: https://probato.org
 repo_url: https://github.com/probato-team/probato
 repo_name: probato-team/probato
@@ -41,7 +41,6 @@ theme:
     - navigation.tabs
     - navigation.top
     - navigation.expand
-    - navigation.path
     - navigation.prune
     - navigation.footer
     - toc.integrate
@@ -62,27 +61,110 @@ plugins:
           name: English
           default: true
           build: true
+          site_name: Specification
         - locale: pt-BR
           name: Português (Brasil)
           build: true
+          site_name: Especificação
+          extra:
+            analytics:
+              provider: google
+              property: G-XZR907P520
+              feedback:
+                title: Essa página foi útil?
+                ratings:
+                  - icon: material/thumb-up-outline
+                    name: Esta página foi útil.
+                    data: 1
+                    note: Obrigado pelo feedback!
+                  - icon: material/thumb-down-outline
+                    name: Esta página pode ser melhorada.
+                    data: 0
+                    note: Vamos melhorar esta página.
           nav_translations:
+
+            # Home
             Home: Início
-            About: Sobre
-            Getting Started: Começando
-            First steps: Primeiros passos
-            Java Library: Biblioteca Java
-            Web Application: Aplicação Web
+            Overview: Visão geral
+            Objective: Objetivo
+            Target Audience: Público Alvo
+            Features: Recursos
+            Architecture: Arquitetura
+
+            # Documentation
+            Documentation: Documentação
+            Introduction: Introdução
+            Environment Configuration: Configuração de Ambiente
+            Project Creation: Criação de projeto
+            Project Configuration: Configuração do Projeto
+            Browser Configuration: Configuração de Browser
+            Suite Implementation: Implementação de Suite
+            Script Implementation: Implementação de Script
+            Procedure Implementation: Implementação de Procedure
+            Page Object Implementation: Implementação de Page Object
+            Dataset Implementation: Implementação de Dataset
+            Database Implementation: Implementação de Database
+            
+            # ---
+
+            Implement Basic Script: Implementação de roteiro básico
+            Implement Browser Execution: Implementando execução por browser
+            Parameterize Input Data: Parametrizando dados de entrada
+            Change Application State: Alterando estado da aplicação
+            Create Extension Points: Criar pontos de extensão
+            Execution Result Analysis: Execução e Análise de Resultados
+            Probato Manager: Probato Manager
             Examples: Exemplos
+
+            Good Practices: Boas Práticas
+            About: Sobre
+
+            # TODO REMOVER
+            Quick Guide: Guia Rápido
+            Implement Script: Implementação de roteiro básico
+            # ---
+
   - git-revision-date
 
 nav:
-  - Home: index.md
-  - Getting Started:
-      - First steps: first-steps.md
-      - Java Library: library.md
-      - Web Application: web-app.md
-  - Examples: examples.md
+  - Home: 
+    - Overview: index.md
+    - Objective: home\objective.md
+    - Target Audience: home\target-audience.md
+    - Features: home\features.md
+    - Architecture: home\architecture.md
+
+  - Documentation:
+    - Introduction: documentation\index.md
+    - Environment Configuration: documentation\environment-configuration.md
+    - Project Creation: documentation\project-creation.md
+    - Project Configuration: documentation\project-configuration.md
+    - Browser Configuration: documentation\browser-configuration.md
+    - Suite Implementation: documentation\suite-implementation.md
+    - Script Implementation: documentation\script-implementation.md
+    - Procedure Implementation: documentation\procedure-implementation.md
+    - Page Object Implementation: documentation\page-object-implementation.md
+    - Dataset Implementation: documentation\dataset-implementation.md
+    - Database Implementation: documentation\database-implementation.md
+
+    # ---
+
+    # - Implement Basic Script: documentation\implement-basic-script.md
+    - Implement Browser Execution: documentation\implement-browser-execution.md
+    - Parameterize Input Data: documentation\parameterize-input-data.md
+    - Change Application State: documentation\change-application-state.md
+    - Create Extension Points: documentation\create-extension-points.md
+    - Execution Result Analysis: documentation\execution-result-analysis.md
+    - Probato Manager: documentation\probato-manager.md
+    - Examples: documentation\examples.md
+    
+  - Good Practices: good-practices\index.md
   - About: about.md
+
+  # TODO Remover
+
+  - Quick Guide:
+    - Implement Script: quick-guide\implement-script.md
 
 extra:
 
@@ -115,8 +197,13 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/probato-team/probato
 
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@probato
+      name: YouTube
+
 extra_css:
   - assets/css/custom.css
+  - assets/css/extra.css
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -124,15 +211,13 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.emoji
-  # - pymdownx.superfences:
-  #     custom_fences:
-  #       - name: mermaid
-  #         class: mermaid
-  #         format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
   - attr_list
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
   - md_in_html
   - admonition
   - pymdownx.details
