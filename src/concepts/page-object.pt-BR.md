@@ -46,6 +46,7 @@ Além disso, ele adiciona uma camada semântica por meio de anotações.
 A anotação `@Action` descreve semanticamente uma ação executada na interface.
 
 Ela permite:
+
 - logs mais claros
 - relatórios compreensíveis
 - melhor rastreabilidade de execução
@@ -59,6 +60,7 @@ A descrição da ação deve representar **o que está sendo feito**, não **com
 A anotação `@Param` identifica parâmetros relevantes utilizados em uma ação.
 
 Ela permite:
+
 - rastrear dados utilizados
 - enriquecer métricas e evidências
 - facilitar auditoria e diagnóstico
@@ -74,6 +76,7 @@ Para manter a arquitetura clara:
 - dados são fornecidos externamente
 
 O Page Object deve se limitar a:
+
 - localizar elementos
 - executar ações
 - expor verificações simples

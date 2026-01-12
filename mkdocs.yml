@@ -63,9 +63,10 @@ theme:
 nav:
   - Home:
       - Overview: index.md
-      - Objective: home/objective.md
-      - Conceptual Architecture: home/architecture.md
-      - Features: home/features.md
+      - Objective: objective.md
+      - Target Audience: target-audience.md
+      - Features: features.md
+      - Architecture: architecture.md
 
   - Getting Started:
       - Introduction: getting-started/index.md
@@ -117,11 +118,14 @@ plugins:
           build: true
           site_name: Probato Framework
           nav_translations:
+
+            # Home
             Home: Início
-            Overview: Visão Geral
+            Overview: Visão geral
             Objective: Objetivo
-            Conceptual Architecture: Arquitetura Conceitual
+            Target Audience: Público Alvo
             Features: Recursos
+            Architecture: Arquitetura
 
             Getting Started: Primeiros Passos
             Introduction: Introdução

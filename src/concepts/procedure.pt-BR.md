@@ -44,11 +44,13 @@ O Probato permite duas formas de implementação de Procedure.
 Indicada para cenários simples e pontuais.
 
 Características:
+
 - implementação direta
 - menor sobrecarga estrutural
 - uso restrito a um Script
 
 Essa abordagem é recomendada apenas quando:
+
 - a lógica é pequena
 - não há necessidade de reutilização
 
@@ -59,6 +61,7 @@ Essa abordagem é recomendada apenas quando:
 Indicada para cenários reutilizáveis ou mais complexos.
 
 Características:
+
 - melhor organização
 - maior reutilização
 - isolamento de responsabilidades
@@ -72,20 +75,24 @@ Essa é a forma **recomendada** na maioria dos casos.
 Uma Procedure pode ser dividida conceitualmente em três partes:
 
 ### Precondition
+
 - preparação do cenário
 - validações iniciais
 - pré-requisitos funcionais
 
 ### Execution
+
 - ações principais do fluxo
 - interação com a aplicação
 - execução do comportamento esperado
 
 ### Postcondition
+
 - validações finais
 - limpeza de estado, se necessário
 
 Essa divisão melhora:
+
 - legibilidade
 - rastreabilidade
 - diagnóstico de falhas

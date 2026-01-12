@@ -39,11 +39,13 @@ Scripts SQL podem ser aplicados tanto no nível da Suite quanto no nível do Scr
 Quando definido na **Suite**, o Database representa um **estado global** da funcionalidade.
 
 Características:
+
 - aplicado antes da execução dos Scripts
 - compartilhado por todos os cenários da Suite
 - ideal para dados comuns e pré-requisitos gerais
 
 Exemplos de uso:
+
 - carga inicial de dados
 - configuração de usuários padrão
 - preparação de ambiente funcional
@@ -55,11 +57,13 @@ Exemplos de uso:
 Quando definido no **Script**, o Database representa um **estado específico do cenário**.
 
 Características:
+
 - aplicado apenas para aquele Script
 - não afeta outros cenários
 - ideal para dados específicos ou variações de estado
 
 Exemplos de uso:
+
 - usuário bloqueado
 - dados inválidos
 - estados transitórios
@@ -75,6 +79,7 @@ No Probato:
 - Scripts apenas declaram qual estado é necessário
 
 Essa separação garante:
+
 - testes mais previsíveis
 - menor acoplamento
 - facilidade de manutenção

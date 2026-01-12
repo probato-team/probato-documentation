@@ -15,6 +15,7 @@ O Probato é construído sobre um princípio simples:
 > O framework decide como executar.**
 
 Na prática, isso se traduz em:
+
 - uso extensivo de anotações declarativas
 - separação rigorosa de responsabilidades
 - configuração centralizada fora do código
@@ -29,17 +30,23 @@ O Probato organiza testes automatizados em **camadas bem definidas**, cada uma c
 O fluxo conceitual completo é o seguinte:
 
 ```
-Suite
+@Suite
  ├── @SQL (estado global / pré-condições da funcionalidade)
- └── Script
+ └── @Script
       ├── @Dataset (dados de execução)
       ├── @SQL (estado específico do cenário)
-      ├── Precondition
-      ├── Procedure
+      ├── @Precondition
       │     └── Page Object
       │           ├── @Action
       │           └── @Param
-      └── Postcondition
+      ├── @Procedure
+      │     └── Page Object
+      │           ├── @Action
+      │           └── @Param
+      └── @Postcondition
+│           └── Page Object
+                  ├── @Action
+                  └── @Param
 ```
 
 Esse modelo define **como os testes devem ser pensados**, não apenas como são escritos.
@@ -52,6 +59,7 @@ Esse modelo define **como os testes devem ser pensados**, não apenas como são 
 A **Suite** representa uma **funcionalidade ou caso de uso** do sistema.
 
 Ela é responsável por:
+
 - agrupar Scripts relacionados
 - definir pré-condições globais (por exemplo, estado de banco de dados)
 - servir como ponto de descoberta para o JUnit 5
@@ -67,6 +75,7 @@ O **Script** representa um **cenário de teste**.
 
 Ele é puramente declarativo e não contém lógica de negócio.  
 Sua função é descrever:
+
 - quais dados serão utilizados
 - quais procedures serão executadas
 - quais pré e pós-condições se aplicam ao cenário
@@ -81,10 +90,12 @@ O Script responde à pergunta:
 A **Procedure** é onde a **lógica executável** vive.
 
 Ela pode ser implementada como:
+
 - um método simples
 - ou uma classe dedicada, quando há necessidade de reutilização e organização
 
 A Procedure:
+
 - recebe dados já resolvidos
 - executa ações
 - delega interações de UI aos Page Objects
@@ -99,11 +110,13 @@ Ela responde à pergunta:
 O **Page Object** encapsula interações com a interface do usuário.
 
 No Probato:
+
 - ele segue o padrão clássico de Page Object
 - não conhece Script nem Suite
 - é enriquecido semanticamente por meio de anotações
 
 Anotações como `@Action` e `@Param` permitem:
+
 - rastreabilidade
 - geração de logs e relatórios mais ricos
 - melhor observabilidade da execução
@@ -118,6 +131,7 @@ O Page Object responde à pergunta:
 O **Dataset** define os **dados de teste** utilizados na execução.
 
 Ele é:
+
 - externo ao código
 - declarado no Script
 - responsável por habilitar execução *data-driven* de forma nativa
@@ -134,10 +148,12 @@ O Dataset responde à pergunta:
 O conceito de **Database** no Probato representa o **estado da aplicação**.
 
 Scripts SQL podem ser executados:
+
 - no nível da Suite (estado global)
 - no nível do Script (estado específico do cenário)
 
 Essa abordagem garante que:
+
 - estado não fique misturado com lógica
 - testes sejam mais previsíveis e reprodutíveis
 
@@ -166,6 +182,7 @@ Essas definições ficam fora do código, normalmente em arquivos YAML.
 O **Probato Manager** é o componente responsável por consumir os dados gerados durante a execução dos testes.
 
 Ele fornece:
+
 - métricas
 - relatórios
 - histórico de execuções

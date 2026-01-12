@@ -1,6 +1,6 @@
-# Test Script
+# Script de Teste
 
-O **Test Script** representa um **cenário de teste** no Probato.  
+O **Script de Teste** representa um **cenário de teste** no Probato.  
 Ele descreve *o que será executado* em um determinado fluxo, sem conter lógica de execução direta.
 
 No modelo mental do Probato, o Script ocupa o nível intermediário da hierarquia, conectando a Suite às Procedures.
@@ -45,6 +45,7 @@ Cada Script representa uma execução independente dentro da Suite.
 O Script representa um cenário claro e isolado.
 
 Exemplos de Scripts:
+
 - Login com credenciais válidas
 - Login com senha inválida
 - Login com usuário bloqueado
@@ -58,6 +59,7 @@ Cada Script deve representar **uma única intenção de validação**.
 O Script é o ponto onde os **dados de teste** são declarados.
 
 Ao associar um Dataset a um Script:
+
 - o cenário passa a ser executado múltiplas vezes
 - cada conjunto de dados gera uma execução independente
 - a lógica da Procedure permanece inalterada
@@ -71,6 +73,7 @@ Isso permite execução *data-driven* de forma nativa e transparente.
 O Script pode declarar **estado específico de banco de dados**, quando necessário.
 
 Esse estado:
+
 - é aplicado apenas ao cenário
 - não afeta outros Scripts da mesma Suite
 - deve conter apenas dados necessários para o cenário em questão
@@ -82,6 +85,7 @@ Esse estado:
 O Script define **quais Procedures serão executadas**, bem como sua ordem.
 
 Ele não conhece detalhes internos da execução, apenas:
+
 - quais Procedures participam do cenário
 - em qual sequência elas devem ser executadas
 
@@ -105,15 +109,18 @@ Essas responsabilidades pertencem às Procedures.
 O Script funciona como um **orquestrador declarativo**.
 
 Enquanto o Script:
+
 - descreve o cenário
 - organiza a execução
 
 A Procedure:
+
 - executa a lógica
 - interage com a aplicação
 - realiza validações
 
 Essa separação garante:
+
 - maior reutilização
 - menor acoplamento
 - cenários mais legíveis
