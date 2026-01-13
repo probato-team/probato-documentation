@@ -1,11 +1,11 @@
-# Script de Teste
+# Script
 
-O **Script de Teste** representa um **cenário de teste** no Probato.  
+O **Script** representa um **cenário de teste** no Probato.  
 Ele descreve *o que será executado* em um determinado fluxo, sem conter lógica de execução direta.
 
-No modelo mental do Probato, o Script ocupa o nível intermediário da hierarquia, conectando a Suite às Procedures.
+No modelo mental do Probato, o Script ocupa o **nível intermediário da hierarquia**, conectando a Suite às Procedures e permitindo que cenários sejam descritos de forma clara, isolada e reutilizável.
 
----
+Cada Script representa uma **execução independente**, mesmo quando pertence à mesma Suite.
 
 ## Papel do Script no Probato
 
@@ -20,29 +20,39 @@ O Script **não executa lógica de negócio**.
 
 > O Script descreve *qual cenário será executado*, não *como executá-lo*.
 
----
-
 ## Onde o Script se encaixa no modelo mental
 
-```
-Suite
- └── Script
-      ├── @Dataset
-      ├── @SQL (estado do cenário)
-      ├── Precondition
-      ├── Procedure
-      └── Postcondition
+No fluxo conceitual do Probato, o Script está contido na Suite e atua como o elo entre intenção e execução.
+
+``` title="Modelo conceitual" hl_lines="4"
+@Suite
+ ├── @SQL (estado global / pré-condições da funcionalidade)
+ ├── @NoSQL (estado global / pré-condições da funcionalidade)
+ └── @Script
+      ├── @Dataset (dados de execução)
+      ├── @SQL (estado específico do cenário)
+      ├── @NoSQL (estado específico do cenário)
+      ├── @Precondition
+      │     └── Page Object
+      │           ├── @Action
+      │           └── @Param
+      ├── @Procedure
+      │     └── Page Object
+      │           ├── @Action
+      │           └── @Param
+      └── @Postcondition
+            └── Page Object
+                  ├── @Action
+                  └── @Param
 ```
 
-Cada Script representa uma execução independente dentro da Suite.
-
----
+Cada Script representa uma execução independente dentro da Suite, podendo variar dados, estado e comportamento sem afetar outros cenários.
 
 ## Responsabilidades do Script
 
-### 1. Definição do cenário
+### Definição do cenário
 
-O Script representa um cenário claro e isolado.
+O Script representa um cenário claro, isolado e intencional.
 
 Exemplos de Scripts:
 
@@ -50,11 +60,9 @@ Exemplos de Scripts:
 - Login com senha inválida
 - Login com usuário bloqueado
 
-Cada Script deve representar **uma única intenção de validação**.
+Cada Script deve representar **uma única intenção de validação**, evitando múltiplos comportamentos no mesmo cenário.
 
----
-
-### 2. Declaração de dados (Dataset)
+### Declaração de dados (Dataset)
 
 O Script é o ponto onde os **dados de teste** são declarados.
 
@@ -64,11 +72,9 @@ Ao associar um Dataset a um Script:
 - cada conjunto de dados gera uma execução independente
 - a lógica da Procedure permanece inalterada
 
-Isso permite execução *data-driven* de forma nativa e transparente.
+Isso permite execução *data-driven* de forma nativa, previsível e transparente.
 
----
-
-### 3. Definição de estado específico (Database)
+### Definição de estado específico (Database)
 
 O Script pode declarar **estado específico de banco de dados**, quando necessário.
 
@@ -78,18 +84,18 @@ Esse estado:
 - não afeta outros Scripts da mesma Suite
 - deve conter apenas dados necessários para o cenário em questão
 
----
+Estados globais continuam sendo responsabilidade da Suite.
 
-### 4. Orquestração de Procedures
+### Orquestração de Procedures
 
-O Script define **quais Procedures serão executadas**, bem como sua ordem.
+O Script define **quais Procedures serão executadas**, bem como a ordem de execução.
 
-Ele não conhece detalhes internos da execução, apenas:
+Ele não conhece detalhes internos da lógica, apenas:
 
 - quais Procedures participam do cenário
 - em qual sequência elas devem ser executadas
 
----
+Essa abordagem mantém o Script declarativo e desacoplado da implementação.
 
 ## O que NÃO deve estar em um Script
 
@@ -101,8 +107,6 @@ Para manter a separação de responsabilidades, um Script **não deve**:
 - realizar validações complexas
 
 Essas responsabilidades pertencem às Procedures.
-
----
 
 ## Relação entre Script e Procedure
 
@@ -121,11 +125,9 @@ A Procedure:
 
 Essa separação garante:
 
-- maior reutilização
-- menor acoplamento
-- cenários mais legíveis
-
----
+- maior reutilização de Procedures
+- menor acoplamento entre cenários
+- Scripts mais legíveis e expressivos
 
 ## Boas práticas
 
@@ -133,8 +135,6 @@ Essa separação garante:
 - Evite misturar múltiplas intenções no mesmo Script
 - Utilize Dataset para variação de dados, não lógica condicional
 - Prefira múltiplos Scripts simples a um Script complexo
-
----
 
 ## Próximo passo
 

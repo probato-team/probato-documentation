@@ -1,99 +1,101 @@
 # Dataset
 
-O **Dataset** é o conceito responsável por definir os **dados de teste** utilizados durante a execução dos cenários no Probato.  
-Ele permite que um mesmo Script seja executado múltiplas vezes com diferentes conjuntos de dados, de forma nativa e declarativa.
+The **Dataset** is the concept responsible for defining the **test data** used during scenario execution in Probato.  
+It allows the same Script to be executed multiple times with different data sets, in a native and declarative way.
 
-No modelo mental do Probato, o Dataset separa **dados** de **lógica de execução**.
+In Probato’s mental model, the Dataset exists to separate **data** from **execution logic**, avoiding complex conditionals and promoting reuse.
 
----
+## The Role of the Dataset in Probato
 
-## Papel do Dataset no Probato
+The Dataset is responsible for:
 
-O Dataset é responsável por:
+- providing external data for Script execution
+- enabling automatic *data-driven* execution
+- avoiding data-based conditional logic
+- keeping test code simple, readable, and reusable
 
-- fornecer dados externos para execução de Scripts
-- habilitar execução *data-driven* automaticamente
-- evitar lógica condicional baseada em dados
-- manter o código de teste simples e reutilizável
+> The Dataset answers the question: *With which data will the scenario be executed?*
 
-> O Dataset responde à pergunta: *Com quais dados o cenário será executado?*
+## Where the Dataset Fits in the Mental Model
 
----
+In Probato’s conceptual flow, the Dataset is always associated with a Script.
 
-## Onde o Dataset se encaixa no modelo mental
-
+``` title="Conceptual model" hl_lines="5"
+@Suite
+ ├── @SQL (global state / feature preconditions)
+ ├── @NoSQL (global state / feature preconditions)
+ └── @Script
+      ├── @Dataset (execution data)
+      ├── @SQL (scenario-specific state)
+      ├── @NoSQL (scenario-specific state)
+      ├── @Precondition
+      │     └── Page Object
+      │           ├── @Action
+      │           └── @Param
+      ├── @Procedure
+      │     └── Page Object
+      │           ├── @Action
+      │           └── @Param
+      └── @Postcondition
+            └── Page Object
+                  ├── @Action
+                  └── @Param
 ```
-Suite
- └── Script
-      ├── @Dataset
-      └── Procedure(model)
-```
 
-O Dataset é sempre associado a um **Script**, nunca diretamente a uma Procedure.
+The Dataset is **never** associated directly with a Procedure or a Page Object.
 
----
+## Dataset Characteristics
 
-## Características do Dataset
+In Probato, a Dataset has the following characteristics:
 
-O Dataset no Probato é:
+- external to the test code
+- strongly typed
+- resolved before Procedure execution
+- independent of test logic
 
-- externo ao código
-- fortemente tipado
-- resolvido antes da execução da Procedure
-- independente da lógica de teste
+Each Dataset entry generates an **independent execution** of the Script, ensuring isolation and predictability.
 
-Cada entrada de Dataset gera uma execução independente do Script.
+## Data Models
 
----
+The data defined in a Dataset is mapped to **data models**.
 
-## Modelos de dados
+These models:
 
-Os dados do Dataset são mapeados para **modelos de dados**.
+- represent the Dataset structure
+- are automatically injected into the Procedure
+- ensure type safety and execution clarity
 
-Esses modelos:
-- representam a estrutura do Dataset
-- são injetados automaticamente na Procedure
-- garantem segurança e clareza na execução
+The Procedure receives only the resolved data model, without knowing the data’s origin or physical format.
 
-A Procedure recebe apenas o modelo já resolvido, sem conhecer a origem dos dados.
+## Benefits of Using Datasets
 
----
+Proper use of Datasets enables:
 
-## Benefícios do uso de Dataset
+- greater test coverage without code duplication
+- simpler, more declarative scenarios
+- clear separation between data and behavior
+- easier test maintenance and evolution
 
-O uso de Dataset permite:
+## What Should NOT Be in a Dataset
 
-- maior cobertura de testes
-- redução de duplicação de código
-- cenários mais simples e legíveis
-- separação clara entre dados e comportamento
+To maintain separation of responsibilities, a Dataset **must not**:
 
----
+- contain execution logic
+- define business rules
+- change application state
+- depend on execution context
 
-## O que NÃO deve estar em um Dataset
+A Dataset must be only a **data source**.
 
-Para manter a separação de responsabilidades, um Dataset **não deve**:
+## Best Practices
 
-- conter lógica de execução
-- definir regras de negócio
-- alterar estado da aplicação
-- depender de contexto de execução
+- Keep Datasets small and focused
+- Create one Dataset per scenario type
+- Avoid overly generic Datasets
+- Name data models clearly and semantically
 
-O Dataset deve ser apenas uma **fonte de dados**.
+## Next Step
 
----
+After understanding the Dataset, the next concept is **Database**, responsible for defining the application state before scenario execution.
 
-## Boas práticas
-
-- Mantenha Datasets pequenos e objetivos
-- Crie um Dataset por tipo de cenário
-- Evite Datasets excessivamente genéricos
-- Nomeie modelos de dados de forma clara
-
----
-
-## Próximo passo
-
-Após compreender o Dataset, o próximo conceito é o **Database**, responsável por definir o estado da aplicação antes da execução.
-
-➡️ Continue em **Database**.
+➡️ Continue to **Database**.

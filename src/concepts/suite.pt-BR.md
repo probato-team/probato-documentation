@@ -1,11 +1,12 @@
-# Suite de Teste
+# Suite
 
-A **Suite de Teste** é o ponto de entrada conceitual e estrutural do Probato.  
+A **Suite** é o ponto de entrada conceitual e estrutural do Probato.  
 Ela representa uma **funcionalidade**, **caso de uso** ou **fluxo de negócio** que será validado por meio de um conjunto de cenários de teste.
 
-No modelo mental do Probato, a Suite está no nível mais alto da hierarquia.
+No modelo mental do Probato, a Suite ocupa o **nível mais alto da hierarquia**, sendo responsável por definir *o contexto* no qual os testes serão executados.
 
----
+A Suite não descreve passos de teste nem lógica de execução.  
+Ela define **a intenção de validação**.
 
 ## Papel da Suite no Probato
 
@@ -20,29 +21,41 @@ Ela **não contém lógica de execução de teste**.
 
 > A Suite descreve *o que será validado*, não *como validar*.
 
----
-
 ## Onde a Suite se encaixa no modelo mental
 
-```
-Suite
- ├── @SQL (estado global)
- └── Script
-      ├── @Dataset
-      ├── @SQL (estado do cenário)
-      ├── Procedure
-      └── Page Object
+No fluxo conceitual do Probato, a Suite encapsula todos os elementos necessários para validar uma funcionalidade completa.
+
+``` title="Modelo conceitual" hl_lines="1-3"
+@Suite
+ ├── @SQL (estado global / pré-condições da funcionalidade)
+ ├── @NoSQL (estado global / pré-condições da funcionalidade)
+ └── @Script
+      ├── @Dataset (dados de execução)
+      ├── @SQL (estado específico do cenário)
+      ├── @NoSQL (estado específico do cenário)
+      ├── @Precondition
+      │     └── Page Object
+      │           ├── @Action
+      │           └── @Param
+      ├── @Procedure
+      │     └── Page Object
+      │           ├── @Action
+      │           └── @Param
+      └── @Postcondition
+            └── Page Object
+                  ├── @Action
+                  └── @Param
 ```
 
-Tudo que pertence à Suite deve ser comum a **todos os cenários** (Scripts) que ela agrupa.
+Tudo que pertence à Suite deve ser **comum a todos os cenários** (Scripts) que ela agrupa.
 
----
+Se algo varia entre cenários, não pertence à Suite.
 
 ## Responsabilidades da Suite
 
-### 1. Organização semântica
+### Organização semântica
 
-A Suite fornece uma **organização semântica** dos testes.
+A Suite fornece uma **organização semântica** dos testes, alinhada à visão de negócio do sistema.
 
 Exemplos de Suites:
 
@@ -51,27 +64,23 @@ Exemplos de Suites:
 - Fluxo de Compra
 - Recuperação de Senha
 
-Cada Suite representa uma intenção clara de validação.
+Cada Suite representa uma **intenção clara de validação**, facilmente compreensível por desenvolvedores, QAs e stakeholders técnicos.
 
----
-
-### 2. Agrupamento de Scripts
+### Agrupamento de Scripts
 
 Uma Suite pode conter **um ou vários Scripts**, cada um representando um cenário distinto da mesma funcionalidade.
 
-Por exemplo:
+Por exemplo, para a funcionalidade de autenticação:
 
 - Login com credenciais válidas
 - Login com credenciais inválidas
 - Login com usuário bloqueado
 
-Todos esses Scripts pertencem à mesma Suite.
+Embora os comportamentos sejam diferentes, todos pertencem à mesma Suite, pois validam o mesmo fluxo de negócio.
 
----
+### Definição de estado global (Database)
 
-### 3. Definição de estado global (Database)
-
-A Suite pode definir **estado global de banco de dados**, por meio de scripts SQL.
+A Suite pode definir **estado global de banco de dados**, normalmente por meio de scripts SQL.
 
 Esse estado:
 
@@ -79,56 +88,52 @@ Esse estado:
 - é compartilhado por todos os cenários da Suite
 - não deve conter dados específicos de um único Script
 
-Isso garante:
+Essa abordagem garante:
 
-- previsibilidade
-- reprodutibilidade
-- isolamento entre funcionalidades
+- previsibilidade das execuções
+- reprodutibilidade dos testes
+- isolamento entre funcionalidades distintas
 
----
+Estados específicos de cenários devem ser definidos no nível do Script.
 
 ## O que NÃO deve estar em uma Suite
 
-Para manter a clareza e a previsibilidade, uma Suite **não deve**:
+Para manter a clareza e a previsibilidade do modelo, uma Suite **não deve**:
 
 - conter lógica de teste
 - interagir com Page Objects
 - executar validações
 - depender de dados específicos de um cenário
 
-Essas responsabilidades pertencem aos níveis inferiores da hierarquia.
-
----
+Essas responsabilidades pertencem aos níveis inferiores da hierarquia e devem ser mantidas fora da Suite.
 
 ## Relação da Suite com o JUnit 5
 
 No Probato, a Suite é o elemento que o **JUnit 5 descobre e executa**.
 
-A partir da Suite:
+A partir da Suite, o framework:
 
-- o framework identifica os Scripts declarados
+- identifica os Scripts declarados
 - executa cada Script dinamicamente
 - aplica datasets e configurações automaticamente
 
-Isso permite:
+Esse modelo permite:
 
-- integração nativa com CI/CD
-- execução paralela
+- integração nativa com pipelines de CI/CD
+- execução paralela de cenários
 - geração de relatórios compatíveis com o ecossistema JUnit
 
----
+Tudo isso ocorre sem que a Suite precise conter código imperativo de execução.
 
 ## Boas práticas
 
-- Crie Suites pequenas e focadas em uma funcionalidade
+- Crie Suites pequenas e focadas em uma única funcionalidade
 - Evite misturar fluxos não relacionados na mesma Suite
 - Utilize estado global apenas quando realmente necessário
-- Prefira múltiplas Suites a uma Suite genérica e grande
-
----
+- Prefira múltiplas Suites coesas a uma Suite grande e genérica
 
 ## Próximo passo
 
-Após compreender o papel da Suite, o próximo conceito a ser estudado é o **Script**, que descreve os cenários individuais de teste.
+Após compreender o papel da Suite, o próximo conceito a ser estudado é o **Script**, responsável por descrever os cenários individuais de teste.
 
-➡️ Continue em **Test Script**.
+➡️ Continue em **Script**.

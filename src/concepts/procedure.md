@@ -1,134 +1,143 @@
 # Procedure
 
-A **Procedure** é a unidade responsável pela **execução da lógica de teste** no Probato.  
-Ela contém o código que efetivamente interage com a aplicação, executa ações e realiza validações.
+A **Procedure** is the unit responsible for **executing test logic** in Probato.  
+It contains the code that effectively interacts with the application, performs actions, and executes validations.
 
-No modelo mental do Probato, a Procedure separa **descrição de cenário** (Script) de **execução**.
+In Probato’s mental model, the Procedure exists to clearly separate **scenario description** (Script) from **behavior execution**.
 
----
+While the Script describes *what should happen*, the Procedure defines *how it happens*.
 
-## Papel da Procedure no Probato
+## The Role of the Procedure in Probato
 
-A Procedure é responsável por:
+A Procedure is responsible for:
 
-- executar a lógica do cenário
-- interagir com Page Objects
-- receber dados já resolvidos (Dataset)
-- organizar pré-condições, execução e pós-condições
+- executing the scenario logic
+- interacting with Page Objects
+- receiving already-resolved data (Dataset)
+- coordinating preconditions, execution, and postconditions
 
-> A Procedure responde à pergunta: *Como o cenário é executado?*
+> The Procedure answers the question: *How is the scenario executed?*
 
----
+It is the level where the intent declared in the Script is transformed into executable behavior.
 
-## Onde a Procedure se encaixa no modelo mental
+## Where the Procedure Fits in the Mental Model
 
-```
-Suite
- └── Script
-      ├── Precondition
-      ├── Procedure
+In Probato’s conceptual flow, the Procedure is always contained within a Script and never exists in isolation.
+
+``` title="Conceptual model" hl_lines="8 12 16"
+@Suite
+ ├── @SQL (global state / feature preconditions)
+ ├── @NoSQL (global state / feature preconditions)
+ └── @Script
+      ├── @Dataset (execution data)
+      ├── @SQL (scenario-specific state)
+      ├── @NoSQL (scenario-specific state)
+      ├── @Precondition
       │     └── Page Object
-      └── Postcondition
+      │           ├── @Action
+      │           └── @Param
+      ├── @Procedure
+      │     └── Page Object
+      │           ├── @Action
+      │           └── @Param
+      └── @Postcondition
+            └── Page Object
+                  ├── @Action
+                  └── @Param
 ```
 
-A Procedure nunca existe isoladamente: ela sempre é executada no contexto de um Script.
+The Procedure is always executed within the context of a Script, using data and state previously defined.
 
----
+## Implementation Forms
 
-## Formas de implementação
+Probato allows two ways to implement a Procedure, depending on complexity and reuse needs.
 
-O Probato permite duas formas de implementação de Procedure.
+### Procedure as a method
 
-### Procedure como método
+Recommended for simple and isolated scenarios.
 
-Indicada para cenários simples e pontuais.
+Characteristics:
 
-Características:
-- implementação direta
-- menor sobrecarga estrutural
-- uso restrito a um Script
+- direct implementation  
+- minimal structural overhead  
+- scope limited to a single Script  
 
-Essa abordagem é recomendada apenas quando:
-- a lógica é pequena
-- não há necessidade de reutilização
+This approach is recommended only when:
 
----
+- the logic is small  
+- reuse is not required  
+- the flow is simple and specific  
 
-### Procedure como classe dedicada
+### Procedure as a dedicated class
 
-Indicada para cenários reutilizáveis ou mais complexos.
+Recommended for reusable or more complex scenarios.
 
-Características:
-- melhor organização
-- maior reutilização
-- isolamento de responsabilidades
+Characteristics:
 
-Essa é a forma **recomendada** na maioria dos casos.
+- better code organization  
+- greater reuse across Scripts  
+- clear isolation of responsibilities  
 
----
+This is the **recommended** approach in most cases, especially for medium and large projects.
 
-## Estrutura interna da Procedure
+## Internal Structure of a Procedure
 
-Uma Procedure pode ser dividida conceitualmente em três partes:
+Conceptually, a Procedure can be organized into three distinct parts:
 
 ### Precondition
-- preparação do cenário
-- validações iniciais
-- pré-requisitos funcionais
+
+- scenario preparation  
+- initial validations  
+- assurance of functional prerequisites  
 
 ### Execution
-- ações principais do fluxo
-- interação com a aplicação
-- execução do comportamento esperado
+
+- main flow actions  
+- interaction with the application  
+- execution of the expected behavior  
 
 ### Postcondition
-- validações finais
-- limpeza de estado, se necessário
 
-Essa divisão melhora:
-- legibilidade
-- rastreabilidade
-- diagnóstico de falhas
+- final validations  
+- cleanup or state restoration when necessary  
 
----
+This separation improves:
 
-## Relação com Page Objects
+- code readability  
+- execution traceability  
+- precise failure diagnosis  
 
-A Procedure é o único nível que:
+## Relationship with Page Objects
 
-- conhece Page Objects
-- interage diretamente com a UI
-- coordena ações de interface
+The Procedure is the only level that:
 
-Page Objects **não devem conter lógica de cenário**.  
-Toda decisão de fluxo pertence à Procedure.
+- knows Page Objects  
+- interacts directly with the user interface  
+- coordinates UI actions as part of the flow  
 
----
+Page Objects **must not contain scenario logic**.  
+All flow decisions and validations belong to the Procedure.
 
-## O que NÃO deve estar em uma Procedure
+## What Should NOT Be in a Procedure
 
-Para manter a arquitetura clara, uma Procedure **não deve**:
+To keep the architecture clear and predictable, a Procedure **must not**:
 
-- conter definição de Dataset
-- configurar browsers ou ambiente
-- declarar estado global de banco
-- conhecer detalhes de Suite ou Script
+- define Datasets  
+- configure browsers or environment  
+- declare global database state  
+- know details of Suite or Script  
 
-Essas responsabilidades pertencem a outros níveis do framework.
+These responsibilities belong to other levels of the framework.
 
----
+## Best Practices
 
-## Boas práticas
+- Prefer Procedures implemented as dedicated classes  
+- Keep Procedures small, cohesive, and focused  
+- Avoid data-driven conditional logic  
+- Reuse Procedures whenever possible  
 
-- Prefira Procedures como classes dedicadas
-- Mantenha Procedures pequenas e focadas
-- Evite lógica condicional baseada em dados
-- Reutilize Procedures sempre que possível
+## Next Step
 
----
+After understanding the Procedure, the next concept is the **Page Object**, responsible for encapsulating user interface interactions.
 
-## Próximo passo
-
-Após compreender a Procedure, o próximo conceito é o **Page Object**, responsável por encapsular interações com a interface.
-
-➡️ Continue em **Page Object**.
+➡️ Continue to **Page Object**.

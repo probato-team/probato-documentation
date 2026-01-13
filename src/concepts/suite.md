@@ -1,128 +1,139 @@
-# Test Suite
+# Suite
 
-A **Test Suite** é o ponto de entrada conceitual e estrutural do Probato.  
-Ela representa uma **funcionalidade**, **caso de uso** ou **fluxo de negócio** que será validado por meio de um conjunto de cenários de teste.
+A **Suite** is the conceptual and structural entry point of Probato.  
+It represents a **feature**, **use case**, or **business flow** that will be validated through a set of test scenarios.
 
-No modelo mental do Probato, a Suite está no nível mais alto da hierarquia.
+In Probato’s mental model, the Suite occupies the **highest level of the hierarchy**, being responsible for defining the *context* in which tests will be executed.
 
----
+A Suite does not describe test steps or execution logic.  
+It defines the **validation intent**.
 
-## Papel da Suite no Probato
+## The Role of the Suite in Probato
 
-A Suite é responsável por:
+A Suite is responsible for:
 
-- agrupar Scripts relacionados a uma mesma funcionalidade
-- definir pré-condições globais para os cenários
-- servir como ponto de descoberta para o JUnit 5
-- orquestrar a execução de múltiplos Scripts
+- grouping Scripts related to the same feature
+- defining global preconditions for scenarios
+- serving as the discovery entry point for JUnit 5
+- orchestrating the execution of multiple Scripts
 
-Ela **não contém lógica de execução de teste**.
+It **does not contain test execution logic**.
 
-> A Suite descreve *o que será validado*, não *como validar*.
+> A Suite describes *what will be validated*, not *how to validate it*.
 
----
+## Where the Suite Fits in the Mental Model
 
-## Onde a Suite se encaixa no modelo mental
+In Probato’s conceptual flow, the Suite encapsulates all elements required to validate a complete feature.
 
+``` title="Conceptual model" hl_lines="1-3"
+@Suite
+ ├── @SQL (global state / feature preconditions)
+ ├── @NoSQL (global state / feature preconditions)
+ └── @Script
+      ├── @Dataset (execution data)
+      ├── @SQL (scenario-specific state)
+      ├── @NoSQL (scenario-specific state)
+      ├── @Precondition
+      │     └── Page Object
+      │           ├── @Action
+      │           └── @Param
+      ├── @Procedure
+      │     └── Page Object
+      │           ├── @Action
+      │           └── @Param
+      └── @Postcondition
+            └── Page Object
+                  ├── @Action
+                  └── @Param
 ```
-Suite
- ├── @SQL (estado global)
- └── Script
-      ├── @Dataset
-      ├── @SQL (estado do cenário)
-      ├── Procedure
-      └── Page Object
-```
 
-Tudo que pertence à Suite deve ser comum a **todos os cenários** (Scripts) que ela agrupa.
+Everything that belongs to the Suite must be **common to all scenarios** (Scripts) it groups.
 
----
+If something varies between scenarios, it does not belong in the Suite.
 
-## Responsabilidades da Suite
+## Suite Responsibilities
 
-### 1. Organização semântica
+### Semantic Organization
 
-A Suite fornece uma **organização semântica** dos testes.
+The Suite provides a **semantic organization** of tests, aligned with the business view of the system.
 
-Exemplos de Suites:
-- Autenticação de Usuário
-- Cadastro de Cliente
-- Fluxo de Compra
-- Recuperação de Senha
+Examples of Suites:
 
-Cada Suite representa uma intenção clara de validação.
+- User Authentication
+- Customer Registration
+- Purchase Flow
+- Password Recovery
 
----
+Each Suite represents a **clear validation intent**, easily understood by developers, QAs, and technical stakeholders.
 
-### 2. Agrupamento de Scripts
+### Grouping of Scripts
 
-Uma Suite pode conter **um ou vários Scripts**, cada um representando um cenário distinto da mesma funcionalidade.
+A Suite may contain **one or multiple Scripts**, each representing a distinct scenario of the same feature.
 
-Por exemplo:
-- Login com credenciais válidas
-- Login com credenciais inválidas
-- Login com usuário bloqueado
+For example, for the authentication feature:
 
-Todos esses Scripts pertencem à mesma Suite.
+- Login with valid credentials
+- Login with invalid credentials
+- Login with a blocked user
 
----
+Although the behaviors differ, they all belong to the same Suite because they validate the same business flow.
 
-### 3. Definição de estado global (Database)
+### Definition of Global State (Database)
 
-A Suite pode definir **estado global de banco de dados**, por meio de scripts SQL.
+A Suite may define **global database state**, typically through SQL scripts.
 
-Esse estado:
-- é aplicado antes da execução dos Scripts
-- é compartilhado por todos os cenários da Suite
-- não deve conter dados específicos de um único Script
+This state:
 
-Isso garante:
-- previsibilidade
-- reprodutibilidade
-- isolamento entre funcionalidades
+- is applied before Script execution
+- is shared by all scenarios in the Suite
+- must not contain data specific to a single Script
 
----
+This approach ensures:
 
-## O que NÃO deve estar em uma Suite
+- predictable executions
+- reproducible tests
+- isolation between distinct features
 
-Para manter a clareza e a previsibilidade, uma Suite **não deve**:
+Scenario-specific state must be defined at the Script level.
 
-- conter lógica de teste
-- interagir com Page Objects
-- executar validações
-- depender de dados específicos de um cenário
+## What Should NOT Be in a Suite
 
-Essas responsabilidades pertencem aos níveis inferiores da hierarquia.
+To maintain clarity and predictability of the model, a Suite **must not**:
 
----
+- contain test logic
+- interact with Page Objects
+- perform validations
+- depend on scenario-specific data
 
-## Relação da Suite com o JUnit 5
+These responsibilities belong to lower levels of the hierarchy and must be kept out of the Suite.
 
-No Probato, a Suite é o elemento que o **JUnit 5 descobre e executa**.
+## Relationship Between the Suite and JUnit 5
 
-A partir da Suite:
-- o framework identifica os Scripts declarados
-- executa cada Script dinamicamente
-- aplica datasets e configurações automaticamente
+In Probato, the Suite is the element that **JUnit 5 discovers and executes**.
 
-Isso permite:
-- integração nativa com CI/CD
-- execução paralela
-- geração de relatórios compatíveis com o ecossistema JUnit
+From the Suite, the framework:
 
----
+- identifies declared Scripts
+- dynamically executes each Script
+- automatically applies datasets and configurations
 
-## Boas práticas
+This model enables:
 
-- Crie Suites pequenas e focadas em uma funcionalidade
-- Evite misturar fluxos não relacionados na mesma Suite
-- Utilize estado global apenas quando realmente necessário
-- Prefira múltiplas Suites a uma Suite genérica e grande
+- native CI/CD pipeline integration
+- parallel scenario execution
+- report generation compatible with the JUnit ecosystem
 
----
+All of this happens without requiring the Suite to contain imperative execution code.
 
-## Próximo passo
+## Best Practices
 
-Após compreender o papel da Suite, o próximo conceito a ser estudado é o **Script**, que descreve os cenários individuais de teste.
+- Create small Suites focused on a single feature
+- Avoid mixing unrelated flows within the same Suite
+- Use global state only when truly necessary
+- Prefer multiple cohesive Suites over a large, generic one
 
-➡️ Continue em **Test Script**.
+## Next Step
+
+After understanding the role of the Suite, the next concept to study is **Script**, which describes individual test scenarios.
+
+➡️ Continue to **Script**.

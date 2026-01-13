@@ -1,136 +1,143 @@
-# Test Script
+# Script
 
-O **Test Script** representa um **cenário de teste** no Probato.  
-Ele descreve *o que será executado* em um determinado fluxo, sem conter lógica de execução direta.
+The **Script** represents a **test scenario** in Probato.  
+It describes *what will be executed* within a given flow, without containing direct execution logic.
 
-No modelo mental do Probato, o Script ocupa o nível intermediário da hierarquia, conectando a Suite às Procedures.
+In Probato’s mental model, the Script occupies the **intermediate level of the hierarchy**, connecting the Suite to the Procedures and enabling scenarios to be described in a clear, isolated, and reusable manner.
 
----
+Each Script represents an **independent execution**, even when it belongs to the same Suite.
 
-## Papel do Script no Probato
+## The Role of the Script in Probato
 
-O Script é responsável por:
+A Script is responsible for:
 
-- definir um cenário específico dentro de uma funcionalidade
-- declarar quais dados serão utilizados na execução
-- orquestrar a execução de uma ou mais Procedures
-- definir pré e pós-condições específicas do cenário
+- defining a specific scenario within a feature
+- declaring which data will be used during execution
+- orchestrating the execution of one or more Procedures
+- defining scenario-specific preconditions and postconditions
 
-O Script **não executa lógica de negócio**.
+A Script **does not execute business logic**.
 
-> O Script descreve *qual cenário será executado*, não *como executá-lo*.
+> The Script describes *which scenario will be executed*, not *how to execute it*.
 
----
+## Where the Script Fits in the Mental Model
 
-## Onde o Script se encaixa no modelo mental
+In Probato’s conceptual flow, the Script is contained within the Suite and acts as the link between intent and execution.
 
+``` title="Conceptual model" hl_lines="4"
+@Suite
+ ├── @SQL (global state / feature preconditions)
+ ├── @NoSQL (global state / feature preconditions)
+ └── @Script
+      ├── @Dataset (execution data)
+      ├── @SQL (scenario-specific state)
+      ├── @NoSQL (scenario-specific state)
+      ├── @Precondition
+      │     └── Page Object
+      │           ├── @Action
+      │           └── @Param
+      ├── @Procedure
+      │     └── Page Object
+      │           ├── @Action
+      │           └── @Param
+      └── @Postcondition
+            └── Page Object
+                  ├── @Action
+                  └── @Param
 ```
-Suite
- └── Script
-      ├── @Dataset
-      ├── @SQL (estado do cenário)
-      ├── Precondition
-      ├── Procedure
-      └── Postcondition
-```
 
-Cada Script representa uma execução independente dentro da Suite.
+Each Script represents an independent execution within the Suite, allowing data, state, and behavior to vary without affecting other scenarios.
 
----
+## Script Responsibilities
 
-## Responsabilidades do Script
+### Scenario definition
 
-### 1. Definição do cenário
+A Script represents a clear, isolated, and intentional scenario.
 
-O Script representa um cenário claro e isolado.
+Examples of Scripts:
 
-Exemplos de Scripts:
-- Login com credenciais válidas
-- Login com senha inválida
-- Login com usuário bloqueado
+- Login with valid credentials
+- Login with invalid password
+- Login with a blocked user
 
-Cada Script deve representar **uma única intenção de validação**.
+Each Script should represent **a single validation intent**, avoiding multiple behaviors within the same scenario.
 
----
+### Data declaration (Dataset)
 
-### 2. Declaração de dados (Dataset)
+The Script is the point where **test data** is declared.
 
-O Script é o ponto onde os **dados de teste** são declarados.
+By associating a Dataset with a Script:
 
-Ao associar um Dataset a um Script:
-- o cenário passa a ser executado múltiplas vezes
-- cada conjunto de dados gera uma execução independente
-- a lógica da Procedure permanece inalterada
+- the scenario is executed multiple times
+- each dataset entry generates an independent execution
+- the Procedure logic remains unchanged
 
-Isso permite execução *data-driven* de forma nativa e transparente.
+This enables native, predictable, and transparent *data-driven* execution.
 
----
+### Definition of scenario-specific state (Database)
 
-### 3. Definição de estado específico (Database)
+A Script may declare **scenario-specific database state** when required.
 
-O Script pode declarar **estado específico de banco de dados**, quando necessário.
+This state:
 
-Esse estado:
-- é aplicado apenas ao cenário
-- não afeta outros Scripts da mesma Suite
-- deve conter apenas dados necessários para o cenário em questão
+- is applied only to the scenario
+- does not affect other Scripts in the same Suite
+- should contain only data required for the given scenario
 
----
+Global state remains the responsibility of the Suite.
 
-### 4. Orquestração de Procedures
+### Procedure orchestration
 
-O Script define **quais Procedures serão executadas**, bem como sua ordem.
+The Script defines **which Procedures will be executed**, as well as their execution order.
 
-Ele não conhece detalhes internos da execução, apenas:
-- quais Procedures participam do cenário
-- em qual sequência elas devem ser executadas
+It does not know internal execution details, only:
 
----
+- which Procedures participate in the scenario
+- the sequence in which they should be executed
 
-## O que NÃO deve estar em um Script
+This approach keeps the Script declarative and decoupled from implementation details.
 
-Para manter a separação de responsabilidades, um Script **não deve**:
+## What Should NOT Be in a Script
 
-- conter lógica de execução
-- interagir diretamente com Page Objects
-- acessar dados de banco manualmente
-- realizar validações complexas
+To preserve separation of responsibilities, a Script **must not**:
 
-Essas responsabilidades pertencem às Procedures.
+- contain execution logic
+- interact directly with Page Objects
+- manually access database data
+- perform complex validations
 
----
+These responsibilities belong to the Procedures.
 
-## Relação entre Script e Procedure
+## Relationship Between Script and Procedure
 
-O Script funciona como um **orquestrador declarativo**.
+The Script acts as a **declarative orchestrator**.
 
-Enquanto o Script:
-- descreve o cenário
-- organiza a execução
+While the Script:
 
-A Procedure:
-- executa a lógica
-- interage com a aplicação
-- realiza validações
+- describes the scenario
+- organizes execution
 
-Essa separação garante:
-- maior reutilização
-- menor acoplamento
-- cenários mais legíveis
+The Procedure:
 
----
+- executes the logic
+- interacts with the application
+- performs validations
 
-## Boas práticas
+This separation ensures:
 
-- Crie Scripts pequenos e focados
-- Evite misturar múltiplas intenções no mesmo Script
-- Utilize Dataset para variação de dados, não lógica condicional
-- Prefira múltiplos Scripts simples a um Script complexo
+- greater Procedure reuse
+- lower coupling between scenarios
+- more readable and expressive Scripts
 
----
+## Best Practices
 
-## Próximo passo
+- Create small, focused Scripts
+- Avoid mixing multiple intents within a single Script
+- Use Datasets for data variation, not conditional logic
+- Prefer multiple simple Scripts over a single complex one
 
-Após compreender o papel do Script, o próximo conceito a ser estudado é a **Procedure**, responsável pela execução da lógica do cenário.
+## Next Step
 
-➡️ Continue em **Procedure**.
+After understanding the role of the Script, the next concept to study is **Procedure**, which is responsible for executing the scenario logic.
+
+➡️ Continue to **Procedure**.

@@ -1,112 +1,119 @@
 # Page Object
 
-O **Page Object** é o componente responsável por encapsular a **interface do usuário** no Probato.  
-Ele abstrai detalhes de UI e fornece métodos claros para interação com a aplicação.
+The **Page Object** is the component responsible for encapsulating the **user interface** in Probato.  
+It abstracts UI details and provides clear methods for interacting with the application.
 
-No modelo mental do Probato, o Page Object é um **detalhe de implementação**, não um elemento de orquestração.
+In Probato’s mental model, the Page Object is an **implementation detail**, not an orchestration or flow-decision element.
 
----
+Its goal is to isolate the user interface from the rest of the test code, making tests more readable, reusable, and resilient to UI changes.
 
-## Papel do Page Object no Probato
+## The Role of the Page Object in Probato
 
-O Page Object é responsável por:
+The Page Object is responsible for:
 
-- encapsular elementos e ações da interface
-- isolar mudanças de UI do restante do código
-- fornecer uma API clara para interação
-- enriquecer a execução com informações semânticas
+- encapsulating user interface elements and actions
+- isolating UI changes from the rest of the codebase
+- providing a clear and expressive API for interaction
+- enriching execution with semantic information
 
-> O Page Object responde à pergunta: *Como interagir com o sistema?*
+> The Page Object answers the question: *How to interact with the system?*
 
----
+It does not know **why** an action is executed, only **how to execute it**.
 
-## Onde o Page Object se encaixa no modelo mental
+## Where the Page Object Fits in the Mental Model
 
+In Probato’s conceptual flow, the Page Object is always used by Procedures and is never accessed directly by Scripts or Suites.
+
+``` title="Conceptual model" hl_lines="9-11 13-15 17-19"
+@Suite
+ ├── @SQL (global state / feature preconditions)
+ ├── @NoSQL (global state / feature preconditions)
+ └── @Script
+      ├── @Dataset (execution data)
+      ├── @SQL (scenario-specific state)
+      ├── @NoSQL (scenario-specific state)
+      ├── @Precondition
+      │     └── Page Object
+      │           ├── @Action
+      │           └── @Param
+      ├── @Procedure
+      │     └── Page Object
+      │           ├── @Action
+      │           └── @Param
+      └── @Postcondition
+            └── Page Object
+                  ├── @Action
+                  └── @Param
 ```
-Suite
- └── Script
-      └── Procedure
-           └── Page Object
-                ├── @Action
-                └── @Param
-```
 
-O Page Object nunca é acessado diretamente por Scripts ou Suites.
+This restriction ensures that flow decisions remain outside the UI layer.
 
----
+## Page Object in Probato
 
-## Page Object no Probato
+Probato adopts the **classic Page Object pattern** without reinventing it or introducing artificial abstractions.
 
-O Probato segue o **padrão clássico de Page Object**, sem reinventá-lo.
-
-Além disso, ele adiciona uma camada semântica por meio de anotações.
+On top of this well-established pattern, the framework adds a **semantic layer**, enriching execution through annotations.
 
 ### @Action
 
-A anotação `@Action` descreve semanticamente uma ação executada na interface.
+The `@Action` annotation semantically describes an action performed on the interface.
 
-Ela permite:
+It enables:
 
-- logs mais claros
-- relatórios compreensíveis
-- melhor rastreabilidade de execução
+- clearer log generation
+- more understandable reports
+- improved execution traceability
 
-A descrição da ação deve representar **o que está sendo feito**, não **como**.
-
----
+The action description should represent **what is being done**, not **how it is implemented**.
 
 ### @Param
 
-A anotação `@Param` identifica parâmetros relevantes utilizados em uma ação.
+The `@Param` annotation identifies relevant parameters used in an action.
 
-Ela permite:
+It enables:
 
-- rastrear dados utilizados
-- enriquecer métricas e evidências
-- facilitar auditoria e diagnóstico
+- tracking of data used during execution
+- enrichment of metrics and evidence
+- easier auditing and failure diagnosis
 
----
+These annotations do not change code behavior, but significantly improve observability.
 
-## Separação de responsabilidades
+## Separation of Responsibilities
 
-Para manter a arquitetura clara:
+To keep the architecture clear and predictable:
 
-- Page Objects **não devem conter lógica de cenário**
-- decisões de fluxo pertencem às Procedures
-- dados são fornecidos externamente
+- Page Objects **must not contain scenario logic**
+- flow decisions belong to Procedures
+- data is provided externally (Dataset)
+- application state is handled outside the UI layer
 
-O Page Object deve se limitar a:
+The Page Object should be limited to:
 
-- localizar elementos
-- executar ações
-- expor verificações simples
+- locating elements
+- performing actions
+- exposing simple and direct checks
 
----
+## What Should NOT Be in a Page Object
 
-## O que NÃO deve estar em um Page Object
+A Page Object **must not**:
 
-Um Page Object **não deve**:
+- access databases
+- contain scenario-based conditional logic
+- know about Dataset, Script, or Suite
+- define or manipulate global application state
 
-- acessar banco de dados
-- conter lógica condicional de cenário
-- conhecer Dataset ou Script
-- definir estado da aplicação
+These responsibilities belong to other levels of the framework.
 
-Essas responsabilidades pertencem a outros níveis do framework.
+## Best Practices
 
----
+- Create small, cohesive Page Objects
+- A Page Object should represent a specific screen or component
+- Avoid overly generic Page Objects
+- Prefer descriptive and readable methods
+- Name actions according to user-perceived behavior
 
-## Boas práticas
+## Next Step
 
-- Crie Page Objects pequenos e focados
-- Um Page Object deve representar uma tela ou componente
-- Evite Page Objects genéricos demais
-- Prefira métodos descritivos e legíveis
+After understanding the Page Object, the next concept is **Dataset**, responsible for providing execution data to scenarios.
 
----
-
-## Próximo passo
-
-Após compreender o Page Object, o próximo conceito é o **Dataset**, responsável por fornecer dados de execução.
-
-➡️ Continue em **Dataset**.
+➡️ Continue to **Dataset**.

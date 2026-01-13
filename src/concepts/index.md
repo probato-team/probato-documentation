@@ -1,198 +1,210 @@
-# Concepts Overview
+# Concepts
 
-Esta seção apresenta os **conceitos fundamentais do Probato**.  
-Antes de aprender *como usar* o framework, é essencial entender **como ele pensa**.
+This section presents the **fundamental concepts of Probato**.  
+Before learning *how to use* the framework, it is essential to understand **how it thinks**.
 
-O Probato é um framework **opinativo e declarativo**. Isso significa que ele impõe uma estrutura clara para organização e execução de testes automatizados, reduzindo ambiguidades, acoplamento e variações entre projetos.
+Probato is not a generic framework. It is **opinionated and declarative**, which means it enforces a clear structure for organizing and executing automated tests, reducing ambiguity, excessive coupling, and variation between projects.
 
----
+Understanding these concepts is essential to use the framework correctly and to fully leverage its capabilities.
 
-## O princípio central do Probato
+## The core principle of Probato
 
-O Probato é construído sobre um princípio simples:
+Probato is built on a simple and intentional principle:
 
-> **O código descreve o que deve ser testado.  
-> O framework decide como executar.**
+> **The code describes what should be tested.  
+> The framework decides how to execute.**
 
-Na prática, isso se traduz em:
-- uso extensivo de anotações declarativas
-- separação rigorosa de responsabilidades
-- configuração centralizada fora do código
-- orquestração automática do ciclo de execução
+This principle guides all architectural decisions in Probato and is reflected through:
 
----
+- extensive use of declarative annotations  
+- strict separation of responsibilities  
+- centralized configuration outside the code  
+- automatic orchestration of the execution lifecycle  
 
-## Modelo mental do framework
+The goal is to allow the test author to focus on **test intent**, while the framework handles execution, instrumentation, and observability.
 
-O Probato organiza testes automatizados em **camadas bem definidas**, cada uma com uma responsabilidade clara.
+## Framework mental model
 
-O fluxo conceitual completo é o seguinte:
+Probato organizes automated tests into **well-defined layers**, each with a clear and non-overlapping responsibility.
 
-```
-Suite
- ├── @SQL (estado global / pré-condições da funcionalidade)
- └── Script
-      ├── @Dataset (dados de execução)
-      ├── @SQL (estado específico do cenário)
-      ├── Precondition
-      ├── Procedure
+The complete conceptual flow is as follows:
+
+``` title="Conceptual model"
+@Suite
+ ├── @SQL (global state / feature preconditions)
+ ├── @NoSQL (global state / feature preconditions)
+ └── @Script
+      ├── @Dataset (execution data)
+      ├── @SQL (scenario-specific state)
+      ├── @Precondition
       │     └── Page Object
       │           ├── @Action
       │           └── @Param
-      └── Postcondition
+      ├── @Procedure
+      │     └── Page Object
+      │           ├── @Action
+      │           └── @Param
+      └── @Postcondition
+            └── Page Object
+                  ├── @Action
+                  └── @Param
 ```
 
-Esse modelo define **como os testes devem ser pensados**, não apenas como são escritos.
+This model defines **how tests should be thought about**, not just how they are written.  
+Each layer has a specific role, and none of them should assume responsibilities of another.
 
----
+## Overview of structural concepts
 
-## Visão geral dos conceitos
+The concepts below form the **structural core of Probato**.  
+They define the official vocabulary and the mental model adopted by the framework.
 
 ### Suite
-A **Suite** representa uma **funcionalidade ou caso de uso** do sistema.
 
-Ela é responsável por:
-- agrupar Scripts relacionados
-- definir pré-condições globais (por exemplo, estado de banco de dados)
-- servir como ponto de descoberta para o JUnit 5
+A **Suite** represents a **business functionality or use case** of the system.
 
-A Suite responde à pergunta:
+It is responsible for:
 
-> *O que está sendo validado?*
+- grouping related Scripts  
+- defining global preconditions (for example, database state)  
+- serving as the discovery entry point for JUnit 5  
 
----
+The Suite answers the question:
+
+> *What is being validated?*
 
 ### Script
-O **Script** representa um **cenário de teste**.
 
-Ele é puramente declarativo e não contém lógica de negócio.  
-Sua função é descrever:
-- quais dados serão utilizados
-- quais procedures serão executadas
-- quais pré e pós-condições se aplicam ao cenário
+A **Script** represents a **test scenario**.
 
-O Script responde à pergunta:
+It is purely declarative and contains no business logic.  
+Its role is to describe:
 
-> *Qual cenário será executado?*
+- which data will be used  
+- which procedures will be executed  
+- which preconditions and postconditions apply to the scenario  
 
----
+The Script answers the question:
+
+> *Which scenario will be executed?*
 
 ### Procedure
-A **Procedure** é onde a **lógica executável** vive.
 
-Ela pode ser implementada como:
-- um método simples
-- ou uma classe dedicada, quando há necessidade de reutilização e organização
+A **Procedure** is where **executable logic** lives.
+
+It can be implemented as:
+
+- a simple method  
+- or a dedicated class when reuse and organization are required  
 
 A Procedure:
-- recebe dados já resolvidos
-- executa ações
-- delega interações de UI aos Page Objects
 
-Ela responde à pergunta:
+- receives already-resolved data  
+- executes actions  
+- delegates UI interactions to Page Objects  
 
-> *Como o cenário é executado?*
+It answers the question:
 
----
+> *How is the scenario executed?*
 
 ### Page Object
-O **Page Object** encapsula interações com a interface do usuário.
 
-No Probato:
-- ele segue o padrão clássico de Page Object
-- não conhece Script nem Suite
-- é enriquecido semanticamente por meio de anotações
+A **Page Object** encapsulates interactions with the user interface.
 
-Anotações como `@Action` e `@Param` permitem:
-- rastreabilidade
-- geração de logs e relatórios mais ricos
-- melhor observabilidade da execução
+In Probato:
 
-O Page Object responde à pergunta:
+- it follows the classic Page Object pattern  
+- it has no knowledge of Script or Suite  
+- it is semantically enriched through annotations  
 
-> *Como interagir com o sistema?*
+Annotations such as `@Action` and `@Param` enable:
 
----
+- traceability  
+- richer log and report generation  
+- improved execution observability  
+
+The Page Object answers the question:
+
+> *How do we interact with the system?*
 
 ### Dataset
-O **Dataset** define os **dados de teste** utilizados na execução.
 
-Ele é:
-- externo ao código
-- declarado no Script
-- responsável por habilitar execução *data-driven* de forma nativa
+A **Dataset** defines the **test data** used during execution.
 
-Cada entrada de Dataset pode gerar uma execução independente do mesmo Script.
+It is:
 
-O Dataset responde à pergunta:
+- external to the code  
+- declared at the Script level  
+- responsible for enabling native *data-driven* execution  
 
-> *Com quais dados o cenário será executado?*
+Each Dataset entry may generate an independent execution of the same Script.
 
----
+The Dataset answers the question:
+
+> *With which data will the scenario be executed?*
 
 ### Database
-O conceito de **Database** no Probato representa o **estado da aplicação**.
 
-Scripts SQL podem ser executados:
-- no nível da Suite (estado global)
-- no nível do Script (estado específico do cenário)
+The **Database** concept in Probato represents the **application state**.
 
-Essa abordagem garante que:
-- estado não fique misturado com lógica
-- testes sejam mais previsíveis e reprodutíveis
+SQL scripts can be executed:
 
-O Database responde à pergunta:
+- at the Suite level (global state)  
+- at the Script level (scenario-specific state)  
 
-> *Em qual estado o sistema deve estar antes da execução?*
+This approach ensures that:
 
----
+- state is not mixed with logic  
+- tests are more predictable and reproducible  
 
-## Configuração e execução
+The Database answers the question:
 
-Além dos conceitos estruturais, o Probato utiliza **configuração centralizada** para definir:
+> *In which state must the system be before execution?*
 
-- browsers
-- execução paralela
-- timeouts
-- captura de evidências
-- integração com o Probato Manager
+## Cross-cutting concepts
 
-Essas definições ficam fora do código, normalmente em arquivos YAML.
+In addition to structural concepts, Probato uses components that act **transversally** during execution.
 
----
+### Configuration and execution
 
-## Probato Manager
+The framework relies on **centralized configuration** to define aspects such as:
 
-O **Probato Manager** é o componente responsável por consumir os dados gerados durante a execução dos testes.
+- browsers  
+- parallel execution  
+- timeouts  
+- evidence capture  
+- integration with Probato Manager  
 
-Ele fornece:
-- métricas
-- relatórios
-- histórico de execuções
-- visibilidade para stakeholders não técnicos
+These definitions live outside the code, usually in YAML files, reinforcing the separation between **test intent** and **execution environment**.
 
-O Manager não executa testes — ele **observa e consolida resultados**.
+### Probato Manager
 
----
+**Probato Manager** is the component responsible for consuming the data generated during test execution.
 
-## Como navegar a partir daqui
+It provides:
 
-A partir deste ponto, recomenda-se a seguinte ordem de leitura:
+- metrics  
+- reports  
+- execution history  
+- visibility for non-technical stakeholders  
 
-1. **Suite**
-2. **Script**
-3. **Procedure**
-4. **Page Object**
-5. **Dataset**
-6. **Database**
+The Manager does not execute tests — it **observes, consolidates, and presents results**.
 
-Essa sequência segue exatamente o modelo mental do framework.
+## How to proceed from here
 
----
+From this point forward, the recommended reading order is:
 
-## Considerações finais
+1. **Suite**  
+2. **Script**  
+3. **Procedure**  
+4. **Page Object**  
+5. **Dataset**  
+6. **Database**  
 
-O Probato não busca ser genérico ou neutro.  
-Ele foi projetado para impor **estrutura, previsibilidade e clareza** em projetos de automação de testes.
+This sequence follows the exact mental model of the framework.
 
-Compreender esses conceitos é essencial antes de avançar para guias práticos e configurações.
+## Final considerations
+
+Probato does not aim to be generic or neutral.  
+It was designed to impose **structure, predictability, and clarity** in automated test projects.
+
+Understanding these concepts is essential before moving on to practical documentation and usage guides.

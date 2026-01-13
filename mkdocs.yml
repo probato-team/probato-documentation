@@ -68,30 +68,24 @@ nav:
       - Features: features.md
       - Architecture: architecture.md
 
-  - Getting Started:
-      - Introduction: getting-started/index.md
-      - Environment Setup: getting-started/environment.md
-      - Project Creation: getting-started/project-creation.md
-      - First Execution: getting-started/first-execution.md
-
   - Concepts:
       - Overview: concepts/index.md
-      - Test Suite: concepts/suite.md
-      - Test Script: concepts/script.md
+      - Suite: concepts/suite.md
+      - Script: concepts/script.md
       - Procedure: concepts/procedure.md
       - Page Object: concepts/page-object.md
       - Dataset: concepts/dataset.md
       - Database: concepts/database.md
 
-  - Guides:
-      - Overview: guides/index.md
+  - Documentation:
+      - Overview: documentation/index.md
       - End-to-End Example: guides/end-to-end-example.md
 
-  - Configuration:
-      - Overview: configuration/index.md
-      - Project Configuration: configuration/project.md
-      - Browser Configuration: configuration/browser.md
-      - Execution Settings: configuration/execution.md
+  # - Configuration:
+  #     - Overview: configuration/index.md
+  #     - Project Configuration: configuration/project.md
+  #     - Browser Configuration: configuration/browser.md
+  #     - Execution Settings: configuration/execution.md
 
   - Probato Manager:
       - Overview: manager/index.md
@@ -134,20 +128,20 @@ plugins:
             First Execution: Primeira Execução
 
             Concepts: Conceitos
-            Test Suite: Suite de Testes
-            Test Script: Script de Teste
+            Suite: Suite
+            Script: Script
             Procedure: Procedure
             Page Object: Page Object
             Dataset: Dataset
             Database: Database
 
-            Guides: Guias
+            Documentation: Documentação
             End-to-End Example: Exemplo End-to-End
 
-            Configuration: Configuração
-            Project Configuration: Configuração do Projeto
-            Browser Configuration: Configuração de Browser
-            Execution Settings: Configurações de Execução
+            # Configuration: Configuração
+            # Project Configuration: Configuração do Projeto
+            # Browser Configuration: Configuração de Browser
+            # Execution Settings: Configurações de Execução
 
             Probato Manager: Probato Manager
             About: Sobre
