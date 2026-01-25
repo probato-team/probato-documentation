@@ -1,25 +1,30 @@
-site_name: Docs
+site_name: Probato Framework
 site_url: https://probato.org
 repo_url: https://github.com/probato-team/probato
 repo_name: probato-team/probato
 remote_branch: main
+
 docs_dir: src
 site_dir: docs
 
-copyright: "<p> Copyright &copy; 2024-<script>document.write(new Date().getFullYear())</script> Probato</p>"
+copyright: >
+  <p>Copyright &copy; 2024–
+  <script>document.write(new Date().getFullYear())</script>
+  Probato</p>
 
 theme:
+  name: material
   logo: assets/images/probato-logo.png
   favicon: assets/images/favicon.ico
-  name: material
-  icon:
-    alternate: material/web
+
   font:
     text: Roboto
     code: Roboto Mono
-  palette:
 
-    # Palette toggle for light mode
+  icon:
+    alternate: material/web
+
+  palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: blue
@@ -28,7 +33,6 @@ theme:
         icon: material/brightness-7
         name: Switch to dark mode
 
-    # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: grey
@@ -41,7 +45,6 @@ theme:
     - navigation.tabs
     - navigation.top
     - navigation.expand
-    - navigation.path
     - navigation.prune
     - navigation.footer
     - toc.integrate
@@ -54,43 +57,108 @@ theme:
     - content.code.select
     - announce.dismiss
 
+# ----------------------
+# Navigation (EN default)
+# ----------------------
+nav:
+  - Home:
+      - Overview: index.md
+      - Objective: objective.md
+      - Target Audience: target-audience.md
+      - Features: features.md
+      - Architecture: architecture.md
+
+  - Concepts:
+      - Overview: concepts/index.md
+      - Suite: concepts/suite.md
+      - Script: concepts/script.md
+      - Procedure: concepts/procedure.md
+      - Page Object: concepts/page-object.md
+      - Dataset: concepts/dataset.md
+      - Database: concepts/database.md
+
+  - Documentation: 
+      - Introduction: documentation\index.md
+      - Environment Configuration: documentation\environment-configuration.md
+      - Project Creation: documentation\project-creation.md
+      - Project Configuration: documentation\project-configuration.md
+      - Browser Configuration: documentation\browser-configuration.md
+      - Suite Implementation: documentation\suite-implementation.md
+      - Script Implementation: documentation\script-implementation.md
+      - Procedure Implementation: documentation\procedure-implementation.md
+      - Page Object Implementation: documentation\page-object-implementation.md
+      - Dataset Implementation: documentation\dataset-implementation.md
+      - Database Implementation: documentation\database-implementation.md
+
+  - Probato Manager: manager/index.md
+
+  - About:
+      - About the Project: about/index.md
+
+# ----------------------
+# Plugins
+# ----------------------
 plugins:
   - search
+  - git-revision-date
   - i18n:
       languages:
         - locale: en
           name: English
           default: true
           build: true
+          site_name: Probato Framework
+
         - locale: pt-BR
           name: Português (Brasil)
           build: true
+          site_name: Probato Framework
           nav_translations:
+
+            # Home
             Home: Início
+            Overview: Visão geral
+            Objective: Objetivo
+            Target Audience: Público Alvo
+            Features: Recursos
+            Architecture: Arquitetura
+
+            Concepts: Conceitos
+            Suite: Suite
+            Script: Script
+            Procedure: Procedure
+            Page Object: Page Object
+            Dataset: Dataset
+            Database: Database
+
+            Documentation: Documentação
+            Introduction: Introdução
+            Environment Configuration: Configuração de Ambiente
+            Project Creation: Criação de projeto
+            Project Configuration: Configuração do Projeto
+            Browser Configuration: Configuração de Browser
+            Suite Implementation: Implementação de Suite
+            Script Implementation: Implementação de Script
+            Procedure Implementation: Implementação de Procedure
+            Page Object Implementation: Implementação de Page Object
+            Dataset Implementation: Implementação de Dataset
+            Database Implementation: Implementação de Database
+
+            Probato Manager: Probato Manager
+            
             About: Sobre
-            Getting Started: Começando
-            First steps: Primeiros passos
-            Java Library: Biblioteca Java
-            Web Application: Aplicação Web
-            Examples: Exemplos
-  - git-revision-date
+            About the Project: Sobre o Projeto
 
-nav:
-  - Home: index.md
-  - Getting Started:
-      - First steps: first-steps.md
-      - Java Library: library.md
-      - Web Application: web-app.md
-  - Examples: examples.md
-  - About: about.md
-
+# ----------------------
+# Extra
+# ----------------------
 extra:
-
   alternate:
     - name: English
       link: /
       lang: en
       icon: material/flag-outline
+
     - name: Português
       link: /pt-BR/
       lang: pt-BR
@@ -99,43 +167,37 @@ extra:
   analytics:
     provider: google
     property: G-XZR907P520
-    feedback:
-      title: Was this page helpful?
-      ratings:
-        - icon: material/thumb-up-outline
-          name: This page was helpful
-          data: 1
-          note: Thank you for your feedback!
-        - icon: material/thumb-down-outline
-          name: This page can be improved
-          data: 0
-          note: Thank you for your feedback!
 
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/probato-team/probato
 
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@probato
+
 extra_css:
   - assets/css/custom.css
+  - assets/css/extra.css
 
 markdown_extensions:
+  - admonition
+  - def_list
+  - attr_list
+  - md_in_html
+
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
-  - pymdownx.emoji
-  # - pymdownx.superfences:
-  #     custom_fences:
-  #       - name: mermaid
-  #         class: mermaid
-  #         format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - attr_list
-  - md_in_html
-  - admonition
-  - pymdownx.details
-  - def_list
+
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+
   - pymdownx.tasklist:
       custom_checkbox: true
