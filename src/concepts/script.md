@@ -1,9 +1,6 @@
 # Script
 
-The **Script** represents a **test scenario** in Probato.  
-It describes *what will be executed* within a given flow, without containing direct execution logic.
-
-In Probato’s mental model, the Script occupies the **intermediate level of the hierarchy**, connecting the Suite to the Procedures and enabling scenarios to be described in a clear, isolated, and reusable manner.
+The **Script** represents a **test scenario** in Probato. It describes *what will be executed* within a given flow, without containing direct execution logic. In Probato’s mental model, the Script occupies the **intermediate level of the hierarchy**, connecting the Suite to the Procedures and enabling scenarios to be described in a clear, isolated, and reusable manner.
 
 Each Script represents an **independent execution**, even when it belongs to the same Suite.
 
@@ -11,10 +8,10 @@ Each Script represents an **independent execution**, even when it belongs to the
 
 A Script is responsible for:
 
-- defining a specific scenario within a feature
-- declaring which data will be used during execution
-- orchestrating the execution of one or more Procedures
-- defining scenario-specific preconditions and postconditions
+- Defining a specific scenario within a feature
+- Declaring which data will be used during execution
+- Orchestrating the execution of one or more Procedures
+- Defining scenario-specific preconditions and postconditions
 
 A Script **does not execute business logic**.
 
@@ -25,25 +22,25 @@ A Script **does not execute business logic**.
 In Probato’s conceptual flow, the Script is contained within the Suite and acts as the link between intent and execution.
 
 ``` title="Conceptual model" hl_lines="4"
-@Suite
- ├── @SQL (global state / feature preconditions)
- ├── @NoSQL (global state / feature preconditions)
- └── @Script
-      ├── @Dataset (execution data)
-      ├── @SQL (scenario-specific state)
-      ├── @NoSQL (scenario-specific state)
-      ├── @Precondition
+Suite
+ ├── SQL (global state / feature preconditions)
+ ├── NoSQL (global state / feature preconditions)
+ └── Script
+      ├── Dataset (execution data)
+      ├── SQL (scenario-specific state)
+      ├── NoSQL (scenario-specific state)
+      ├── Precondition
       │     └── Page Object
-      │           ├── @Action
-      │           └── @Param
-      ├── @Procedure
+      │           ├── Action
+      │           └── Param
+      ├── Procedure
       │     └── Page Object
-      │           ├── @Action
-      │           └── @Param
-      └── @Postcondition
+      │           ├── Action
+      │           └── Param
+      └── Postcondition
             └── Page Object
-                  ├── @Action
-                  └── @Param
+                  ├── Action
+                  └── Param
 ```
 
 Each Script represents an independent execution within the Suite, allowing data, state, and behavior to vary without affecting other scenarios.
@@ -68,9 +65,9 @@ The Script is the point where **test data** is declared.
 
 By associating a Dataset with a Script:
 
-- the scenario is executed multiple times
-- each dataset entry generates an independent execution
-- the Procedure logic remains unchanged
+- The scenario is executed multiple times
+- Each dataset entry generates an independent execution
+- The Procedure logic remains unchanged
 
 This enables native, predictable, and transparent *data-driven* execution.
 
@@ -80,9 +77,9 @@ A Script may declare **scenario-specific database state** when required.
 
 This state:
 
-- is applied only to the scenario
-- does not affect other Scripts in the same Suite
-- should contain only data required for the given scenario
+- Is applied only to the scenario
+- Does not affect other Scripts in the same Suite
+- Should contain only data required for the given scenario
 
 Global state remains the responsibility of the Suite.
 
@@ -92,8 +89,8 @@ The Script defines **which Procedures will be executed**, as well as their execu
 
 It does not know internal execution details, only:
 
-- which Procedures participate in the scenario
-- the sequence in which they should be executed
+- Which Procedures participate in the scenario
+- The sequence in which they should be executed
 
 This approach keeps the Script declarative and decoupled from implementation details.
 
@@ -101,10 +98,10 @@ This approach keeps the Script declarative and decoupled from implementation det
 
 To preserve separation of responsibilities, a Script **must not**:
 
-- contain execution logic
-- interact directly with Page Objects
-- manually access database data
-- perform complex validations
+- Contain execution logic
+- Interact directly with Page Objects
+- Manually access database data
+- Perform complex validations
 
 These responsibilities belong to the Procedures.
 
@@ -114,20 +111,20 @@ The Script acts as a **declarative orchestrator**.
 
 While the Script:
 
-- describes the scenario
-- organizes execution
+- Describes the scenario
+- Organizes execution
 
 The Procedure:
 
-- executes the logic
-- interacts with the application
-- performs validations
+- Executes the logic
+- Interacts with the application
+- Performs validations
 
 This separation ensures:
 
-- greater Procedure reuse
-- lower coupling between scenarios
-- more readable and expressive Scripts
+- Greater Procedure reuse
+- Lower coupling between scenarios
+- More readable and expressive Scripts
 
 ## Best Practices
 

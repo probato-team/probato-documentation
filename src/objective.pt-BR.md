@@ -8,11 +8,11 @@ O **Probato** foi criado para **simplificar, estruturar e sustentar** projetos d
 
 Projetos de automação de testes frequentemente sofrem com:
 
-- crescimento desestruturado de scripts de teste  
-- acoplamento excessivo entre cenário, dados, estado e execução  
-- dificuldade de manutenção à medida que o sistema evolui  
-- baixa previsibilidade nas execuções  
-- pouca visibilidade sobre resultados, falhas e métricas  
+- Crescimento desestruturado de scripts de teste  
+- Acoplamento excessivo entre cenário, dados, estado e execução  
+- Dificuldade de manutenção à medida que o sistema evolui  
+- Baixa previsibilidade nas execuções  
+- Pouca visibilidade sobre resultados, falhas e métricas  
 
 Esses fatores aumentam o custo de manutenção, reduzem a confiabilidade dos testes e dificultam a escalabilidade da automação em sistemas complexos.
 
@@ -24,9 +24,9 @@ Um dos objetivos centrais do Probato é **padronizar a forma como testes automat
 
 Ao impor uma estrutura clara e responsabilidades bem definidas, o framework busca:
 
-- reduzir variações entre projetos e equipes  
-- facilitar a leitura e compreensão dos testes  
-- tornar o comportamento da automação previsível e reproduzível  
+- Reduzir variações entre projetos e equipes  
+- Facilitar a leitura e compreensão dos testes  
+- Tornar o comportamento da automação previsível e reproduzível  
 
 Essa padronização é fundamental para permitir que a automação evolua de forma sustentável.
 
@@ -43,10 +43,10 @@ Outro objetivo fundamental do Probato é **reduzir o custo total de manutenção
 
 Isso envolve:
 
-- minimizar retrabalho causado por mudanças no sistema  
-- facilitar a evolução dos testes ao longo do tempo  
-- permitir reutilização de lógica, dados e configurações  
-- diminuir dependência de ajustes manuais constantes  
+- Minimizar retrabalho causado por mudanças no sistema  
+- Facilitar a evolução dos testes ao longo do tempo  
+- Permitir reutilização de lógica, dados e configurações  
+- Diminuir dependência de ajustes manuais constantes  
 
 O foco não está apenas em executar testes, mas em **manter a automação viável no longo prazo**.
 
@@ -62,10 +62,10 @@ Desenvolvedores, testadores e entusiastas são incentivados a colaborar para for
 
 Em síntese, o Probato existe para:
 
-- estruturar a automação de testes de forma consistente  
-- tornar execuções previsíveis e confiáveis  
-- reduzir esforço e custo de manutenção  
-- sustentar automação em ambientes ágeis e de entrega contínua  
-- promover evolução colaborativa por meio da comunidade  
+- Estruturar a automação de testes de forma consistente  
+- Tornar execuções previsíveis e confiáveis  
+- Reduzir esforço e custo de manutenção  
+- Sustentar automação em ambientes ágeis e de entrega contínua  
+- Promover evolução colaborativa por meio da comunidade  
 
 Esses objetivos orientam todas as decisões arquiteturais e funcionais do framework.

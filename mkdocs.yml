@@ -77,18 +77,20 @@ nav:
       - Dataset: concepts/dataset.md
       - Database: concepts/database.md
 
-  - Documentation:
-      - Overview: documentation/index.md
-      - End-to-End Example: guides/end-to-end-example.md
+  - Documentation: 
+      - Introduction: documentation\index.md
+      - Environment Configuration: documentation\environment-configuration.md
+      - Project Creation: documentation\project-creation.md
+      - Project Configuration: documentation\project-configuration.md
+      - Browser Configuration: documentation\browser-configuration.md
+      - Suite Implementation: documentation\suite-implementation.md
+      - Script Implementation: documentation\script-implementation.md
+      - Procedure Implementation: documentation\procedure-implementation.md
+      - Page Object Implementation: documentation\page-object-implementation.md
+      - Dataset Implementation: documentation\dataset-implementation.md
+      - Database Implementation: documentation\database-implementation.md
 
-  # - Configuration:
-  #     - Overview: configuration/index.md
-  #     - Project Configuration: configuration/project.md
-  #     - Browser Configuration: configuration/browser.md
-  #     - Execution Settings: configuration/execution.md
-
-  - Probato Manager:
-      - Overview: manager/index.md
+  - Probato Manager: manager/index.md
 
   - About:
       - About the Project: about/index.md
@@ -121,12 +123,6 @@ plugins:
             Features: Recursos
             Architecture: Arquitetura
 
-            Getting Started: Primeiros Passos
-            Introduction: Introdução
-            Environment Setup: Ambiente
-            Project Creation: Criação do Projeto
-            First Execution: Primeira Execução
-
             Concepts: Conceitos
             Suite: Suite
             Script: Script
@@ -136,14 +132,20 @@ plugins:
             Database: Database
 
             Documentation: Documentação
-            End-to-End Example: Exemplo End-to-End
-
-            # Configuration: Configuração
-            # Project Configuration: Configuração do Projeto
-            # Browser Configuration: Configuração de Browser
-            # Execution Settings: Configurações de Execução
+            Introduction: Introdução
+            Environment Configuration: Configuração de Ambiente
+            Project Creation: Criação de projeto
+            Project Configuration: Configuração do Projeto
+            Browser Configuration: Configuração de Browser
+            Suite Implementation: Implementação de Suite
+            Script Implementation: Implementação de Script
+            Procedure Implementation: Implementação de Procedure
+            Page Object Implementation: Implementação de Page Object
+            Dataset Implementation: Implementação de Dataset
+            Database Implementation: Implementação de Database
 
             Probato Manager: Probato Manager
+            
             About: Sobre
             About the Project: Sobre o Projeto
 

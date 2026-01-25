@@ -3,6 +3,7 @@
 O **Probato** foi projetado para atender uma ampla variedade de profissionais envolvidos no desenvolvimento e na garantia da qualidade de software. Sua abordagem versátil permite que diferentes perfis interajam com o framework de maneiras distintas, seja atuando diretamente na automação ou consumindo os resultados gerados.
 
 De forma geral, os públicos do Probato podem ser divididos em dois grandes grupos:
+
 - **Usuários diretos**, que criam, configuram e executam testes automatizados
 - **Usuários indiretos**, que acompanham e analisam os resultados da automação
 

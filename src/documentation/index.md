@@ -1,49 +1,87 @@
-# Guides Overview
+# Documentation
 
-This section provides **practical, real-world guides** for using Probato.
+This section describes **how to use Probato in practice**. Here you will find detailed instructions to configure the environment, create projects, and implement tests based on the concepts presented earlier. The practical documentation assumes that you already understand the **core concepts of the framework** described in the *Concepts* section.
 
-While the **Concepts** section explains *how Probato is structured*, the Guides focus on *how those concepts work together* in complete and realistic scenarios.
+<div class="grid cards" markdown>
 
----
+-   :material-cog-outline:{ .lg .middle } **Environment configuration**
 
-## Purpose of the Guides
+    ---
 
-The Guides are designed to:
+    Configure the environment required to run tests with Probato, including dependencies, tools, and basic requirements.
 
-- demonstrate complete test flows
-- connect all Probato concepts in practice
-- serve as reference implementations
-- reduce ambiguity when designing new test suites
+    [:octicons-arrow-right-24: Configure environment](environment-configuration.md)
 
-Guides assume that you already understand the core concepts of Probato.
+-   :material-folder-plus-outline:{ .lg .middle } **Project creation**
 
----
+    ---
+  
+    Learn how to create a new Probato project, understanding its initial structure and standard organization.
 
-## What you will find here
+    [:octicons-arrow-right-24: Create project](project-creation.md)
 
-In this section, you will find:
+-   :material-tune-variant:{ .lg .middle } **Project configuration**
 
-- A complete **end-to-end example**
-- Clear separation between concepts and implementation
-- Realistic project structure
-- Practical configuration and execution flow
+    ---
+  
+    Configure global project parameters, execution control, integrations, and behavior adjustments.
 
----
+    [:octicons-arrow-right-24: Configure project](project-configuration.md)
 
-## How to use this section
+-   :material-web:{ .lg .middle } **Browser Configuration**
 
-Recommended approach:
+    ---
+  
+    Define browsers, execution modes, parallelism, and options related to UI automation.
 
-1. Read **Concepts** first
-2. Complete **Getting Started**
-3. Follow the **End-to-End Example** step by step
+    [:octicons-arrow-right-24: Configure browser](browser-configuration.md)
 
-This ensures you understand *why* things are done before learning *how* they are implemented.
+-   :material-layers-outline:{ .lg .middle } **Suite Implementation**
 
----
+    ---
+  
+    Learn how to implement a Suite and structure features and use cases in Probato.
 
-## What comes next
+    [:octicons-arrow-right-24: Implement Suite](suite-implementation.md)
 
-Start with:
+-   :material-script-text-outline:{ .lg .middle } **Script Implementation**
 
-➡️ **End-to-End Example** — a complete Probato test flow from start to finish
+    ---
+  
+    Learn how to declare test scenarios using Scripts and orchestrate their execution.
+
+    [:octicons-arrow-right-24: Implement Script](script-implementation.md)
+
+-   :material-playlist-check:{ .lg .middle } **Procedure Implementation**
+
+    ---
+    
+    Implement Procedures responsible for executing test logic and validations.
+
+    [:octicons-arrow-right-24: Implement Procedure](procedure-implementation.md)
+
+-   :material-page-layout-body:{ .lg .middle } **Page Object Implementation**
+
+    ---
+  
+    Encapsulate user interface interactions using semantically enriched Page Objects.
+
+    [:octicons-arrow-right-24: Implement Page Object](page-object-implementation.md)
+
+-   :material-database-outline:{ .lg .middle } **Dataset Implementation**
+
+    ---
+  
+    Configure Datasets for *data-driven* scenario execution, separating data from logic.
+
+    [:octicons-arrow-right-24: Implement Dataset](dataset-implementation.md)
+
+-   :material-database-cog-outline:{ .lg .middle } **Database Implementation**
+
+    ---
+  
+    Prepare application state using SQL and NoSQL scripts to ensure predictable and reproducible tests.
+
+    [:octicons-arrow-right-24: Implement Database](database-implementation.md)
+
+</div>

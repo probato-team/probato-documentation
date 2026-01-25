@@ -1,9 +1,6 @@
 # Page Object
 
-O **Page Object** é o componente responsável por encapsular a **interface do usuário** no Probato.  
-Ele abstrai detalhes de UI e fornece métodos claros para interação com a aplicação.
-
-No modelo mental do Probato, o Page Object é um **detalhe de implementação**, não um elemento de orquestração ou decisão de fluxo.
+O **Page Object** é o componente responsável por encapsular a **interface do usuário** no Probato. Ele abstrai detalhes de UI e fornece métodos claros para interação com a aplicação. No modelo mental do Probato, o Page Object é um **detalhe de implementação**, não um elemento de orquestração ou decisão de fluxo.
 
 Seu objetivo é isolar a interface do restante do código de teste, tornando os testes mais legíveis, reutilizáveis e resilientes a mudanças de UI.
 
@@ -11,10 +8,10 @@ Seu objetivo é isolar a interface do restante do código de teste, tornando os 
 
 O Page Object é responsável por:
 
-- encapsular elementos e ações da interface do usuário
-- isolar mudanças de UI do restante do código
-- fornecer uma API clara e expressiva para interação
-- enriquecer a execução com informações semânticas
+- Encapsular elementos e ações da interface do usuário
+- Isolar mudanças de UI do restante do código
+- Fornecer uma API clara e expressiva para interação
+- Enriquecer a execução com informações semânticas
 
 > O Page Object responde à pergunta: *Como interagir com o sistema?*
 
@@ -25,56 +22,54 @@ Ele não sabe **por que** uma ação é executada, apenas **como executá-la**.
 No fluxo conceitual do Probato, o Page Object é sempre utilizado por Procedures e nunca acessado diretamente por Scripts ou Suites.
 
 ``` title="Conceptual model" hl_lines="9-11 13-15 17-19"
-@Suite
- ├── @SQL (global state / feature preconditions)
- ├── @NoSQL (global state / feature preconditions)
- └── @Script
-      ├── @Dataset (execution data)
-      ├── @SQL (scenario-specific state)
-      ├── @NoSQL (scenario-specific state)
-      ├── @Precondition
+Suite
+ ├── SQL (global state / feature preconditions)
+ ├── NoSQL (global state / feature preconditions)
+ └── Script
+      ├── Dataset (execution data)
+      ├── SQL (scenario-specific state)
+      ├── NoSQL (scenario-specific state)
+      ├── Precondition
       │     └── Page Object
-      │           ├── @Action
-      │           └── @Param
-      ├── @Procedure
+      │           ├── Action
+      │           └── Param
+      ├── Procedure
       │     └── Page Object
-      │           ├── @Action
-      │           └── @Param
-      └── @Postcondition
+      │           ├── Action
+      │           └── Param
+      └── Postcondition
             └── Page Object
-                  ├── @Action
-                  └── @Param
+                  ├── Action
+                  └── Param
 ```
 
 Essa restrição garante que decisões de fluxo permaneçam fora da camada de interface.
 
 ## Page Object no Probato
 
-O Probato adota o **padrão clássico de Page Object**, sem reinventá-lo ou criar abstrações artificiais.
+O Probato adota o **padrão clássico de Page Object**, sem reinventá-lo ou criar abstrações artificiais. Sobre esse padrão consolidado, o framework adiciona uma **camada semântica**, enriquecendo a execução por meio de anotações.
 
-Sobre esse padrão consolidado, o framework adiciona uma **camada semântica**, enriquecendo a execução por meio de anotações.
-
-### @Action
+### Action
 
 A anotação `@Action` descreve semanticamente uma ação executada na interface.
 
 Ela permite:
 
-- geração de logs mais claros
-- relatórios mais compreensíveis
-- melhor rastreabilidade da execução
+- Geração de logs mais claros
+- Relatórios mais compreensíveis
+- Melhor rastreabilidade da execução
 
 A descrição da ação deve representar **o que está sendo feito**, e não **como a ação é implementada**.
 
-### @Param
+### Param
 
 A anotação `@Param` identifica parâmetros relevantes utilizados em uma ação.
 
 Ela permite:
 
-- rastrear dados utilizados durante a execução
-- enriquecer métricas e evidências
-- facilitar auditoria e diagnóstico de falhas
+- Rastrear dados utilizados durante a execução
+- Enriquecer métricas e evidências
+- Facilitar auditoria e diagnóstico de falhas
 
 Essas anotações não alteram o comportamento do código, mas ampliam significativamente sua observabilidade.
 
@@ -83,24 +78,24 @@ Essas anotações não alteram o comportamento do código, mas ampliam significa
 Para manter a arquitetura clara e previsível:
 
 - Page Objects **não devem conter lógica de cenário**
-- decisões de fluxo pertencem às Procedures
-- dados são fornecidos externamente (Dataset)
-- estado da aplicação é tratado fora da camada de UI
+- Decisões de fluxo pertencem às Procedures
+- Dados são fornecidos externamente (Dataset)
+- Estado da aplicação é tratado fora da camada de UI
 
 O Page Object deve se limitar a:
 
-- localizar elementos
-- executar ações
-- expor verificações simples e diretas
+- Localizar elementos
+- Executar ações
+- Expor verificações simples e diretas
 
 ## O que NÃO deve estar em um Page Object
 
 Um Page Object **não deve**:
 
-- acessar banco de dados
-- conter lógica condicional baseada em cenário
-- conhecer Dataset, Script ou Suite
-- definir ou manipular estado global da aplicação
+- Acessar banco de dados
+- Conter lógica condicional baseada em cenário
+- Conhecer Dataset, Script ou Suite
+- Definir ou manipular estado global da aplicação
 
 Essas responsabilidades pertencem a outros níveis do framework.
 

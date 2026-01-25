@@ -1,9 +1,6 @@
 # Database
 
-O conceito de **Database** no Probato representa o **estado da aplicação** necessário para a execução de um cenário de teste.  
-Ele permite preparar, validar ou limpar dados de forma declarativa, sem misturar estado com lógica de execução.
-
-No modelo mental do Probato, Database trata **estado**, não comportamento.
+O conceito de **Database** no Probato representa o **estado da aplicação** necessário para a execução de um cenário de teste. Ele permite preparar, validar ou limpar dados de forma declarativa, sem misturar estado com lógica de execução. No modelo mental do Probato, Database trata **estado**, não comportamento.
 
 O Probato oferece suporte a **scripts SQL e NoSQL**, permitindo preparar estados tanto em bancos relacionais quanto não relacionais.
 
@@ -11,35 +8,35 @@ O Probato oferece suporte a **scripts SQL e NoSQL**, permitindo preparar estados
 
 O Database é responsável por:
 
-- preparar o estado da aplicação antes da execução
-- garantir previsibilidade e reprodutibilidade dos testes
-- isolar dependências externas da lógica de teste
-- manter o código de execução limpo e focado
+- Preparar o estado da aplicação antes da execução
+- Garantir previsibilidade e reprodutibilidade dos testes
+- Isolar dependências externas da lógica de teste
+- Manter o código de execução limpo e focado
 
 > O Database responde à pergunta: *Em qual estado o sistema deve estar antes da execução?*
 
 ## Onde o Database se encaixa no modelo mental
 
 ``` title="Modelo conceitual" hl_lines="2-3 6-7"
-@Suite
- ├── @SQL (estado global / pré-condições da funcionalidade)
- ├── @NoSQL (estado global / pré-condições da funcionalidade)
- └── @Script
-      ├── @Dataset (dados de execução)
-      ├── @SQL (estado específico do cenário)
-      ├── @NoSQL (estado específico do cenário)
-      ├── @Precondition
+Suite
+ ├── SQL (estado global / pré-condições da funcionalidade)
+ ├── NoSQL (estado global / pré-condições da funcionalidade)
+ └── Script
+      ├── Dataset (dados de execução)
+      ├── SQL (estado específico do cenário)
+      ├── NoSQL (estado específico do cenário)
+      ├── Precondition
       │     └── Page Object
-      │           ├── @Action
-      │           └── @Param
-      ├── @Procedure
+      │           ├── Action
+      │           └── Param
+      ├── Procedure
       │     └── Page Object
-      │           ├── @Action
-      │           └── @Param
-      └── @Postcondition
+      │           ├── Action
+      │           └── Param
+      └── Postcondition
             └── Page Object
-                  ├── @Action
-                  └── @Param
+                  ├── Action
+                  └── Param
 ```
 
 Scripts SQL e NoSQL podem ser aplicados tanto no nível da Suite quanto no nível do Script.
@@ -50,15 +47,15 @@ Quando definido na **Suite**, o Database representa um **estado global** da func
 
 Características:
 
-- aplicado antes da execução dos Scripts
-- compartilhado por todos os cenários da Suite
-- ideal para dados comuns e pré-requisitos gerais
+- Aplicado antes da execução dos Scripts
+- Compartilhado por todos os cenários da Suite
+- Ideal para dados comuns e pré-requisitos gerais
 
 Exemplos de uso:
 
-- carga inicial de dados
-- configuração de usuários padrão
-- preparação de ambiente funcional
+- Carga inicial de dados
+- Configuração de usuários padrão
+- Preparação de ambiente funcional
 
 ## Database no nível do Script
 
@@ -66,15 +63,15 @@ Quando definido no **Script**, o Database representa um **estado específico do 
 
 Características:
 
-- aplicado apenas para aquele Script
-- não afeta outros cenários
-- ideal para dados específicos ou variações de estado
+- Aplicado apenas para aquele Script
+- Não afeta outros cenários
+- Ideal para dados específicos ou variações de estado
 
 Exemplos de uso:
 
-- usuário bloqueado
-- dados inválidos
-- estados transitórios
+- Usuário bloqueado
+- Dados inválidos
+- Estados transitórios
 
 ## Separação entre estado e lógica
 
@@ -86,9 +83,9 @@ No Probato:
 
 Essa separação garante:
 
-- testes mais previsíveis
-- menor acoplamento
-- facilidade de manutenção
+- Testes mais previsíveis
+- Menor acoplamento
+- Facilidade de manutenção
 
 ## Boas práticas
 

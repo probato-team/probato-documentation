@@ -1,46 +1,48 @@
-# About Probato
+# Sobre o Probato
 
-Probato is an **open-source project** focused on improving how teams design, execute, and observe functional automated tests.
+O **Probato** é um projeto **open source** criado para evoluir a forma como equipes **estruturam, executam e analisam** testes automatizados funcionais. Mais do que um conjunto de APIs, o Probato propõe um **modelo arquitetural claro e opinativo**, tratando automação de testes como **engenharia de software**, e não como um conjunto de scripts isolados.
 
-It is built with a strong emphasis on **architecture, clarity, and long-term maintainability**.
+O projeto nasce da necessidade de trazer **previsibilidade, clareza e observabilidade** para iniciativas de automação que crescem ao longo do tempo.
 
----
+## Visão do projeto
 
-## Project vision
+A visão do Probato é estabelecer um **padrão arquitetural consistente** para automação de testes, reduzindo ambiguidades comuns em projetos tradicionais.
 
-The vision of Probato is to:
+Os principais objetivos do projeto são:
 
-- standardize test automation architecture
-- reduce ambiguity in automated test projects
-- improve observability and execution transparency
-- support scalable automation initiatives
+- Padronizar a arquitetura de automação de testes funcionais
+- Reduzir variações e decisões implícitas entre projetos
+- Tornar o ciclo de execução mais previsível e observável
+- Facilitar a análise de qualidade ao longo do tempo
+- Sustentar iniciativas de automação escaláveis e evolutivas
 
-Probato prioritizes **structure over convention drift** and **explicit design over hidden behavior**.
+O Probato prioriza **estrutura explícita em vez de convenções implícitas** e **decisões declarativas em vez de lógica dispersa**.
 
----
+## Open source e colaboração
 
-## Open source and community
+O Probato é desenvolvido como um projeto **open source**, aberto à colaboração da comunidade.
 
-Probato is developed as an open-source project and welcomes contributions from the community.
+A participação da comunidade é parte essencial da evolução do framework e pode ocorrer por meio de:
 
-Contributions may include:
-- code improvements
-- documentation enhancements
-- examples and guides
-- discussions and feedback
+- Contribuições de código
+- Evolução e refinamento da documentação
+- Criação de exemplos e guias práticos
+- Discussões, feedbacks e propostas de melhoria
 
----
+A colaboração é orientada por clareza técnica, coerência arquitetural e alinhamento com a visão do projeto.
 
-## Governance
+## Governança
 
-The project follows an open governance model:
+O projeto segue um modelo de **governança aberta e transparente**:
 
-- decisions are discussed openly
-- changes are reviewed transparently
-- contributions follow clear guidelines
+- Decisões técnicas são discutidas publicamente
+- Mudanças passam por revisão e validação
+- Contribuições seguem diretrizes claras e documentadas
 
----
+Esse modelo busca garantir consistência, previsibilidade e evolução sustentável do framework.
 
-## Acknowledgements
+## Agradecimentos
 
-Probato is maintained by contributors who believe that **test automation deserves the same architectural rigor as production software**.
+O Probato é mantido por colaboradores que compartilham a convicção de que **automação de testes merece o mesmo rigor arquitetural aplicado a software de produção**.
+
+Essa visão orienta todas as decisões técnicas e conceituais do projeto.

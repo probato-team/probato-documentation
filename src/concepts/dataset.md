@@ -1,7 +1,6 @@
 # Dataset
 
-The **Dataset** is the concept responsible for defining the **test data** used during scenario execution in Probato.  
-It allows the same Script to be executed multiple times with different data sets, in a native and declarative way.
+The **Dataset** is the concept responsible for defining the **test data** used during scenario execution in Probato. It allows the same Script to be executed multiple times with different data sets, in a native and declarative way.
 
 In Probato’s mental model, the Dataset exists to separate **data** from **execution logic**, avoiding complex conditionals and promoting reuse.
 
@@ -9,10 +8,10 @@ In Probato’s mental model, the Dataset exists to separate **data** from **exec
 
 The Dataset is responsible for:
 
-- providing external data for Script execution
-- enabling automatic *data-driven* execution
-- avoiding data-based conditional logic
-- keeping test code simple, readable, and reusable
+- Providing external data for Script execution
+- Enabling automatic *data-driven* execution
+- Avoiding data-based conditional logic
+- Keeping test code simple, readable, and reusable
 
 > The Dataset answers the question: *With which data will the scenario be executed?*
 
@@ -21,25 +20,25 @@ The Dataset is responsible for:
 In Probato’s conceptual flow, the Dataset is always associated with a Script.
 
 ``` title="Conceptual model" hl_lines="5"
-@Suite
- ├── @SQL (global state / feature preconditions)
- ├── @NoSQL (global state / feature preconditions)
- └── @Script
-      ├── @Dataset (execution data)
-      ├── @SQL (scenario-specific state)
-      ├── @NoSQL (scenario-specific state)
-      ├── @Precondition
+Suite
+ ├── SQL (global state / feature preconditions)
+ ├── NoSQL (global state / feature preconditions)
+ └── Script
+      ├── Dataset (execution data)
+      ├── SQL (scenario-specific state)
+      ├── NoSQL (scenario-specific state)
+      ├── Precondition
       │     └── Page Object
-      │           ├── @Action
-      │           └── @Param
-      ├── @Procedure
+      │           ├── Action
+      │           └── Param
+      ├── Procedure
       │     └── Page Object
-      │           ├── @Action
-      │           └── @Param
-      └── @Postcondition
+      │           ├── Action
+      │           └── Param
+      └── Postcondition
             └── Page Object
-                  ├── @Action
-                  └── @Param
+                  ├── Action
+                  └── Param
 ```
 
 The Dataset is **never** associated directly with a Procedure or a Page Object.
@@ -48,10 +47,10 @@ The Dataset is **never** associated directly with a Procedure or a Page Object.
 
 In Probato, a Dataset has the following characteristics:
 
-- external to the test code
-- strongly typed
-- resolved before Procedure execution
-- independent of test logic
+- External to the test code
+- Strongly typed
+- Resolved before Procedure execution
+- Independent of test logic
 
 Each Dataset entry generates an **independent execution** of the Script, ensuring isolation and predictability.
 
@@ -61,9 +60,9 @@ The data defined in a Dataset is mapped to **data models**.
 
 These models:
 
-- represent the Dataset structure
-- are automatically injected into the Procedure
-- ensure type safety and execution clarity
+- Represent the Dataset structure
+- Are automatically injected into the Procedure
+- Ensure type safety and execution clarity
 
 The Procedure receives only the resolved data model, without knowing the data’s origin or physical format.
 
@@ -71,19 +70,19 @@ The Procedure receives only the resolved data model, without knowing the data’
 
 Proper use of Datasets enables:
 
-- greater test coverage without code duplication
-- simpler, more declarative scenarios
-- clear separation between data and behavior
-- easier test maintenance and evolution
+- Greater test coverage without code duplication
+- Simpler, more declarative scenarios
+- Clear separation between data and behavior
+- Easier test maintenance and evolution
 
 ## What Should NOT Be in a Dataset
 
 To maintain separation of responsibilities, a Dataset **must not**:
 
-- contain execution logic
-- define business rules
-- change application state
-- depend on execution context
+- Contain execution logic
+- Define business rules
+- Change application state
+- Depend on execution context
 
 A Dataset must be only a **data source**.
 

@@ -1,21 +1,17 @@
 # Suite
 
-A **Suite** é o ponto de entrada conceitual e estrutural do Probato.  
-Ela representa uma **funcionalidade**, **caso de uso** ou **fluxo de negócio** que será validado por meio de um conjunto de cenários de teste.
+A **Suite** é o ponto de entrada conceitual e estrutural do Probato. Ela representa uma **funcionalidade**, **caso de uso** ou **fluxo de negócio** que será validado por meio de um conjunto de cenários de teste. No modelo mental do Probato, a Suite ocupa o **nível mais alto da hierarquia**, sendo responsável por definir *o contexto* no qual os testes serão executados.
 
-No modelo mental do Probato, a Suite ocupa o **nível mais alto da hierarquia**, sendo responsável por definir *o contexto* no qual os testes serão executados.
-
-A Suite não descreve passos de teste nem lógica de execução.  
-Ela define **a intenção de validação**.
+A Suite não descreve passos de teste nem lógica de execução. Ela define **a intenção de validação**.
 
 ## Papel da Suite no Probato
 
 A Suite é responsável por:
 
-- agrupar Scripts relacionados a uma mesma funcionalidade
-- definir pré-condições globais para os cenários
-- servir como ponto de descoberta para o JUnit 5
-- orquestrar a execução de múltiplos Scripts
+- Agrupar Scripts relacionados a uma mesma funcionalidade
+- Definir pré-condições globais para os cenários
+- Servir como ponto de descoberta para o JUnit 5
+- Orquestrar a execução de múltiplos Scripts
 
 Ela **não contém lógica de execução de teste**.
 
@@ -25,31 +21,29 @@ Ela **não contém lógica de execução de teste**.
 
 No fluxo conceitual do Probato, a Suite encapsula todos os elementos necessários para validar uma funcionalidade completa.
 
-``` title="Modelo conceitual" hl_lines="1-3"
-@Suite
- ├── @SQL (estado global / pré-condições da funcionalidade)
- ├── @NoSQL (estado global / pré-condições da funcionalidade)
- └── @Script
-      ├── @Dataset (dados de execução)
-      ├── @SQL (estado específico do cenário)
-      ├── @NoSQL (estado específico do cenário)
-      ├── @Precondition
+``` title="Modelo conceitual" hl_lines="1"
+Suite
+ ├── SQL (estado global / pré-condições da funcionalidade)
+ ├── NoSQL (estado global / pré-condições da funcionalidade)
+ └── Script
+      ├── Dataset (dados de execução)
+      ├── SQL (estado específico do cenário)
+      ├── NoSQL (estado específico do cenário)
+      ├── Precondition
       │     └── Page Object
-      │           ├── @Action
-      │           └── @Param
-      ├── @Procedure
+      │           ├── Action
+      │           └── Param
+      ├── Procedure
       │     └── Page Object
-      │           ├── @Action
-      │           └── @Param
-      └── @Postcondition
+      │           ├── Action
+      │           └── Param
+      └── Postcondition
             └── Page Object
-                  ├── @Action
-                  └── @Param
+                  ├── Action
+                  └── Param
 ```
 
-Tudo que pertence à Suite deve ser **comum a todos os cenários** (Scripts) que ela agrupa.
-
-Se algo varia entre cenários, não pertence à Suite.
+Tudo que pertence à Suite deve ser **comum a todos os cenários** (Scripts) que ela agrupa. Se algo varia entre cenários, não pertence à Suite.
 
 ## Responsabilidades da Suite
 
@@ -84,15 +78,15 @@ A Suite pode definir **estado global de banco de dados**, normalmente por meio d
 
 Esse estado:
 
-- é aplicado antes da execução dos Scripts
-- é compartilhado por todos os cenários da Suite
-- não deve conter dados específicos de um único Script
+- É aplicado antes da execução dos Scripts
+- É compartilhado por todos os cenários da Suite
+- Não deve conter dados específicos de um único Script
 
 Essa abordagem garante:
 
-- previsibilidade das execuções
-- reprodutibilidade dos testes
-- isolamento entre funcionalidades distintas
+- Previsibilidade das execuções
+- Reprodutibilidade dos testes
+- Isolamento entre funcionalidades distintas
 
 Estados específicos de cenários devem ser definidos no nível do Script.
 
@@ -100,10 +94,10 @@ Estados específicos de cenários devem ser definidos no nível do Script.
 
 Para manter a clareza e a previsibilidade do modelo, uma Suite **não deve**:
 
-- conter lógica de teste
-- interagir com Page Objects
-- executar validações
-- depender de dados específicos de um cenário
+- Conter lógica de teste
+- Interagir com Page Objects
+- Executar validações
+- Depender de dados específicos de um cenário
 
 Essas responsabilidades pertencem aos níveis inferiores da hierarquia e devem ser mantidas fora da Suite.
 
@@ -113,15 +107,15 @@ No Probato, a Suite é o elemento que o **JUnit 5 descobre e executa**.
 
 A partir da Suite, o framework:
 
-- identifica os Scripts declarados
-- executa cada Script dinamicamente
-- aplica datasets e configurações automaticamente
+- Identifica os Scripts declarados
+- Executa cada Script dinamicamente
+- Aplica datasets e configurações automaticamente
 
 Esse modelo permite:
 
-- integração nativa com pipelines de CI/CD
-- execução paralela de cenários
-- geração de relatórios compatíveis com o ecossistema JUnit
+- Integração nativa com pipelines de CI/CD
+- Execução paralela de cenários
+- Geração de relatórios compatíveis com o ecossistema JUnit
 
 Tudo isso ocorre sem que a Suite precise conter código imperativo de execução.
 

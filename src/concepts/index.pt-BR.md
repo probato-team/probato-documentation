@@ -1,9 +1,6 @@
 # Conceitos
 
-Esta seção apresenta os **conceitos fundamentais do Probato**.  
-Antes de aprender *como usar* o framework, é essencial entender **como ele pensa**.
-
-O Probato não é um framework genérico. Ele é **opinativo e declarativo**, o que significa que impõe uma estrutura clara para organização e execução de testes automatizados, reduzindo ambiguidades, acoplamento excessivo e variações entre projetos.
+Esta seção apresenta os **conceitos fundamentais do Probato**. Antes de aprender *como usar* o framework, é essencial entender **como ele pensa**. O Probato não é um framework genérico. Ele é **opinativo e declarativo**, o que significa que impõe uma estrutura clara para organização e execução de testes automatizados, reduzindo ambiguidades, acoplamento excessivo e variações entre projetos.
 
 Compreender esses conceitos é essencial para utilizar o framework corretamente e aproveitar todo o seu potencial.
 
@@ -16,10 +13,10 @@ O Probato é construído sobre um princípio simples e intencional:
 
 Esse princípio orienta todas as decisões arquiteturais do Probato e se materializa em:
 
-- uso extensivo de anotações declarativas
-- separação rigorosa de responsabilidades
-- configuração centralizada fora do código
-- orquestração automática do ciclo de execução
+- Uso extensivo de anotações declarativas
+- Separação rigorosa de responsabilidades
+- Configuração centralizada fora do código
+- Orquestração automática do ciclo de execução
 
 O objetivo é permitir que o autor do teste foque **na intenção do teste**, enquanto o framework cuida da execução, instrumentação e observabilidade.
 
@@ -30,33 +27,32 @@ O Probato organiza testes automatizados em **camadas bem definidas**, cada uma c
 O fluxo conceitual completo é o seguinte:
 
 ``` title="Modelo conceitual"
-@Suite
- ├── @SQL (estado global / pré-condições da funcionalidade)
- ├── @NoSQL (estado global / pré-condições da funcionalidade)
- └── @Script
-      ├── @Dataset (dados de execução)
-      ├── @SQL (estado específico do cenário)
-      ├── @Precondition
+Suite
+ ├── SQL (estado global / pré-condições da funcionalidade)
+ ├── NoSQL (estado global / pré-condições da funcionalidade)
+ └── Script
+      ├── Dataset (dados de execução)
+      ├── SQL (estado específico do cenário)
+      ├── NoSQL (estado específico do cenário)
+      ├── Precondition
       │     └── Page Object
-      │           ├── @Action
-      │           └── @Param
-      ├── @Procedure
+      │           ├── Action
+      │           └── Param
+      ├── Procedure
       │     └── Page Object
-      │           ├── @Action
-      │           └── @Param
-      └── @Postcondition
+      │           ├── Action
+      │           └── Param
+      └── Postcondition
             └── Page Object
-                  ├── @Action
-                  └── @Param
+                  ├── Action
+                  └── Param
 ```
 
-Esse modelo define **como os testes devem ser pensados**, não apenas como são escritos.  
-Cada camada possui um papel específico e nenhuma delas deve assumir responsabilidades de outra.
+Esse modelo define **como os testes devem ser pensados**, não apenas como são escritos. Cada camada possui um papel específico e nenhuma delas deve assumir responsabilidades de outra.
 
 ## Visão geral dos conceitos estruturais
 
-Os conceitos abaixo formam o **núcleo estrutural do Probato**.  
-Eles definem o vocabulário e o modelo mental adotado pelo framework.
+Os conceitos abaixo formam o **núcleo estrutural do Probato**. Eles definem o vocabulário e o modelo mental adotado pelo framework.
 
 ### Suite
 
@@ -64,9 +60,9 @@ A **Suite** representa uma **funcionalidade ou caso de uso** do sistema.
 
 Ela é responsável por:
 
-- agrupar Scripts relacionados
-- definir pré-condições globais (por exemplo, estado de banco de dados)
-- servir como ponto de descoberta para o JUnit 5
+- Agrupar Scripts relacionados
+- Definir pré-condições globais (por exemplo, estado de banco de dados)
+- Servir como ponto de descoberta para o JUnit 5
 
 A Suite responde à pergunta:
 
@@ -79,9 +75,9 @@ O **Script** representa um **cenário de teste**.
 Ele é puramente declarativo e não contém lógica de negócio.  
 Sua função é descrever:
 
-- quais dados serão utilizados
-- quais procedures serão executadas
-- quais pré e pós-condições se aplicam ao cenário
+- Quais dados serão utilizados
+- Quais procedures serão executadas
+- Quais pré e pós-condições se aplicam ao cenário
 
 O Script responde à pergunta:
 
@@ -93,14 +89,14 @@ A **Procedure** é onde a **lógica executável** vive.
 
 Ela pode ser implementada como:
 
-- um método simples
-- ou uma classe dedicada, quando há necessidade de reutilização e organização
+- Um método simples
+- Ou uma classe dedicada, quando há necessidade de reutilização e organização
 
 A Procedure:
 
-- recebe dados já resolvidos
-- executa ações
-- delega interações de UI aos Page Objects
+- Recebe dados já resolvidos
+- Executa ações
+- Delega interações de UI aos Page Objects
 
 Ela responde à pergunta:
 
@@ -112,15 +108,15 @@ O **Page Object** encapsula interações com a interface do usuário.
 
 No Probato:
 
-- ele segue o padrão clássico de Page Object
-- não conhece Script nem Suite
-- é enriquecido semanticamente por meio de anotações
+- Ele segue o padrão clássico de Page Object
+- Não conhece Script nem Suite
+- É enriquecido semanticamente por meio de anotações
 
 Anotações como `@Action` e `@Param` permitem:
 
-- rastreabilidade
-- geração de logs e relatórios mais ricos
-- melhor observabilidade da execução
+- Rastreabilidade
+- Geração de logs e relatórios mais ricos
+- Melhor observabilidade da execução
 
 O Page Object responde à pergunta:
 
@@ -132,9 +128,9 @@ O **Dataset** define os **dados de teste** utilizados na execução.
 
 Ele é:
 
-- externo ao código
-- declarado no Script
-- responsável por habilitar execução *data-driven* de forma nativa
+- Externo ao código
+- Declarado no Script
+- Responsável por habilitar execução *data-driven* de forma nativa
 
 Cada entrada de Dataset pode gerar uma execução independente do mesmo Script.
 
@@ -148,13 +144,13 @@ O conceito de **Database** no Probato representa o **estado da aplicação**.
 
 Scripts SQL podem ser executados:
 
-- no nível da Suite (estado global)
-- no nível do Script (estado específico do cenário)
+- No nível da Suite (estado global)
+- No nível do Script (estado específico do cenário)
 
 Essa abordagem garante que:
 
-- estado não fique misturado com lógica
-- testes sejam mais previsíveis e reprodutíveis
+- Estado não fique misturado com lógica
+- Testes sejam mais previsíveis e reprodutíveis
 
 O Database responde à pergunta:
 
@@ -168,11 +164,10 @@ Além dos conceitos estruturais, o Probato utiliza componentes que atuam de form
 
 O framework utiliza **configuração centralizada** para definir aspectos como:
 
-- browsers
-- execução paralela
-- timeouts
-- captura de evidências
-- integração com o Probato Manager
+- Browsers
+- Timeouts
+- Captura de evidências
+- Integração com o Probato Manager
 
 Essas definições ficam fora do código, normalmente em arquivos YAML, reforçando a separação entre **intenção do teste** e **ambiente de execução**.
 
@@ -182,10 +177,10 @@ O **Probato Manager** é o componente responsável por consumir os dados gerados
 
 Ele fornece:
 
-- métricas
-- relatórios
-- histórico de execuções
-- visibilidade para stakeholders não técnicos
+- Métricas
+- Relatórios
+- Histórico de execuções
+- Visibilidade para stakeholders não técnicos
 
 O Manager não executa testes — ele **observa, consolida e apresenta resultados**.
 
@@ -204,7 +199,6 @@ Essa sequência segue exatamente o modelo mental do framework.
 
 ## Considerações finais
 
-O Probato não busca ser genérico ou neutro.  
-Ele foi projetado para impor **estrutura, previsibilidade e clareza** em projetos de automação de testes.
+O Probato não busca ser genérico ou neutro. Ele foi projetado para impor **estrutura, previsibilidade e clareza** em projetos de automação de testes.
 
 Compreender esses conceitos é essencial antes de avançar para documentação prática e guias de uso.

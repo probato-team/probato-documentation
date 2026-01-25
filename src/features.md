@@ -4,13 +4,13 @@
 
 The features below are organized according to their role in the automation lifecycle.
 
-## Test Structure and Organization
+## Test structure and organization
 
-### Simple and Intuitive Structure
+### Simple and intuitive structure
 
 **Probato** offers an organized and modular structure for test implementation, making component reuse and script maintenance easier. This allows teams to focus more on test logic than on implementation structure.
 
-### Annotation-Based Object Injection
+### Annotation-based object injection
 
 The use of annotations simplifies test configuration, enabling clear and concise object injection without the need for additional implementations.
 
@@ -18,7 +18,7 @@ The use of annotations simplifies test configuration, enabling clear and concise
 
 **Probato** follows the **Page Object Model** pattern, helping separate layers and organize code. This approach improves maintainability and readability of scripts, especially when working with frameworks such as Selenium.
 
-### Test Procedure Organization
+### Test procedure organization
 
 Tests are organized into three stages:
 
@@ -28,77 +28,77 @@ Tests are organized into three stages:
 
 This structure makes it easier to quickly identify the source of failures and understand whether errors originate from the target functionality, preparatory steps, or unmet postconditions.
 
-### Intuitive Test Script Creation
+### Intuitive test script creation
 
 Test scripts can be created with code, descriptions, and weights based on the relevance and complexity of the functionality. This helps with prioritization and metric analysis to assess the quality of the tested software.
 
-## Data and Application State
+## Data and application state
 
-### Implicit Data Loading and Injection
+### Implicit data loading and injection
 
 Scripts can be executed with different data sets, enabling broad test coverage without code duplication. This feature improves efficiency and expands test coverage.
 
-### SQL and NoSQL Executors
+### SQL and NoSQL executors
 
 Executors allow connections to multiple databases to modify the application state according to test preconditions. This provides flexibility when preparing test scenarios.
 
-## Execution and Control
+## Execution and control
 
-### Timeout and Interval Configuration
+### Timeout and interval configuration
 
 **Probato** allows:
 
-- configuring _timeouts_ for wait times during test execution;
-- adjusting intervals between actions to optimize execution performance.
+- Configuring _timeouts_ for wait times during test execution;
+- Adjusting intervals between actions to optimize execution performance.
 
-### Cross-Browser Execution
+### Cross-browser execution
 
 Support for running tests across multiple browsers, with options such as:
 
-- maximized, normal, or custom window modes (specific dimensions);
-- selection of the execution monitor (primary or secondary).
+- Maximized, fullscreen, or custom window modes (specific dimensions);
+- Selection of the execution monitor (primary or secondary).
 
-## Observability and Result Analysis
+## Observability and result analysis
 
-### Execution Data Management
+### Execution data management
 
 **Probato** includes a dedicated web application for:
 
-- managing execution data;
-- analyzing software quality;
-- creating bugs based on execution results;
-- viewing versioned execution history;
-- generating detailed reports with logs and coverage charts.
+- Managing execution data;
+- Analyzing software quality;
+- Creating bugs based on execution results;
+- Viewing versioned execution history;
+- Generating detailed reports with logs and coverage charts.
 
-### Data Capture During Execution
+### Data capture during execution
 
 During test execution, Probato collects and stores information such as:
 
-- test suites and scripts;
-- executed steps;
-- applied data;
-- SQL scripts;
-- videos and screenshots.
+- Test suites and scripts;
+- Executed steps;
+- Applied data;
+- SQL scripts and NoSQL;
+- Videos and screenshots.
 
 Video quality can be configured to support detailed analysis.
 
-### Execution Notifications
+### Execution notifications
 
 The framework supports sending notifications to collaborators whenever new executions occur, keeping everyone informed about test status.
 
-## Extensibility and Integration
+## Extensibility and integration
 
 ### Extensibility
 
 **Probato** supports customization through plugins, including:
 
-- support for new browsers;
-- additional validations;
-- data input in new formats;
-- custom SQL or NoSQL executors;
-- openness for creating new features.
+- Support for new browsers;
+- Additional validations;
+- Data input in new formats;
+- Custom SQL or NoSQL executors;
+- Openness for creating new features.
 
-### CI/CD Tool Integration
+### CI/CD tool integration
 
 The framework integrates easily with continuous integration systems such as:
 

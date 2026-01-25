@@ -1,49 +1,87 @@
-# Guides Overview
+# Documentação
 
-This section provides **practical, real-world guides** for using Probato.
+Esta seção descreve **como utilizar o Probato na prática**. Aqui você encontrará instruções detalhadas para configurar o ambiente, criar projetos e implementar testes com base nos conceitos apresentados anteriormente. A documentação prática assume que você já compreende os **conceitos fundamentais do framework** descritos na seção *Concepts*.
 
-While the **Concepts** section explains *how Probato is structured*, the Guides focus on *how those concepts work together* in complete and realistic scenarios.
+<div class="grid cards" markdown>
 
----
+-   :material-cog-outline:{ .lg .middle } **Configuração de ambiente**
 
-## Purpose of the Guides
+    ---
 
-The Guides are designed to:
+    Configure o ambiente necessário para executar testes com o Probato, incluindo dependências, ferramentas e requisitos básicos.
 
-- demonstrate complete test flows
-- connect all Probato concepts in practice
-- serve as reference implementations
-- reduce ambiguity when designing new test suites
+    [:octicons-arrow-right-24: Configurar ambiente](environment-configuration.md)
 
-Guides assume that you already understand the core concepts of Probato.
+-   :material-folder-plus-outline:{ .lg .middle } **Criação de projeto**
 
----
+    ---
+  
+    Aprenda como criar um novo projeto Probato, entendendo sua estrutura inicial e organização padrão.
 
-## What you will find here
+    [:octicons-arrow-right-24: Criar projeto](project-creation.md)
 
-In this section, you will find:
+-   :material-tune-variant:{ .lg .middle } **Configuração do projeto**
 
-- A complete **end-to-end example**
-- Clear separation between concepts and implementation
-- Realistic project structure
-- Practical configuration and execution flow
+    ---
+  
+    Configure parâmetros globais do projeto, controle de execução, integrações e ajustes de comportamento.
 
----
+    [:octicons-arrow-right-24: Configurar projeto](project-configuration.md)
 
-## How to use this section
+-   :material-web:{ .lg .middle } **Configuração de Browser**
 
-Recommended approach:
+    ---
+  
+    Defina browsers, modos de execução, paralelismo e opções relacionadas à automação de interface.
 
-1. Read **Concepts** first
-2. Complete **Getting Started**
-3. Follow the **End-to-End Example** step by step
+    [:octicons-arrow-right-24: Configurar browser](browser-configuration.md)
 
-This ensures you understand *why* things are done before learning *how* they are implemented.
+-   :material-layers-outline:{ .lg .middle } **Implementação de Suite**
 
----
+    ---
+  
+    Veja como implementar uma Suite e estruturar funcionalidades e casos de uso no Probato.
 
-## What comes next
+    [:octicons-arrow-right-24: Implementar Suite](suite-implementation.md)
 
-Start with:
+-   :material-script-text-outline:{ .lg .middle } **Implementação de Script**
 
-➡️ **End-to-End Example** — a complete Probato test flow from start to finish
+    ---
+  
+    Aprenda a declarar cenários de teste utilizando Scripts e a orquestrar sua execução.
+
+    [:octicons-arrow-right-24: Implementar Script](script-implementation.md)
+
+-   :material-playlist-check:{ .lg .middle } **Implementação de Procedure**
+
+    ---
+    
+    Implemente Procedures responsáveis pela execução da lógica de teste e validações.
+
+    [:octicons-arrow-right-24: Implementar Procedure](procedure-implementation.md)
+
+-   :material-page-layout-body:{ .lg .middle } **Implementação de Page Object**
+
+    ---
+  
+    Encapsule interações com a interface do usuário utilizando Page Objects enriquecidos semanticamente.
+
+    [:octicons-arrow-right-24: Implementar Page Object](page-object-implementation.md)
+
+-   :material-database-outline:{ .lg .middle } **Implementação de Dataset**
+
+    ---
+  
+    Configure Datasets para execução *data-driven* de cenários, separando dados de lógica.
+
+    [:octicons-arrow-right-24: Implementar Dataset](dataset-implementation.md)
+
+-   :material-database-cog-outline:{ .lg .middle } **Implementação de Database**
+
+    ---
+  
+    Prepare o estado da aplicação utilizando scripts SQL e NoSQL para garantir testes previsíveis e reprodutíveis.
+
+    [:octicons-arrow-right-24: Implementar Database](database-implementation.md)
+
+</div>

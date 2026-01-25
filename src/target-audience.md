@@ -3,6 +3,7 @@
 **Probato** was designed to support a wide range of professionals involved in software development and quality assurance. Its versatile approach allows different profiles to interact with the framework in distinct ways, either by directly working with test automation or by consuming the results it produces.
 
 In general, Probato audiences can be divided into two major groups:
+
 - **Direct users**, who create, configure, and execute automated tests
 - **Indirect users**, who monitor and analyze automation results
 

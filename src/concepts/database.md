@@ -1,102 +1,103 @@
 # Database
 
-O conceito de **Database** no Probato representa o **estado da aplicação** necessário para a execução de um cenário de teste.  
-Ele permite preparar, validar ou limpar dados de forma declarativa, sem misturar estado com lógica de execução.
+The **Database** concept in Probato represents the **application state** required for the execution of a test scenario.
+It allows preparing, validating, or cleaning data in a declarative way, without mixing state with execution logic.
 
-No modelo mental do Probato, Database trata **estado**, não comportamento.
+In the Probato mental model, Database deals with **state**, not behavior.
 
----
+Probato provides support for **SQL and NoSQL scripts**, allowing state preparation for both relational and non-relational databases.
 
-## Papel do Database no Probato
+## Role of Database in Probato
 
-O Database é responsável por:
+The Database is responsible for:
 
-- preparar o estado da aplicação antes da execução
-- garantir previsibilidade e reprodutibilidade dos testes
-- isolar dependências externas da lógica de teste
-- manter o código de execução limpo e focado
+- Preparing the application state before execution
+- Ensuring predictability and reproducibility of tests
+- Isolating external dependencies from test logic
+- Keeping execution code clean and focused
 
-> O Database responde à pergunta: *Em qual estado o sistema deve estar antes da execução?*
+> The Database answers the question: *In which state must the system be before execution?*
 
----
+## Where Database fits in the mental model
 
-## Onde o Database se encaixa no modelo mental
-
-```
 Suite
- ├── @SQL (estado global)
+ ├── SQL (global state / feature preconditions)
+ ├── NoSQL (global state / feature preconditions)
  └── Script
-      ├── @SQL (estado do cenário)
-      └── Procedure
-```
+      ├── Dataset (execution data)
+      ├── SQL (scenario-specific state)
+      ├── NoSQL (scenario-specific state)
+      ├── Precondition
+      │     └── Page Object
+      │           ├── Action
+      │           └── Param
+      ├── Procedure
+      │     └── Page Object
+      │           ├── Action
+      │           └── Param
+      └── Postcondition
+            └── Page Object
+                  ├── Action
+                  └── Param
 
-Scripts SQL podem ser aplicados tanto no nível da Suite quanto no nível do Script.
+## Database at the Suite level
 
----
+When defined at the **Suite** level, Database represents a **global feature state**.
 
-## Database no nível da Suite
+Characteristics:
 
-Quando definido na **Suite**, o Database representa um **estado global** da funcionalidade.
+- Applied before Script execution
+- Shared by all scenarios within the Suite
+- Ideal for common data and general prerequisites
 
-Características:
-- aplicado antes da execução dos Scripts
-- compartilhado por todos os cenários da Suite
-- ideal para dados comuns e pré-requisitos gerais
+Examples of use:
 
-Exemplos de uso:
-- carga inicial de dados
-- configuração de usuários padrão
-- preparação de ambiente funcional
+- Initial data loading
+- Default user configuration
+- Functional environment preparation
 
----
+## Database at the Script level
 
-## Database no nível do Script
+When defined at the **Script** level, Database represents a **scenario-specific state**.
 
-Quando definido no **Script**, o Database representa um **estado específico do cenário**.
+Characteristics:
 
-Características:
-- aplicado apenas para aquele Script
-- não afeta outros cenários
-- ideal para dados específicos ou variações de estado
+- Applied only to that Script
+- Does not affect other scenarios
+- Ideal for specific data or state variations
 
-Exemplos de uso:
-- usuário bloqueado
-- dados inválidos
-- estados transitórios
+Examples of use:
 
----
+- Blocked user
+- Invalid data
+- Transient states
 
-## Separação entre estado e lógica
+## Separation between state and logic
 
-No Probato:
+In Probato:
 
-- Database **não executa lógica de teste**
-- Procedures **não manipulam estado diretamente**
-- Scripts apenas declaram qual estado é necessário
+- Database **does not execute test logic**
+- Procedures **do not manipulate state directly**
+- Scripts only declare which state is required
 
-Essa separação garante:
-- testes mais previsíveis
-- menor acoplamento
-- facilidade de manutenção
+This separation ensures:
 
----
+- more predictable tests
+- lower coupling
+- easier maintenance
 
-## Boas práticas
+## Best practices
 
-- Utilize Database apenas quando necessário
-- Prefira estado mínimo para cada cenário
-- Evite dependência entre execuções
-- Mantenha scripts SQL simples e claros
+- Use Database only when necessary
+- Prefer minimal state for each scenario
+- Avoid dependencies between executions
+- Keep SQL and NoSQL scripts simple and clear
 
----
+## Final considerations
 
-## Considerações finais
+Proper use of Database is essential to ensure reliable and reproducible tests.
+It should be treated as **supporting infrastructure**, never as part of validation logic.
 
-O uso correto do Database é fundamental para garantir testes confiáveis e reprodutíveis.  
-Ele deve ser tratado como **infraestrutura de suporte**, nunca como parte da lógica de validação.
+## Next step
 
----
-
-## Próximo passo
-
-Com todos os conceitos compreendidos, o próximo passo é avançar para os **Guias** ou **Configurações**, onde o uso prático do framework é detalhado.
+With all concepts understood, the next step is to move on to the **Guides** or **Configuration** sections, where the practical use of the framework is detailed.

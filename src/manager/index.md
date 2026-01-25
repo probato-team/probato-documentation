@@ -4,20 +4,16 @@
 
 While Probato focuses on **test execution and orchestration**, the Manager focuses on **observability, metrics, and insights**.
 
----
-
 ## Purpose of Probato Manager
 
 Probato Manager is designed to:
 
-- centralize execution results
-- provide execution metrics and trends
-- offer visibility for technical and non-technical stakeholders
-- support quality analysis over time
+- Centralize execution results
+- Provide execution metrics and trends
+- Offer visibility for technical and non-technical stakeholders
+- Support quality analysis over time
 
 It does **not execute tests** and does not interfere with test logic.
-
----
 
 ## Role in the Probato ecosystem
 
@@ -32,42 +28,39 @@ Probato Framework ──▶ Execution Data ──▶ Probato Manager
 
 The Manager consumes data produced during execution and transforms it into meaningful information.
 
----
-
 ## What data is collected
 
 During test execution, Probato can send the following data to the Manager:
 
-- execution metadata (project, suite, script)
-- execution duration and status
-- step descriptions and parameters
-- evidences (screenshots, videos, logs)
-- historical execution data
+- Execution metadata (project, suite, script, page object)
+- Execution duration and status
+- Step descriptions and parameters
+- Evidences (screenshots, videos, logs)
+- Historical execution data
 
 This data enables detailed analysis and reporting.
-
----
 
 ## Who benefits from Probato Manager
 
 Probato Manager is useful for multiple roles:
 
 ### QA Engineers
-- analyze failures
-- track flaky tests
-- review execution history
+
+- Analyze failures
+- Track flaky tests
+- Review execution history
 
 ### Developers
-- diagnose issues
-- understand execution behavior
-- validate fixes
+
+- Diagnose issues
+- Understand execution behavior
+- Validate fixes
 
 ### Managers and Stakeholders
-- track quality trends
-- monitor execution stability
-- assess release readiness
 
----
+- Track quality trends
+- Monitor execution stability
+- Assess release readiness
 
 ## Integration with the framework
 
@@ -75,44 +68,57 @@ Integration with Probato Manager is controlled through **configuration**, not co
 
 Typical integration steps include:
 
-- enabling result publishing
-- configuring endpoint and credentials
-- selecting which data is collected
+- Enabling result publishing
+- Configuring endpoint and credentials
+- Selecting which data is collected
 
 This ensures observability without polluting test logic.
-
----
 
 ## Metrics and observability
 
 Probato Manager enables:
 
-- execution dashboards
-- historical trend analysis
-- failure categorization
-- evidence inspection
+- Execution dashboards
+- Historical trend analysis
+- Failure categorization
+- Evidence inspection
 
 Observability is treated as a **first-class concern**, not an afterthought.
-
----
 
 ## Architectural principles
 
 Probato Manager follows these principles:
 
-- passive observer — no control over execution
-- immutable execution data
-- environment-agnostic visualization
-- scalable storage and querying
+- Passive observer — no control over execution
+- Immutable execution data
+- Environment-agnostic visualization
+- Scalable storage and querying
 
----
+These principles ensure reliability, traceability, and sustainable evolution.
+
+## Distribution and execution via Docker
+
+**Probato Manager** is distributed as an official Docker image, making installation and execution straightforward across different environments.
+
+The image is available on **Docker Hub**, under the official project repository:
+
+- **Repository:** `probato`
+- **Image:** `probato/probato-manager:latest`
+
+Running the Manager via Docker enables:
+
+- Fast environment setup
+- Standardized execution across teams
+- Easy integration with CI/CD pipelines and environments
+
+Details about configuration, ports, volumes, and environment variables can be found in the deployment documentation.
 
 ## What comes next
 
 To integrate Probato Manager:
 
-- configure execution publishing
-- execute tests normally
-- explore results in the Manager UI
+- Configure execution publishing
+- Execute tests normally
+- Explore results in the Manager UI
 
 Probato Manager completes the Probato ecosystem by transforming execution data into actionable insights.
