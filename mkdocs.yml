@@ -89,6 +89,7 @@ nav:
       - Page Object Implementation: documentation\page-object-implementation.md
       - Dataset Implementation: documentation\dataset-implementation.md
       - Database Implementation: documentation\database-implementation.md
+      - Example: documentation\example.md
 
   - Probato Manager: manager/index.md
 
@@ -143,6 +144,7 @@ plugins:
             Page Object Implementation: Implementação de Page Object
             Dataset Implementation: Implementação de Dataset
             Database Implementation: Implementação de Database
+            Example: Exemplo
 
             Probato Manager: Probato Manager
             
