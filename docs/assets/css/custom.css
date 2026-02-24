@@ -1,4 +1,14 @@
 
+[data-md-color-primary=blue] {
+  --md-footer-bg-color: #2094f3;
+}
+
+[data-md-color-primary=grey] {
+  --md-primary-fg-color: #606cc0;
+  --md-footer-bg-color: #606cc0;
+  --md-footer-bg-color--dark: #46519e;
+}
+
 .md-header__button.md-logo {
   margin: 0px !important;
   padding: 0px !important;
@@ -10,3 +20,4 @@
   height: 3.5rem !important;
   width: auto !important;
 }
+

@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="pt" class="no-js">
+<html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -8,35 +8,35 @@
       
       
       
-        <link rel="canonical" href="https://probato.org/pt-BR/documentation/environment-configuration/">
+        <link rel="canonical" href="https://probato.org/documentation/example/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../database-implementation/">
       
       
-        <link rel="next" href="../project-creation/">
+        <link rel="next" href="../../manager/">
       
       
         
-          <link rel="alternate" href="../../../documentation/environment-configuration/" hreflang="en">
+          <link rel="alternate" href="./" hreflang="en">
         
-          <link rel="alternate" href="./" hreflang="pt-BR">
+          <link rel="alternate" href="../../pt-BR/documentation/example/" hreflang="pt-BR">
         
       
       
-      <link rel="icon" href="../../../assets/images/favicon.ico">
+      <link rel="icon" href="../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>Configuração de Ambiente - Probato Framework</title>
+        <title>Example - Probato Framework</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,11 +55,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/css/custom.css">
+      <link rel="stylesheet" href="../../assets/css/custom.css">
     
-      <link rel="stylesheet" href="../../../assets/css/extra.css">
+      <link rel="stylesheet" href="../../assets/css/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -94,8 +94,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#configuracao-de-ambiente" class="md-skip">
-          Pular para conteúdo
+        <a href="#example" class="md-skip">
+          Skip to content
         </a>
       
     </div>
@@ -107,10 +107,10 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
-    <a href="../../" title="Probato Framework" class="md-header__button md-logo" aria-label="Probato Framework" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Probato Framework" class="md-header__button md-logo" aria-label="Probato Framework" data-md-component="logo">
       
-  <img src="../../../assets/images/probato-logo.png" alt="logo">
+  <img src="../../assets/images/probato-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -127,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Configuração de Ambiente
+              Example
             
           </span>
         </div>
@@ -167,20 +167,20 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="Selecione o idioma">
+    <button class="md-header__button md-icon" aria-label="Select language">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
     </button>
     <div class="md-select__inner">
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="../../../documentation/environment-configuration/" hreflang="en" class="md-select__link">
+            <a href="./" hreflang="en" class="md-select__link">
               English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="./" hreflang="pt-BR" class="md-select__link">
+            <a href="../../pt-BR/documentation/example/" hreflang="pt-BR" class="md-select__link">
               Português
             </a>
           </li>
@@ -201,21 +201,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Pesquisar">
+      <nav class="md-search__options" aria-label="Search">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartilhar" aria-label="Compartilhar" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -228,7 +228,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Inicializando busca
+            Initializing search
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -240,7 +240,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/probato-team/probato" title="Ir para repositório" class="md-source" data-md-component="source">
+        <a href="https://github.com/probato-team/probato" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
@@ -261,7 +261,7 @@
         
           
             
-<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -273,11 +273,11 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../" class="md-tabs__link">
+        <a href="../.." class="md-tabs__link">
           
   
   
-  Início
+  Home
 
         </a>
       </li>
@@ -297,7 +297,7 @@
           
   
   
-  Conceitos
+  Concepts
 
         </a>
       </li>
@@ -319,7 +319,7 @@
           
   
   
-  Documentação
+  Documentation
 
         </a>
       </li>
@@ -358,7 +358,7 @@
           
   
   
-  Sobre
+  About
 
         </a>
       </li>
@@ -388,18 +388,18 @@
 
   
 
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../" title="Probato Framework" class="md-nav__button md-logo" aria-label="Probato Framework" data-md-component="logo">
+    <a href="../.." title="Probato Framework" class="md-nav__button md-logo" aria-label="Probato Framework" data-md-component="logo">
       
-  <img src="../../../assets/images/probato-logo.png" alt="logo">
+  <img src="../../assets/images/probato-logo.png" alt="logo">
 
     </a>
     Probato Framework
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/probato-team/probato" title="Ir para repositório" class="md-source" data-md-component="source">
+      <a href="https://github.com/probato-team/probato" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
@@ -437,14 +437,14 @@
   
   
   
-    <a href="../../" class="md-nav__link">
+    <a href="../.." class="md-nav__link">
       
   
   
   <span class="md-ellipsis">
     
   
-    Início
+    Home
   
 
     
@@ -495,7 +495,7 @@
   <span class="md-ellipsis">
     
   
-    Conceitos
+    Concepts
   
 
     
@@ -549,7 +549,7 @@
   <span class="md-ellipsis">
     
   
-    Documentação
+    Documentation
   
 
     
@@ -565,7 +565,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Documentação
+    Documentation
   
 
           </label>
@@ -585,7 +585,287 @@
   <span class="md-ellipsis">
     
   
-    Introdução
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environment-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-creation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Creation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../browser-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browser Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../suite-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Suite Implementation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../script-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Script Implementation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../procedure-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Procedure Implementation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../page-object-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Page Object Implementation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataset-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dataset Implementation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Implementation
   
 
     
@@ -615,24 +895,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuração de Ambiente
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -640,7 +902,7 @@
   <span class="md-ellipsis">
     
   
-    Configuração de Ambiente
+    Example
   
 
     
@@ -650,494 +912,6 @@
 
       </a>
       
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Índice">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Índice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#visao-geral-do-ambiente-necessario" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visão geral do ambiente necessário
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#java-development-kit-jdk" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Java Development Kit (JDK)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Java Development Kit (JDK)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#opcoes-de-distribuicao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Opções de distribuição
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuracao-de-variaveis-de-ambiente" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuração de variáveis de ambiente
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuração de variáveis de ambiente">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#windows" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Windows
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mac-linux" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mac / Linux
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#validacao-da-instalacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Validação da instalação
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#apache-maven" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Apache Maven
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Apache Maven">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#instalacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Instalação
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuracao-de-variaveis-de-ambiente_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuração de variáveis de ambiente
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuração de variáveis de ambiente">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#windows_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Windows
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mac-linux_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mac / Linux
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#validacao-da-instalacao_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Validação da instalação
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ide-ambiente-de-desenvolvimento" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        IDE (Ambiente de Desenvolvimento)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#checklist-final" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Checklist final
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../project-creation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Criação de projeto
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../project-configuration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuração do Projeto
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../browser-configuration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuração de Browser
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../suite-implementation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Implementação de Suite
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../script-implementation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Implementação de Script
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../procedure-implementation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Implementação de Procedure
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../page-object-implementation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Implementação de Page Object
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../dataset-implementation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Implementação de Dataset
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../database-implementation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Implementação de Database
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../example/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Exemplo
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1209,7 +983,7 @@
   <span class="md-ellipsis">
     
   
-    Sobre
+    About
   
 
     
@@ -1248,139 +1022,141 @@
   
 
 
-<h1 id="configuracao-de-ambiente">Configuração de Ambiente</h1>
-<p>A configuração correta do ambiente é o primeiro passo para utilizar o <strong>Probato</strong> de forma eficiente. Esta etapa garante que todas as ferramentas necessárias estejam disponíveis para criar, executar e evoluir projetos de automação de testes baseados no framework.</p>
-<p>Esta seção foca <strong>exclusivamente na preparação do ambiente</strong>. Nenhum conceito do Probato é apresentado aqui — eles já foram tratados na seção <em>Conceitos</em>.</p>
-<h2 id="visao-geral-do-ambiente-necessario">Visão geral do ambiente necessário</h2>
-<p>Para trabalhar com o Probato, é necessário:</p>
+<h1 id="example"><strong>Example</strong></h1>
+<p>This section presents official projects that demonstrate the use of
+<strong>Probato</strong> in real-world automation scenarios. The examples were
+structured to serve as a practical reference for architecture,
+organization, and recommended best practices.</p>
+<hr />
+<h1 id="probato-manager-automation"><strong>Probato Manager Automation</strong></h1>
+<p>The <strong>Probato Manager Automation</strong> project is a complete example of
+automating the <strong>Probato Manager</strong> application, demonstrating the
+modular structure proposed by the framework.</p>
+<p>🔗 <a href="https://github.com/probato-team/probato-manager-automation"><strong>Official
+repository</strong></a></p>
+<hr />
+<h2 id="project-objective"><strong>Project Objective</strong></h2>
+<p>This project demonstrates:</p>
 <ul>
-<li>Java Development Kit (JDK) 11 ou superior</li>
-<li>Apache Maven</li>
-<li>Uma IDE com suporte a Java</li>
+<li>Implementation of <strong>Suite</strong></li>
+<li>Organization of <strong>Scripts</strong></li>
+<li>Separation of responsibilities using <strong>Procedures</strong></li>
+<li>Application of the <strong>Page Object</strong> pattern</li>
+<li>Use of <strong>Dataset (CSV)</strong></li>
+<li>Execution of <strong>SQL Scripts</strong> as preconditions</li>
+<li>Multi-browser execution</li>
+<li>Configuration via <code>configuration.yml</code></li>
 </ul>
-<p>Esses componentes formam a base de execução do framework.</p>
-<h2 id="java-development-kit-jdk">Java Development Kit (JDK)</h2>
-<p>O <strong>Java Development Kit (JDK)</strong> é necessário para compilar e executar o código Java utilizado pelo Probato.</p>
-<p>A versão mínima recomendada é <strong>Java 11</strong>.</p>
-<h3 id="opcoes-de-distribuicao">Opções de distribuição</h3>
-<p>Você pode utilizar qualquer distribuição compatível com Java 11 ou superior, como:</p>
+<p>It serves as a reference model for teams that want to structure their
+automation projects using Probato.</p>
+<hr />
+<h2 id="project-structure"><strong>Project Structure</strong></h2>
+<p>The structure adopted in the example follows the recommended pattern:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>probato-manager-automation/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── src/
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│   └── test/
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│       ├── java/
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│       │   └── org.probato.manager.automation/
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│       │       ├── model/
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│       │       ├── page/
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│       │       └── usecase/
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│       └── resources/
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│           ├── dataset/
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│           ├── sql/
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│           └── configuration.yml
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>└── pom.xml
+</span></code></pre></div>
+<h3 id="folder-description"><strong>Folder Description</strong></h3>
 <ul>
-<li><a href="https://www.oracle.com/java/technologies/javase-downloads.html">Oracle</a></li>
-<li><a href="https://jdk.java.net/">OpenJDK</a></li>
-<li><a href="https://adoptium.net/">Temurin</a></li>
-<li><a href="https://aws.amazon.com/pt/corretto/">Corretto</a></li>
+<li><code>model/</code> → Data mapping classes (Datamodel)</li>
+<li><code>page/</code> → Page Object implementations</li>
+<li><code>usecase/</code> → Suites, Scripts, and Procedures organized by
+    functionality</li>
+<li><code>dataset/</code> → CSV files containing test data</li>
+<li><code>sql/</code> → Database preparation scripts</li>
+<li><code>configuration.yml</code> → Central execution configuration</li>
 </ul>
-<p>A escolha da distribuição não impacta o funcionamento do Probato.</p>
-<h3 id="configuracao-de-variaveis-de-ambiente">Configuração de variáveis de ambiente</h3>
-<h4 id="windows">Windows</h4>
+<hr />
+<h2 id="simplified-example"><strong>Simplified Example</strong></h2>
+<h3 id="suite">Suite</h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@Suite</span><span class="p">(</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;UC01&quot;</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Perform login&quot;</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Allow user to login&quot;</span><span class="p">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kd">class</span> <span class="nc">UC01_PerformLogin</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">TestSuite</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nd">@TestCase</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">UC01TC01_PerformLoginSuccessfully</span><span class="w"> </span><span class="n">uc01tc01</span><span class="p">;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="script">Script</h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@Script</span><span class="p">(</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;UC01TC01&quot;</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Perform login successfully&quot;</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Validate successful login&quot;</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UC01TC01_PerformLoginSuccessfully</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="nd">@Page</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">LoginPage</span><span class="w"> </span><span class="n">loginPage</span><span class="p">;</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="nd">@Procedure</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">procedure</span><span class="p">(</span><span class="n">LoginModel</span><span class="w"> </span><span class="n">model</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="n">loginPage</span><span class="p">.</span><span class="na">checkPage</span><span class="p">();</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="n">loginPage</span><span class="p">.</span><span class="na">fillEmail</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="na">getEmail</span><span class="p">());</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="n">loginPage</span><span class="p">.</span><span class="na">fillPassword</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="na">getPassword</span><span class="p">());</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="n">loginPage</span><span class="p">.</span><span class="na">pressAccessButton</span><span class="p">();</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="demonstrated-best-practices"><strong>Demonstrated Best Practices</strong></h2>
+<p>This project highlights fundamental principles of Probato:</p>
+<ul>
+<li>Clear separation between structure and execution logic</li>
+<li>Business-oriented organization (Use Case → Script → Procedure)</li>
+<li>Reusability through Page Objects</li>
+<li>Isolation and repeatability using SQL and Dataset</li>
+<li>Centralized configuration</li>
+</ul>
+<hr />
+<h2 id="when-to-use-this-example"><strong>When to Use This Example</strong></h2>
+<p>Recommended for:</p>
+<ul>
+<li>Teams starting with Probato</li>
+<li>Projects that require modular organization</li>
+<li>Automation with database integration</li>
+<li>Multi-browser implementation</li>
+<li>Architectural reference for new projects</li>
+</ul>
+<hr />
+<h2 id="how-to-run"><strong>How to Run</strong></h2>
 <ol>
-<li>Acesse <strong>Editar variáveis de ambiente do sistema</strong></li>
-<li>Em <strong>Variáveis de Sistema</strong>, clique em <strong>Novo</strong>:</li>
-<li>Nome: <code>JAVA_HOME</code></li>
-<li>Valor: <code>C:\dev\java\jdk-11</code></li>
-<li>Edite a variável <code>Path</code> e adicione:
-   <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>%JAVA_HOME%\bin
-</span></code></pre></div></li>
+<li>Clone the repository:</li>
 </ol>
-<h4 id="mac-linux">Mac / Linux</h4>
-<p>Adicione as seguintes linhas ao arquivo <code>~/.bash_profile</code> ou <code>~/.zshrc</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">JAVA_HOME</span><span class="o">=</span>/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$JAVA_HOME</span>/bin:<span class="nv">$PATH</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/probato-team/probato-manager-automation
 </span></code></pre></div>
-<h3 id="validacao-da-instalacao">Validação da instalação</h3>
-<p>Execute o comando:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>java<span class="w"> </span>--version
+<ol>
+<li>
+<p>Adjust the <code>configuration.yml</code> according to your environment.</p>
+</li>
+<li>
+<p>Run via Maven:</p>
+</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mvn<span class="w"> </span><span class="nb">test</span>
 </span></code></pre></div>
-<p>Saída esperada:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>java version &quot;11.0.X&quot;
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Java(TM) SE Runtime Environment (build 11.0.X)
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Java HotSpot(TM) 64-Bit Server VM (build 11.0.X)
-</span></code></pre></div>
-<p>Se a versão for exibida corretamente, o JDK está configurado.</p>
-<h2 id="apache-maven">Apache Maven</h2>
-<p>O <strong>Apache Maven</strong> é utilizado pelo Probato para:</p>
+<hr />
+<h1 id="contributions"><strong>Contributions</strong></h1>
+<p>If you would like to contribute additional examples:</p>
 <ul>
-<li>Gerenciamento de dependências</li>
-<li>Execução de testes</li>
-<li>Automação de build</li>
+<li>Fork the repository</li>
+<li>Submit a Pull Request</li>
+<li>Propose new reference scenarios</li>
+<li>Provide CI/CD integrations</li>
 </ul>
-<h3 id="instalacao">Instalação</h3>
-<p>Faça o download no site oficial:</p>
-<ul>
-<li>https://maven.apache.org/download.cgi</li>
-</ul>
-<p>Extraia o conteúdo para um diretório de sua preferência, por exemplo:</p>
-<ul>
-<li>Windows: <code>C:\dev\maven</code></li>
-<li>Mac/Linux: <code>/usr/local/maven</code></li>
-</ul>
-<h3 id="configuracao-de-variaveis-de-ambiente_1">Configuração de variáveis de ambiente</h3>
-<h4 id="windows_1">Windows</h4>
-<ul>
-<li>Crie a variável:</li>
-<li>Nome: <code>MAVEN_HOME</code></li>
-<li>Valor: <code>C:\dev\maven</code></li>
-<li>Adicione ao <code>Path</code>:
-  <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>%MAVEN_HOME%\bin
-</span></code></pre></div></li>
-</ul>
-<h4 id="mac-linux_1">Mac / Linux</h4>
-<p>Adicione ao <code>~/.bash_profile</code> ou <code>~/.zshrc</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">MAVEN_HOME</span><span class="o">=</span>/usr/local/maven
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$MAVEN_HOME</span>/bin:<span class="nv">$PATH</span>
-</span></code></pre></div>
-<h3 id="validacao-da-instalacao_1">Validação da instalação</h3>
-<p>Execute:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>mvn<span class="w"> </span>-version
-</span></code></pre></div>
-<p>Saída esperada:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Apache Maven 3.X.X
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Maven home: /usr/local/maven
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Java version: 11.0.X
-</span></code></pre></div>
-<p>Se o Maven responder corretamente, a instalação está concluída.</p>
-<h2 id="ide-ambiente-de-desenvolvimento">IDE (Ambiente de Desenvolvimento)</h2>
-<p>Uma IDE facilita a escrita, execução e depuração dos testes automatizados.</p>
-<p>As opções mais utilizadas com o Probato são:</p>
-<table>
-<thead>
-<tr>
-<th>IDE</th>
-<th>Vantagem principal</th>
-<th>Uso recomendado</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="twemoji eclipseide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.109.024a16 16 0 0 0-.737.023C6.728.361 3.469 2.517 1.579 5.86a12.5 12.5 0 0 0-1.558 5.25c-.04.517-.02 1.745.035 2.208.306 2.682 1.353 5.06 3.07 6.965 1.962 2.173 4.586 3.467 7.437 3.663.42.032 1.043.04 1.02.012a2.4 2.4 0 0 0-.338-.074c-1.674-.33-3.388-1.13-4.777-2.232a12.3 12.3 0 0 1-2.45-2.636A12.4 12.4 0 0 1 1.884 12.5a12.4 12.4 0 0 1 .56-4.274c.785-2.522 2.37-4.726 4.475-6.228A11.1 11.1 0 0 1 11.156.122l.443-.098zm1.474.51C10.646.65 8.807 1.299 7.301 2.4 5.426 3.77 3.995 5.644 3.22 7.746c-.145.397-.282.82-.282.879 0 .012 3.828.024 10.31.024 8.463 0 10.315-.008 10.315-.036 0-.047-.153-.525-.283-.878a14 14 0 0 0-.82-1.722c-.4-.683-.91-1.373-1.474-1.992-1.65-1.82-3.593-2.934-5.82-3.334-.785-.141-1.8-.2-2.585-.153zM23.83 9.97c-.02 0-4.792 0-10.609.004l-10.573.008-.011.059c-.036.16-.134 1.081-.134 1.242 0 .028 1.785.032 10.746.032H24v-.075c0-.102-.07-.791-.106-1.054-.02-.16-.04-.216-.063-.216zm-10.573 2.635c-9.37-.004-10.73 0-10.742.035-.02.04.024.557.075.973.02.157.035.298.035.314 0 .027 2.137.035 10.624.035h10.624l.024-.188c.043-.326.102-.97.094-1.067l-.008-.094zm.003 2.718c-8.882 0-10.321.004-10.321.035 0 .02.054.208.12.42a11.1 11.1 0 0 0 2.072 3.741c.282.342.945 1.036 1.228 1.287 1.568 1.4 3.247 2.216 5.18 2.53.605.094.886.113 1.75.11.91 0 1.297-.032 2.023-.177 2.11-.416 3.914-1.451 5.53-3.17 1.267-1.348 2.106-2.76 2.628-4.41l.117-.366z"/></svg></span> <a href="https://www.eclipse.org/downloads/">Eclipse</a></td>
-<td>Leve e gratuito</td>
-<td>Iniciantes</td>
-</tr>
-<tr>
-<td><span class="twemoji intellijidea"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0v24h24V0zm3.723 3.111h5v1.834h-1.39v6.277h1.39v1.834h-5v-1.834h1.444V4.945H3.723zm11.055 0H17v6.5c0 .612-.055 1.111-.222 1.556-.167.444-.39.777-.723 1.11-.277.279-.666.557-1.11.668a3.9 3.9 0 0 1-1.445.278c-.778 0-1.444-.167-1.944-.445a4.8 4.8 0 0 1-1.279-1.056l1.39-1.555a3.2 3.2 0 0 0 .833.722c.277.167.611.278.945.278.389 0 .721-.111 1-.389.221-.278.333-.667.333-1.278zM2.222 19.5h9V21h-9z"/></svg></span> <a href="https://www.jetbrains.com/idea/download/">IntelliJ IDEA</a></td>
-<td>Recursos avançados</td>
-<td>Projetos maiores</td>
-</tr>
-<tr>
-<td><span class="twemoji visual-studio-code"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 16.47V7.39l-6 4.54M2.22 9.19a.86.86 0 0 1-.02-1.15l1.2-1.11c.2-.18.69-.26 1.05 0l3.42 2.61 7.93-7.25c.32-.32.87-.45 1.5-.12l4 1.91c.36.21.7.54.7 1.15v13.5c0 .4-.29.83-.6 1l-4.4 2.1c-.32.13-.92.01-1.13-.2l-8.02-7.3-3.4 2.6c-.38.26-.85.19-1.05 0l-1.2-1.1c-.32-.33-.28-.87.05-1.2l3-2.7"/></svg></span> <a href="https://code.visualstudio.com/download">Visual Studio Code</a></td>
-<td>Leve e extensível</td>
-<td>Projetos simples</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Independentemente da IDE escolhida, certifique-se de instalar os plugins necessários para suporte a Java e Maven.</p>
-</div>
-<h2 id="checklist-final">Checklist final</h2>
-<p>Antes de avançar para a criação do projeto, confirme:</p>
-<ul>
-<li>✅ Java instalado e acessível (<code>java --version</code>)</li>
-<li>✅ Maven instalado e acessível (<code>mvn -version</code>)</li>
-<li>✅ IDE instalada e configurada</li>
-</ul>
-<p>Com o ambiente configurado, você está pronto para criar seu primeiro projeto com o Probato.</p>
-<p>➡️ Próximo passo: <strong>Criação de Projeto</strong></p>
+<p>The evolution of examples is part of the growth of the Probato
+ecosystem.</p>
 
 
 
@@ -1398,10 +1174,10 @@
     
       
   <span class="md-source-file__fact">
-    <span class="md-icon" title="Última atualização">
+    <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-01-25
+    2026-02-24
   </span>
 
     
@@ -1427,7 +1203,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  Voltar para o topo
+  Back to top
 </button>
         
       </main>
@@ -1436,33 +1212,33 @@
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Introdução">
+          <a href="../database-implementation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Database Implementation">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                Anterior
+                Previous
               </span>
               <div class="md-ellipsis">
-                Introdução
+                Database Implementation
               </div>
             </div>
           </a>
         
         
           
-          <a href="../project-creation/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Criação de projeto">
+          <a href="../../manager/" class="md-footer__link md-footer__link--next" aria-label="Next: Probato Manager">
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                Próximo
+                Next
               </span>
               <div class="md-ellipsis">
-                Criação de projeto
+                Probato Manager
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1531,10 +1307,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.top", "navigation.expand", "navigation.prune", "navigation.footer", "toc.integrate", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.code.select", "announce.dismiss"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.expand", "navigation.prune", "navigation.footer", "toc.integrate", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.code.select", "announce.dismiss"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
