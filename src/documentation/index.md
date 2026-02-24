@@ -84,4 +84,12 @@ This section describes **how to use Probato in practice**. Here you will find de
 
     [:octicons-arrow-right-24: Implement Database](database-implementation.md)
 
+-   :material-flask-outline:{ .lg .middle } **Example**
+
+    ---
+
+    Explore a complete implementation using Probato, demonstrating the recommended modular structure with Suite, Script, Procedure, Page Object, Dataset, and Database.
+
+    [:octicons-arrow-right-24: View example project](example.md)
+
 </div>
